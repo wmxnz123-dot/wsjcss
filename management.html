@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="汶上区域基础设施管理方后台">
+  <title>管理方后台 - 汶上区域基础设施门户</title>
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <link rel="stylesheet" href="management.css?v=20261016dr">
+  <link rel="stylesheet" href="management-public-create.css?v=20261016pa">
+</head>
+<body>
+  <header class="manager-header">
+    <a class="manager-brand" href="management.html"><span class="brand-mark">汶</span><div><strong>汶上区域基础设施门户</strong><small>管理方后台</small></div></a>
+    <div class="manager-header-actions"><a href="index.html">返回门户</a><span></span><button id="managerUser" type="button"><i>管</i><b>平台管理员</b><em>⌄</em></button><div class="manager-user-menu" id="managerUserMenu" hidden><button type="button">账号设置</button><a href="index.html">退出登录</a></div><button class="mobile-menu-button" id="managerMenuButton" type="button" aria-label="展开菜单">☰</button></div>
+  </header>
+
+  <div class="manager-layout">
+    <aside class="manager-sidebar" id="managerSidebar">
+      <nav class="manager-nav" aria-label="管理方功能菜单">
+        <button class="manager-direct active" type="button" data-page="仪表盘" data-description="查看平台运行概览、业务统计与待办事项"><span class="menu-icon">▦</span><b>仪表盘</b></button>
+
+        <section class="manager-menu-group">
+          <button class="manager-group-title" type="button" aria-expanded="false"><span><i class="menu-icon">✓</i><b>审批中心</b></span><em>⌄</em></button>
+          <div class="manager-submenu"><button type="button" data-page="需求审核" data-description="审核需方提交的数据需求">需求审核</button><button type="button" data-page="高质量数据集审核" data-description="审核高质量数据集申报材料">高质量数据集审核</button><button type="button" data-page="工具使用审核" data-description="审核企业组织提交的工具使用申请">工具使用审核</button></div>
+        </section>
+
+        <section class="manager-menu-group">
+          <button class="manager-group-title" type="button" aria-expanded="false"><span><i class="menu-icon">▤</i><b>数据目录</b></span><em>⌄</em></button>
+          <div class="manager-submenu"><button type="button" data-page="公共数据目录" data-description="管理平台接入的公共数据目录">公共数据目录</button><button type="button" data-page="开放数据目录" data-description="管理面向社会开放的数据目录">开放数据目录</button><button type="button" data-page="社会数据目录" data-description="访问可信空间数据资源目录页面">社会数据目录</button></div>
+        </section>
+
+        <section class="manager-menu-group">
+          <button class="manager-group-title" type="button" aria-expanded="false"><span><i class="menu-icon">▣</i><b>订单列表</b></span><em>⌄</em></button>
+          <div class="manager-submenu"><button class="manager-submenu-disabled" type="button" disabled aria-disabled="true">数据产品订单</button><button type="button" data-page="需求清单" data-description="查看和管理需求清单">需求清单</button></div>
+        </section>
+
+        <section class="manager-menu-group">
+          <button class="manager-group-title" type="button" aria-expanded="false"><span><i class="menu-icon">⚙</i><b>配置管理</b></span><em>⌄</em></button>
+          <div class="manager-submenu"><button type="button" data-page="工具配置" data-description="维护工具中心平台配置">工具配置</button><button class="manager-submenu-disabled" type="button" disabled aria-disabled="true">政策/资讯配置</button></div>
+        </section>
+      </nav>
+    </aside>
+
+    <main class="manager-main">
+      <div class="manager-breadcrumb" id="managerBreadcrumbWrap" hidden><span>管理方</span><i>›</i><b id="managerBreadcrumb">仪表盘</b></div>
+
+      <section class="dashboard-view" id="dashboardView">
+        <div class="dashboard-welcome"><div><h1>欢迎回来，平台管理员</h1><p>这里是汶上区域基础设施管理工作台。</p></div><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>管理概览</span></div>
+        <div class="dashboard-summary-card dashboard-stats-card">
+          <div class="dashboard-section-title"><span>统计</span><small>平台业务概览</small></div>
+          <div class="dashboard-stat-grid">
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v16M16 9h2a2 2 0 0 1 2 2v10M9 7h3M9 11h3M9 15h3M3 21h18"/></svg></em><b>6</b><span>入驻机构数</span></div>
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></em><b>9</b><span>登记数据资源</span></div>
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.7 2.5 4.2 5.5 4.2 9s-1.5 6.5-4.2 9c-2.7-2.5-4.2-5.5-4.2-9S9.3 5.5 12 3Z"/></svg></em><b>6</b><span>公共数据资源</span></div>
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.7-1.5"/></svg></em><b>3</b><span>开放数据资源</span></div>
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3ZM4 7.5l8 4.5 8-4.5M12 12v9"/></svg></em><b>40</b><span>登记数据产品</span></div>
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 5.2 4h13.6L20 10M4 10v10h16V10M4 10h16M10 20v-5h4v5"/></svg></em><b>28</b><span>上架数据产品</span></div>
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M9.3 13.6 8 21l4-2.2L16 21l-1.3-7.4"/></svg></em><b>12</b><span>申报高质量数据集</span></div>
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5ZM14 3v5h5M12 11v6M9 14h6"/></svg></em><b>9</b><span>发布需求数</span></div>
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></em><b>11</b><span>工具数</span></div>
+            <div class="dashboard-stat-item"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11M8 20v-6h8v6M2 20h20"/></svg></em><b>8</b><span>场景数</span></div>
+          </div>
+        </div>
+        <div class="dashboard-summary-card dashboard-todo-card">
+          <div class="dashboard-section-title"><span>待办</span><small>待处理事项</small></div>
+          <div class="dashboard-todo-list">
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6.5 16a3.5 3.5 0 0 1 5 0M14 10h4M14 14h3"/></svg>企业认证审核<b>1</b></a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7V3M15 7V3M7 7h10v4a5 5 0 0 1-10 0V7ZM12 16v5"/></svg>连接器审核<b>2</b></a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>资源登记审核<b>2</b></a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3ZM4 7.5l8 4.5 8-4.5M12 12v9"/></svg>产品登记审核<b>0</b></a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>产品发布审核<b>2</b></a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5ZM14 3v5h5"/></svg>需求发布审核<b>2</b></a>
+            <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>工具审核<b>0</b></a>
+          </div>
+        </div>
+        <div class="dashboard-summary-card dashboard-monitor-card"><div class="dashboard-monitor-head"><div class="dashboard-section-title"><span>运行监测</span></div><a href="#">进入监测中心</a></div><div class="dashboard-monitor-stats"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7V3M15 7V3M7 7h10v4a5 5 0 0 1-10 0V7ZM12 16v5"/></svg>连接器总数<b>7</b></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0M12 19.5h.01"/></svg>在线<b class="monitor-online">7</b></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>离线/异常<b class="monitor-offline">0</b></div></div><div class="dashboard-empty-state"><span>▤</span><b>暂无数据</b></div></div>
+      </section>
+
+      <section class="social-data-view" id="socialDataView" hidden>
+        <div class="manager-page-title"><div><h1>社会数据目录</h1><p>统一查询和管理可信空间内登记的社会数据资源。</p></div><span>共收录 <b id="socialTopCount">9</b> 项资源</span></div>
+        <section class="catalog-panel">
+          <div class="catalog-filters">
+            <label><span>数据资源名称</span><input id="socialResourceName" type="search" placeholder="请输入资源名称"></label>
+            <label><span>资源持有方</span><input id="socialResourceHolder" type="search" placeholder="请输入资源持有方"></label>
+            <label class="catalog-level-filter"><span>数据分级</span><select id="socialResourceLevel"><option value="all">全部</option><option>一般数据</option><option>重要数据</option><option>核心数据</option></select></label>
+            <div class="catalog-filter-actions"><button class="reset-button" id="resetSocialData" type="button">↻ 重置</button><button class="query-button" id="querySocialData" type="button">⌕ 查询</button></div>
+          </div>
+          <div class="catalog-table-tools"><h2>社会数据目录</h2><div><button id="refreshSocialData" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
+          <div class="catalog-table-wrap"><table class="catalog-table"><thead><tr><th>序号</th><th>数据资源名称</th><th>资源持有方</th><th>所属行业</th><th>资源格式</th><th>数据分级</th><th>登记时间</th><th>操作</th></tr></thead><tbody id="socialDataBody">
+            <tr data-record data-name="医疗临床研究高质量数据集" data-holder="汶上县人民医院" data-level="重要数据"><td></td><td title="医疗临床研究高质量数据集">医疗临床研究高质量数据集</td><td title="汶上县人民医院">汶上县人民医院</td><td>医疗健康</td><td>JSON</td><td><span class="level-badge important">重要数据</span></td><td>2026-10-09 15:35</td><td><button class="detail-button" type="button">详情</button></td></tr>
+            <tr data-record data-name="数字产业政策落地效果追踪动态数据" data-holder="山东山科数字经济研究院有限公司" data-level="重要数据"><td></td><td title="数字产业政策落地效果追踪动态数据">数字产业政策落地效果追踪动态数据</td><td title="山东山科数字经济研究院有限公司">山东山科数字经济研究院有限公司</td><td>商贸流通</td><td>文本</td><td><span class="level-badge important">重要数据</span></td><td>2026-09-10 11:18</td><td><button class="detail-button" type="button">详情</button></td></tr>
+            <tr data-record data-name="高层次人才科创数据库" data-holder="山东亿云信息技术有限公司" data-level="核心数据"><td></td><td title="高层次人才科创数据库">高层次人才科创数据库</td><td title="山东亿云信息技术有限公司">山东亿云信息技术有限公司</td><td>工业制造</td><td>API接口</td><td><span class="level-badge core">核心数据</span></td><td>2026-09-03 19:42</td><td><button class="detail-button" type="button">详情</button></td></tr>
+            <tr data-record data-name="全球30m分辨率地表覆盖数据集" data-holder="汶上县地理信息服务中心" data-level="核心数据"><td></td><td title="全球30m分辨率地表覆盖数据集">全球30m分辨率地表覆盖数据集</td><td title="汶上县地理信息服务中心">汶上县地理信息服务中心</td><td>城市治理</td><td>影像</td><td><span class="level-badge core">核心数据</span></td><td>2026-09-02 18:06</td><td><button class="detail-button" type="button">详情</button></td></tr>
+            <tr data-record data-name="城市环卫设施运行数据" data-holder="汶上县环境卫生服务中心" data-level="一般数据"><td></td><td title="城市环卫设施运行数据">城市环卫设施运行数据</td><td title="汶上县环境卫生服务中心">汶上县环境卫生服务中心</td><td>城市治理</td><td>CSV</td><td><span class="level-badge normal">一般数据</span></td><td>2026-08-31 13:50</td><td><button class="detail-button" type="button">详情</button></td></tr>
+            <tr data-record data-name="新能源充电设施实时状态数据" data-holder="山东天力能源股份有限公司" data-level="重要数据"><td></td><td title="新能源充电设施实时状态数据">新能源充电设施实时状态数据</td><td title="山东天力能源股份有限公司">山东天力能源股份有限公司</td><td>交通运输</td><td>数据流</td><td><span class="level-badge important">重要数据</span></td><td>2026-08-11 10:46</td><td><button class="detail-button" type="button">详情</button></td></tr>
+            <tr data-record data-name="农业土壤墒情监测数据" data-holder="汶上县农业技术推广中心" data-level="核心数据"><td></td><td title="农业土壤墒情监测数据">农业土壤墒情监测数据</td><td title="汶上县农业技术推广中心">汶上县农业技术推广中心</td><td>现代农业</td><td>API接口</td><td><span class="level-badge core">核心数据</span></td><td>2026-08-10 16:32</td><td><button class="detail-button" type="button">详情</button></td></tr>
+            <tr data-record data-name="园林古树名木空间分布数据" data-holder="汶上县园林绿化服务中心" data-level="一般数据"><td></td><td title="园林古树名木空间分布数据">园林古树名木空间分布数据</td><td title="汶上县园林绿化服务中心">汶上县园林绿化服务中心</td><td>城市治理</td><td>GeoJSON</td><td><span class="level-badge normal">一般数据</span></td><td>2026-08-06 09:18</td><td><button class="detail-button" type="button">详情</button></td></tr>
+            <tr data-record data-name="商贸企业信用评价数据" data-holder="汶上县商贸服务协会" data-level="重要数据"><td></td><td title="商贸企业信用评价数据">商贸企业信用评价数据</td><td title="汶上县商贸服务协会">汶上县商贸服务协会</td><td>商贸流通</td><td>Excel</td><td><span class="level-badge important">重要数据</span></td><td>2026-07-28 14:20</td><td><button class="detail-button" type="button">详情</button></td></tr>
+          </tbody></table><div class="catalog-empty" id="socialDataEmpty" hidden><span>□</span><b>暂无匹配数据</b><p>请调整查询条件后重试</p></div></div>
+          <div class="catalog-pagination"><span>共 <b id="socialDataCount">9</b> 条</span><button id="socialPrevPage" type="button">‹</button><em id="socialPageLabel">1 / 2</em><button id="socialNextPage" type="button">›</button><select id="socialPageSize"><option value="6">6 条/页</option><option value="9">9 条/页</option><option value="12">12 条/页</option></select></div>
+        </section>
+      </section>
+
+      <section class="public-data-view" id="publicDataView" hidden>
+        <section class="catalog-panel">
+          <div class="catalog-filters">
+            <label><span>数据目录名称</span><input id="publicResourceName" type="search" placeholder="请输入"></label>
+            <label class="catalog-level-filter"><span>服务类型</span><select id="publicResourceType"><option value="all">请选择</option><option>库表</option><option>接口</option><option>接口+库表</option></select></label>
+            <div class="catalog-filter-actions pin-right"><button class="reset-button" id="resetPublicData" type="button">↻ 重置</button><button class="query-button" id="queryPublicData" type="button">⌕ 查询</button><button class="catalog-expand" id="publicExpandFilter" type="button">展开 ▾</button></div>
+          </div>
+          <div class="catalog-filters extra" id="publicExtraFilters" hidden>
+            <label><span>数据持有方</span><input id="publicHolder" type="search" placeholder="请输入数据持有方"></label>
+            <label class="catalog-level-filter"><span>数据更新周期</span><select id="publicCycle"><option value="all">请选择</option><option>每月</option><option>每季度</option><option>其他</option></select></label>
+          </div>
+          <div class="catalog-table-tools"><h2>公共数据目录列表</h2><div><button class="catalog-create-button" id="openPublicCreate" type="button">＋ 新增公共数据</button><button id="refreshPublicData" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
+          <div class="catalog-table-wrap"><table class="catalog-table"><thead><tr><th>序号</th><th>目录名称</th><th>服务类型</th><th>数据更新周期</th><th>数据持有方</th><th>更新时间 ⇅</th><th>操作</th></tr></thead><tbody id="publicDataBody">
+            <tr data-record data-name="严重违法失信企业详细信息" data-type="库表" data-cycle="每月" data-holder="市发展和改革委员会"><td></td><td title="严重违法失信企业详细信息（市场监督局）">严重违法失信企业详细信息（市场监督局）</td><td>库表</td><td>每月</td><td title="市发展和改革委员会">市发展和改革委员会</td><td>2026-06-10 11:43:56</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-name="人民监督员履职信息" data-type="接口" data-cycle="每季度" data-holder="市司法局"><td></td><td title="人民监督员监督活动与履职信息数据">人民监督员监督活动与履职信息数据</td><td>接口</td><td>每季度</td><td title="市司法局">市司法局</td><td>2026-06-09 09:12:30</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-name="医疗就诊结算信息" data-type="接口" data-cycle="每月" data-holder="市医疗保障局"><td></td><td title="定点医疗机构就诊结算信息数据">定点医疗机构就诊结算信息数据</td><td>接口</td><td>每月</td><td title="市医疗保障局">市医疗保障局</td><td>2026-06-08 15:24:18</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-name="城乡居民医保参保信息" data-type="库表" data-cycle="每月" data-holder="市医疗保障局"><td></td><td title="城乡居民基本医疗保险参保信息">城乡居民基本医疗保险参保信息</td><td>库表</td><td>每月</td><td title="市医疗保障局">市医疗保障局</td><td>2026-06-07 10:05:42</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-name="公积金缴存与提取信息" data-type="库表" data-cycle="每月" data-holder="市住房公积金管理中心"><td></td><td title="住房公积金个人缴存与提取信息">住房公积金个人缴存与提取信息</td><td>库表</td><td>每月</td><td title="市住房公积金管理中心">市住房公积金管理中心</td><td>2026-06-06 17:40:09</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-name="学校参保学生信息" data-type="库表" data-cycle="每季度" data-holder="市卫生健康委员会"><td></td><td title="学校参保学生基本信息数据">学校参保学生基本信息数据</td><td>库表</td><td>每季度</td><td title="市卫生健康委员会">市卫生健康委员会</td><td>2026-06-05 08:55:21</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-name="药店药品销售记录" data-type="接口+库表" data-cycle="其他" data-holder="市卫生健康委员会"><td></td><td title="定点药店药品销售流水记录数据">定点药店药品销售流水记录数据</td><td>接口+库表</td><td>其他</td><td title="市卫生健康委员会">市卫生健康委员会</td><td>2026-06-04 14:32:47</td><td><button class="detail-button" type="button">查看</button></td></tr>
+          </tbody></table><div class="catalog-empty" id="publicDataEmpty" hidden><span>□</span><b>暂无匹配数据</b><p>请调整查询条件后重试</p></div></div>
+          <div class="catalog-pagination"><span>共 <b id="publicDataCount">7</b> 条</span><button id="publicPrevPage" type="button">‹</button><em id="publicPageLabel">1 / 1</em><button id="publicNextPage" type="button">›</button><select id="publicPageSize"><option value="6">6 条/页</option><option value="9">9 条/页</option><option value="12">12 条/页</option></select></div>
+        </section>
+      </section>
+
+      <section class="public-data-create-view" id="publicDataCreateView" hidden>
+        <div class="create-page-head"><button id="backPublicList" type="button">←</button><div><h1>新增公共数据目录</h1></div></div>
+        <form class="public-create-form" id="publicDataCreateForm">
+          <div class="public-form-main">
+            <section class="public-form-section" id="catalogInfo">
+              <h2>目录信息</h2>
+              <div class="public-form-grid">
+                <label class="required span-2"><span>目录名称</span><input id="publicCreateName" required placeholder="请输入"></label>
+                <label class="span-2"><span>行业分类</span><select><option value="">请选择行业分类</option><option>城市治理</option><option>现代农业</option><option>交通运输</option><option>医疗健康</option><option>金融服务</option><option>商贸流通</option><option>应急管理</option></select></label>
+                <label class="required"><span>数据更新周期</span><select required><option value="">请选择</option><option>实时</option><option>每日</option><option>每月</option><option>每季度</option></select></label>
+                <label class="required span-2"><span>目录摘要</span><textarea required placeholder="请输入数据目录摘要"></textarea></label>
+                <label class="span-2"><span>数据持有方</span><input value="**信息技术有限公司" readonly></label>
+              </div>
+              <div class="info-item-title">* 信息项信息</div>
+              <div class="simple-config-table"><div class="simple-table-head"><span>信息项名称</span><span>信息项类型</span><span>数据长度</span><span>敏感级别</span><span>操作</span></div><div class="no-config">▱<b>暂无数据</b></div><button class="add-config" type="button">＋ 添加</button></div>
+            </section>
+
+            <section class="public-form-section" id="serviceInfo">
+              <h2>服务信息</h2>
+              <div class="public-form-grid">
+                <label class="required span-2"><span>服务名称</span><input required placeholder="请输入"></label>
+                <fieldset class="radio-field required span-2"><legend>服务类型</legend><label><input name="serviceType" type="radio" value="api" checked> 接口</label><label><input name="serviceType" type="radio" value="table"> 库表</label></fieldset>
+                <fieldset class="radio-field required span-2"><legend>交付方式</legend><label><input name="serviceDelivery" type="radio" checked> 接口</label><label><input name="serviceDelivery" type="radio"> 数据集</label><label><input name="serviceDelivery" type="radio"> 隐私计算</label></fieldset>
+              </div>
+
+              <div class="service-api-fields" id="apiServiceFields">
+                <div class="public-form-grid">
+                  <label class="required span-2"><span>接口 Url</span><input required placeholder="请输入"></label>
+                  <label class="required span-2"><span>接口 Path</span><div class="input-prefix"><b>social/</b><input required placeholder="请输入"></div></label>
+                  <fieldset class="radio-field required"><legend>请求类型</legend><label><input name="requestMethod" type="radio" checked> GET</label><label><input name="requestMethod" type="radio"> POST</label></fieldset>
+                  <fieldset class="radio-field"><legend>返回类型</legend><label><input name="responseType" type="radio" checked> json</label><label><input name="responseType" type="radio"> xml</label></fieldset>
+                  <label class="required span-2"><span>接口描述</span><textarea required placeholder="请输入接口说明"></textarea></label>
+                  <label class="required span-2"><span>样例数据</span><textarea required placeholder="请输入样例响应数据"></textarea></label>
+                </div>
+                <div class="api-config-block"><h3>* 请求参数</h3><div class="simple-config-table"><div class="simple-table-head six"><span>名称</span><span>描述</span><span>位置</span><span>是否必填</span><span>示例值</span><span>操作</span></div><div class="no-config short">▱<b>暂无数据</b></div><button class="add-config" type="button">＋ 添加</button></div></div>
+                <div class="api-config-block"><h3>* 返回参数</h3><div class="simple-config-table"><div class="simple-table-head three"><span>名称</span><span>描述</span><span>操作</span></div><div class="no-config short">▱<b>暂无数据</b></div><button class="add-config" type="button">＋ 添加</button></div></div>
+                <div class="api-config-block"><h3>* 错误代码</h3><div class="simple-config-table"><div class="simple-table-head three"><span>代码名称</span><span>代码描述</span><span>操作</span></div><div class="no-config short">▱<b>暂无数据</b></div><button class="add-config" type="button">＋ 添加</button></div></div>
+              </div>
+
+              <div class="service-table-fields" id="tableServiceFields" hidden>
+                <div class="public-form-grid">
+                  <label class="required span-2"><span>数据源</span><select required><option value="">请选择</option><option>政务数据资源库</option><option>公共数据交换库</option></select></label>
+                  <label class="required span-2"><span>数据表</span><select required><option value="">请选择</option><option>企业基础信息表</option><option>公共服务事项表</option></select></label>
+                  <label class="required span-2 file-field"><span>样例数据文件</span><input type="file" accept=".xlsx,.xls"><small>支持扩展名：.xlsx、.xls，可上传一个，每个文件最大 10MB</small></label>
+                  <label class="span-2 file-field"><span>质量报告文件</span><input type="file" accept=".docx,.doc,.pdf"><small>支持扩展名：.docx、.doc、.pdf，可上传一个，每个文件最大 10MB</small></label>
+                </div>
+              </div>
+            </section>
+
+            <section class="public-form-section api-test-section" id="serviceTest">
+              <h2>服务测试</h2>
+              <div class="test-tabs"><button class="active" type="button">Params</button><button type="button">Header</button><button type="button">Body</button></div>
+              <div class="test-param-table"><div><b>参数名称</b><b>参数值</b><b>描述</b></div><div><span>param</span><input placeholder="参数示例值"><span>参数</span></div></div>
+              <div class="test-action"><button class="query-button" id="runServiceTest" type="button">测试</button><button class="reset-button" type="button">修改</button></div>
+              <label class="test-response"><span>Response：</span><textarea id="serviceTestResult" readonly placeholder="请点击测试"></textarea></label>
+            </section>
+            <div class="public-create-actions"><button class="reset-button" id="cancelPublicCreate" type="button">取消</button><button class="reset-button" type="button">暂存</button><button class="query-button" type="submit">提交目录</button></div>
+          </div>
+          <aside class="form-anchor-nav" aria-label="表单导航"><a href="#catalogInfo" class="active">目录信息</a><a href="#serviceInfo">服务信息</a><a href="#serviceTest" id="testNavLink">服务测试</a></aside>
+        </form>
+      </section>
+
+      <section class="demand-review-view" id="demandReviewView" hidden>
+        <div class="review-tabs" role="tablist">
+          <button class="active" id="pendingReviewTab" type="button" role="tab" aria-selected="true">待审核</button>
+          <button id="reviewedReviewTab" type="button" role="tab" aria-selected="false">已审核</button>
+        </div>
+        <section class="review-panel">
+          <div class="review-filter-bar">
+            <label><span>需求名称：</span><input id="reviewDemandName" type="search" placeholder="请输入"></label>
+            <label><span>交付形式：</span><select id="reviewDeliveryType"><option value="all">请选择</option><option>数据接口</option><option>数据报告</option><option>高质量数据集</option></select></label>
+            <div class="review-filter-actions"><button class="reset-button" id="resetReviewFilters" type="button">↻ 重置</button><button class="query-button" id="queryReviewFilters" type="button">⌕ 查询</button><button class="review-expand" id="reviewExpandFilters" type="button">展开 ▾</button></div>
+          </div>
+          <div class="review-filter-more" id="reviewExtraFilters" hidden>
+            <label><span>紧急程度：</span><select id="reviewUrgency"><option value="all">请选择</option><option>普通</option><option>紧急</option></select></label>
+            <label><span>适用场景：</span><select id="reviewScene"><option value="all">请选择</option><option>保险</option><option>商贸</option><option>城市治理</option></select></label>
+          </div>
+          <div class="review-table-tools"><h2 id="reviewListTitle">需求发布待审核列表</h2><div><button id="refreshReviewList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
+          <div class="review-table-wrap"><table class="review-table"><thead><tr><th>序号</th><th>需求编号</th><th>需求名称</th><th>交付形式</th><th>紧急程度</th><th>适用场景</th><th>结束时间 ⇅</th><th>数据需求方</th><th>申请时间 ⇅</th><th>操作</th></tr></thead>
+            <tbody id="pendingReviewBody">
+              <tr data-review-record data-name="企业经营分析数据需求" data-delivery="数据接口" data-urgency="紧急" data-scene="保险"><td>1</td><td>XQ20260608001</td><td>企业经营分析数据需求</td><td>数据接口</td><td>紧急</td><td>保险</td><td>2026-06-12</td><td>**信息技术有限公司</td><td>2026-06-08 16:33:50</td><td><button class="detail-button review-action" type="button">审核</button></td></tr>
+              <tr data-review-record data-name="企业数据治理需求" data-delivery="数据接口" data-urgency="普通" data-scene="保险"><td>2</td><td>XQ20260203001</td><td>企业数据治理需求</td><td>数据接口</td><td>普通</td><td>保险</td><td>2026-02-04</td><td>**信息技术有限公司</td><td>2026-02-03 15:26:43</td><td><button class="detail-button review-action" type="button">审核</button></td></tr>
+            </tbody>
+            <tbody id="reviewedReviewBody" hidden>
+              <tr data-review-record data-name="物流地址查询核验接口" data-delivery="数据接口" data-urgency="普通" data-scene="商贸"><td>1</td><td>XQ20260306001</td><td>物流地址查询核验接口</td><td>数据接口</td><td>普通</td><td>商贸</td><td>2026-03-29</td><td>**人才科技有限公司</td><td>2026-03-06 16:08:35</td><td><button class="detail-button review-action" type="button">查看</button></td></tr>
+              <tr data-review-record data-name="园林病虫害训练样本需求" data-delivery="高质量数据集" data-urgency="普通" data-scene="城市治理"><td>2</td><td>XQ20260203002</td><td>园林病虫害训练样本需求</td><td>高质量数据集</td><td>普通</td><td>城市治理</td><td>2026-03-20</td><td>汶上县园林绿化服务中心</td><td>2026-02-02 10:42:16</td><td><button class="detail-button review-action" type="button">查看</button></td></tr>
+            </tbody>
+          </table><div class="review-empty" id="reviewEmpty" hidden>暂无符合条件的需求</div></div>
+          <div class="review-pagination"><span>共 <b id="reviewCount">2</b> 条</span><button type="button" disabled>‹</button><button class="active" type="button">1</button><button type="button" disabled>›</button><select aria-label="每页条数"><option>10 条/页</option></select></div>
+        </section>
+      </section>
+
+      <section class="quality-review-view" id="qualityReviewView" hidden>
+        <div class="quality-review-tabs" role="tablist"><button class="active" id="qualityPendingTab" type="button">待审核</button><button id="qualityReviewedTab" type="button">已审核</button></div>
+        <section class="review-panel quality-review-panel">
+          <div class="review-filter-bar quality-filter-bar"><label><span>数据集名称：</span><input id="qualityDatasetName" type="search" placeholder="请输入"></label><label><span>所属领域：</span><select id="qualityDomain"><option value="all">请选择</option><option>城市治理</option><option>医疗健康</option><option>金融服务</option></select></label><div class="review-filter-actions"><button class="reset-button" id="resetQualityFilters" type="button">↻ 重置</button><button class="query-button" id="queryQualityFilters" type="button">⌕ 查询</button></div></div>
+          <div class="review-table-tools"><h2 id="qualityListTitle">高质量数据集待审核列表</h2><div><button id="refreshQualityList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
+          <div class="review-table-wrap"><table class="review-table quality-review-table"><thead><tr><th>序号</th><th>数据集名称</th><th>所属领域</th><th>关联产品</th><th>申报单位</th><th class="quality-result-col">审核结果</th><th class="quality-time-col">申报时间</th><th class="quality-action-col">操作</th></tr></thead>
+            <tbody id="qualityPendingBody"><tr data-quality-record data-domain="城市治理"><td>1</td><td>园林病虫害训练样本数据集</td><td>城市治理</td><td>智慧园林数据产品</td><td>汶上县园林绿化服务中心</td><td class="quality-result-col">—</td><td>2026-10-12 10:30:16</td><td><button class="detail-button quality-review-action" type="button">审核</button></td></tr><tr data-quality-record data-domain="医疗健康"><td>2</td><td>医疗临床研究高质量数据集</td><td>医疗健康</td><td>医疗健康数据产品</td><td>汶上县人民医院</td><td class="quality-result-col">—</td><td>2026-10-09 15:35:45</td><td><button class="detail-button quality-review-action" type="button">审核</button></td></tr></tbody>
+            <tbody id="qualityReviewedBody" hidden><tr data-quality-record data-domain="金融服务"><td>1</td><td>企业信用评价高质量数据集</td><td>金融服务</td><td>企业信用评价数据产品</td><td>山东亿云信息技术有限公司</td><td class="quality-result-col"><span class="quality-result approved">已通过</span></td><td>2026-10-08 14:20:10</td><td><button class="detail-button quality-view-action" type="button">查看</button></td></tr><tr data-quality-record data-domain="城市治理"><td>2</td><td>城市公共设施运行数据集</td><td>汶上县城市管理局</td><td>城市运行数据产品</td><td>汶上县城市管理局</td><td class="quality-result-col"><span class="quality-result rejected">已驳回</span></td><td>2026-10-06 09:18:32</td><td><button class="detail-button quality-view-action" type="button">查看</button></td></tr></tbody>
+          </table><div class="review-empty" id="qualityReviewEmpty" hidden>暂无符合条件的数据集</div></div>
+          <div class="review-pagination"><span>共 <b id="qualityReviewCount">2</b> 条</span><button type="button" disabled>‹</button><button class="active" type="button">1</button><button type="button" disabled>›</button><select aria-label="每页条数"><option>10 条/页</option></select></div>
+        </section>
+      </section>
+
+      <section class="quality-review-view tool-review-view" id="toolReviewView" hidden>
+        <div class="quality-review-tabs" role="tablist"><button class="active" id="toolPendingTab" type="button">待审核</button><button id="toolReviewedTab" type="button">已审核</button></div>
+        <section class="review-panel quality-review-panel">
+          <div class="review-filter-bar quality-filter-bar"><label><span>工具名称：</span><input id="toolNameFilter" type="search" placeholder="请输入"></label><div></div><div class="review-filter-actions"><button class="reset-button" id="resetToolFilters" type="button">↻ 重置</button><button class="query-button" id="queryToolFilters" type="button">⌕ 查询</button></div></div>
+          <div class="review-table-tools"><h2 id="toolListTitle">工具使用待审核列表</h2><div><button id="refreshToolList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
+          <div class="review-table-wrap"><table class="review-table quality-review-table"><thead><tr><th>序号</th><th>工具名称</th><th>申请单位</th><th class="tool-result-col">审核结果</th><th>申请时间</th><th>操作</th></tr></thead>
+            <tbody id="toolPendingBody"><tr data-tool-record><td>1</td><td>物联网感知平台</td><td>汶上县园林绿化服务中心</td><td class="tool-result-col">—</td><td>2026-10-12 10:25:16</td><td><button class="detail-button tool-review-action" type="button">审核</button></td></tr><tr data-tool-record><td>2</td><td>数据服务平台</td><td>山东亿云信息技术有限公司</td><td class="tool-result-col">—</td><td>2026-10-10 15:35:45</td><td><button class="detail-button tool-review-action" type="button">审核</button></td></tr></tbody>
+            <tbody id="toolReviewedBody" hidden><tr data-tool-record><td>1</td><td>视频融合与分析平台</td><td>汶上县城市管理局</td><td class="tool-result-col"><span class="quality-result approved">已通过</span></td><td>2026-10-08 14:20:10</td><td><button class="detail-button tool-view-action" type="button">查看</button></td></tr><tr data-tool-record><td>2</td><td>EvayBI平台</td><td>汶上县行政审批服务局</td><td class="tool-result-col"><span class="quality-result rejected">已驳回</span></td><td>2026-10-06 09:18:32</td><td><button class="detail-button tool-view-action" type="button">查看</button></td></tr></tbody>
+          </table><div class="review-empty" id="toolReviewEmpty" hidden>暂无符合条件的工具申请</div></div>
+          <div class="review-pagination"><span>共 <b id="toolReviewCount">2</b> 条</span><button type="button" disabled>‹</button><button class="active" type="button">1</button><button type="button" disabled>›</button><select aria-label="每页条数"><option>10 条/页</option></select></div>
+        </section>
+      </section>
+
+      <div class="manage-drawer-mask" id="reviewDrawerMask" hidden>
+        <aside class="manage-drawer" role="dialog" aria-modal="true">
+          <header class="md-head"><h2>需求详情</h2><button class="md-close" id="closeReviewDrawer" type="button" aria-label="关闭">×</button></header>
+          <div class="md-summary">
+            <span class="md-summary-icon">需</span>
+            <div class="md-summary-main"><h3 id="mdName">—</h3><div class="md-summary-meta"><span class="md-status" id="mdStatus"></span><span id="mdRequester">—</span><i></i><span id="mdCreated">—</span></div></div>
+          </div>
+          <div class="md-tabs" role="tablist"><button class="active" type="button" data-md-tab="info" role="tab" aria-selected="true">需求信息</button><button type="button" data-md-tab="approval" role="tab" aria-selected="false">审批记录</button></div>
+          <div class="md-body">
+            <section class="md-pane" id="mdPaneInfo">
+              <dl class="md-info-grid">
+                <div><dt>需求编号</dt><dd id="mdCode">—</dd></div>
+                <div><dt>需求名称</dt><dd id="mdName2">—</dd></div>
+                <div><dt>结束时间</dt><dd id="mdDeadline">—</dd></div>
+                <div><dt>产品形态</dt><dd id="mdDelivery">—</dd></div>
+                <div><dt>紧急程度</dt><dd id="mdUrgency">—</dd></div>
+                <div><dt>适用场景</dt><dd id="mdScene">—</dd></div>
+                <div><dt>数据需求方</dt><dd id="mdRequester2">—</dd></div>
+                <div><dt>联系人</dt><dd>数据需求方</dd></div>
+                <div><dt>联系方式</dt><dd>18615677828</dd></div>
+                <div><dt>附件</dt><dd>--</dd></div>
+                <div class="span2"><dt>需求描述</dt><dd id="mdDesc">—</dd></div>
+                <div class="span2"><dt>备注</dt><dd>--</dd></div>
+              </dl>
+            </section>
+            <section class="md-pane" id="mdPaneApproval" hidden>
+              <ol class="md-timeline" id="mdTimeline"></ol>
+            </section>
+          </div>
+          <footer class="md-foot" id="mdDrawerActions"><button class="md-back-button" id="mdBackButton" type="button">退回</button><button class="md-approve-button" id="mdApproveButton" type="button">通过</button></footer>
+        </aside>
+      </div>
+
+      <div class="manage-drawer-mask" id="qualityDrawerMask" hidden><aside class="manage-drawer quality-drawer" role="dialog" aria-modal="true"><header class="md-head"><h2>高质量数据集审核</h2><button class="md-close" id="closeQualityDrawer" type="button">×</button></header><div class="md-summary"><span class="md-summary-icon">高</span><div class="md-summary-main"><h3 id="qualityDetailName">—</h3><div class="md-summary-meta"><span class="md-status pending" id="qualityDetailStatus">待审核</span><span id="qualityDetailOrg">—</span><i></i><span id="qualityDetailTime">—</span></div></div></div><div class="md-body"><dl class="md-info-grid"><div><dt>数据集名称</dt><dd id="qualityInfoName">—</dd></div><div><dt>所属领域</dt><dd id="qualityInfoDomain">—</dd></div><div><dt>申报单位</dt><dd id="qualityInfoOrg">—</dd></div><div><dt>申报时间</dt><dd id="qualityInfoTime">—</dd></div><div class="span2"><dt>数据集简介</dt><dd>面向行业应用的高质量数据集，已完成数据治理、质量评估与合规审查。</dd></div></dl></div><footer class="md-foot" id="qualityDrawerActions"><button class="md-back-button" id="qualityRejectButton" type="button">驳回</button><button class="md-approve-button" id="qualityApproveButton" type="button">通过</button></footer></aside></div>
+
+      <div class="manage-drawer-mask" id="toolDrawerMask" hidden><aside class="manage-drawer quality-drawer" role="dialog" aria-modal="true"><header class="md-head"><h2>工具使用审核</h2><button class="md-close" id="closeToolDrawer" type="button">×</button></header><div class="md-summary"><span class="md-summary-icon">工</span><div class="md-summary-main"><h3 id="toolDetailName">—</h3><div class="md-summary-meta"><span class="md-status pending" id="toolDetailStatus">待审核</span><span id="toolDetailOrg">—</span><i></i><span id="toolDetailTime">—</span></div></div></div><div class="md-body"><dl class="md-info-grid"><div><dt>工具名称</dt><dd id="toolInfoName">—</dd></div><div><dt>申请单位</dt><dd id="toolInfoOrg">—</dd></div><div><dt>申请时间</dt><dd id="toolInfoTime">—</dd></div><div><dt>申请类型</dt><dd>平台工具使用申请</dd></div><div class="span2"><dt>申请说明</dt><dd>申请使用平台工具开展数据治理、分析和业务应用。</dd></div></dl></div><footer class="md-foot" id="toolDrawerActions"><button class="md-back-button" id="toolRejectButton" type="button">驳回</button><button class="md-approve-button" id="toolApproveButton" type="button">通过</button></footer></aside></div>
+
+      <div class="approval-opinion-mask" id="qualityOpinionMask" hidden><section class="approval-opinion-dialog" role="dialog" aria-modal="true"><header class="approval-opinion-head"><h2 id="qualityOpinionTitle">审核意见</h2><button class="md-close" id="closeQualityOpinion" type="button">×</button></header><div class="approval-opinion-body"><label for="qualityOpinion"><span><i>*</i>意见或建议：</span><textarea id="qualityOpinion" rows="5"></textarea></label></div><footer class="approval-opinion-foot"><button class="md-back-button" id="cancelQualityOpinion" type="button">取消</button><button class="md-approve-button" id="confirmQualityOpinion" type="button">确定</button></footer></section></div>
+
+      <section class="tool-config-view" id="toolConfigView" hidden><div class="config-page-head"><div><h1>工具配置</h1><p>维护工具中心展示的工具信息和上架状态。</p></div><button class="query-button config-add-button" id="openToolConfigForm" type="button">＋ 新增工具</button></div><section class="config-list-card"><table class="config-table"><thead><tr><th>工具名称</th><th>适用场景</th><th>状态</th><th>更新时间</th><th>操作</th></tr></thead><tbody id="toolConfigBody"><tr><td>物联网感知平台</td><td>智慧园林、智慧环卫</td><td><button class="status-switch on" type="button" aria-label="已上架"><i></i><span>已上架</span></button></td><td>2026-10-12 10:25</td><td><button class="config-action">查看</button><button class="config-action">编辑</button><button class="config-action danger">删除</button></td></tr><tr><td>视频融合与分析平台</td><td>城市治理、智慧环卫</td><td><button class="status-switch on" type="button" aria-label="已上架"><i></i><span>已上架</span></button></td><td>2026-10-10 15:35</td><td><button class="config-action">查看</button><button class="config-action">编辑</button><button class="config-action danger">删除</button></td></tr><tr><td>智能体开发平台</td><td>数据分析、AI应用</td><td><button class="status-switch" type="button" aria-label="未上架"><i></i><span>未上架</span></button></td><td>2026-10-08 09:18</td><td><button class="config-action">查看</button><button class="config-action">编辑</button><button class="config-action danger">删除</button></td></tr></tbody></table><div class="config-pagination"><span>共 <b>3</b> 条</span><button type="button" disabled>‹</button><button class="active" type="button">1</button><button type="button" disabled>›</button><select aria-label="每页条数"><option>10 条/页</option></select></div></section></section>
+
+      <div class="tool-config-mask" id="toolConfigMask" hidden><section class="tool-config-dialog" role="dialog" aria-modal="true"><header class="approval-opinion-head"><h2>新增工具</h2><button class="md-close" id="closeToolConfigForm" type="button">×</button></header><form id="toolConfigForm"><div class="tool-config-form-body"><label><span><i>*</i>工具名称：</span><input required id="toolConfigName" placeholder="请输入工具名称"></label><label><span><i>*</i>适用场景：</span><input required id="toolConfigScene" placeholder="请输入适用场景"></label><label><span><i>*</i>工具地址：</span><input required id="toolConfigUrl" type="url" placeholder="请输入工具地址"></label><label><span>是否上架：</span><div class="config-radio"><label><input type="radio" name="toolPublish" value="yes" checked> 是</label><label><input type="radio" name="toolPublish" value="no"> 否</label></div></label><label class="tool-description-field"><span>工具描述：</span><textarea id="toolConfigDescription" rows="5" placeholder="请输入工具描述"></textarea></label></div><footer class="approval-opinion-foot"><button class="md-back-button" id="cancelToolConfigForm" type="button">取消</button><button class="md-approve-button" type="submit">确认</button></footer></form></section></div>
+
+      <div class="approval-opinion-mask" id="approvalOpinionMask" hidden>
+        <section class="approval-opinion-dialog" role="dialog" aria-modal="true" aria-labelledby="approvalOpinionTitle">
+          <header class="approval-opinion-head"><h2 id="approvalOpinionTitle">审核意见</h2><button class="md-close" id="closeApprovalOpinion" type="button" aria-label="关闭">×</button></header>
+          <div class="approval-opinion-body"><label for="approvalOpinion"><span><i>*</i>意见或建议：</span><textarea id="approvalOpinion" rows="6">通过</textarea></label></div>
+          <footer class="approval-opinion-foot"><button class="md-back-button" id="cancelApprovalOpinion" type="button">取消</button><button class="md-approve-button" id="confirmApprovalOpinion" type="button">确定</button></footer>
+        </section>
+      </div>
+
+      <section class="demand-list-view" id="demandListView" hidden>
+        <section class="catalog-panel">
+          <div class="catalog-filters">
+            <label class="demand-name-filter"><span>需求名称</span><input id="demandListName" type="search" placeholder="请输入需求名称"></label>
+            <label class="demand-form-filter"><span>交付形态</span><select id="demandListForm"><option value="all">全部</option><option>数据接口</option><option>数据文件</option><option>服务</option></select></label>
+            <div class="catalog-filter-actions"><button class="reset-button" id="resetDemandList" type="button">↻ 重置</button><button class="query-button" id="queryDemandList" type="button">⌕ 查询</button></div>
+          </div>
+          <div class="catalog-table-tools"><h2>需求清单列表</h2><div><button id="refreshDemandList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
+          <div class="catalog-table-wrap"><table class="catalog-table demand-table"><thead><tr><th>序号</th><th>需求编号</th><th>需求名称</th><th>数据需求方</th><th>交付形态</th><th>紧急程度</th><th>适用场景</th><th>结束时间</th><th>需求状态</th><th>创建时间</th><th>操作</th></tr></thead><tbody id="demandListBody">
+            <tr data-record data-name="城市道路通行状况分析数据" data-form="数据接口"><td></td><td>XQ20261014001</td><td title="城市道路通行状况分析数据">城市道路通行状况分析数据</td><td title="**人才科技有限公司">**人才科技有限公司</td><td>数据接口</td><td>紧急</td><td>保险</td><td>2026-10-31</td><td><span class="status-pill matched"><i></i>已匹配</span></td><td>2026-10-14 09:30</td><td><button class="demand-view-link" type="button">查看</button></td></tr>
+            <tr data-record data-name="消费主体画像数据" data-form="数据接口"><td></td><td>XQ20261009002</td><td title="消费主体画像数据">消费主体画像数据</td><td title="汶上县商贸服务协会">汶上县商贸服务协会</td><td>数据接口</td><td>普通</td><td>商贸</td><td>2026-10-25</td><td><span class="status-pill done"><i></i>已完成</span></td><td>2026-10-09 10:12</td><td><button class="demand-view-link" type="button">查看</button></td></tr>
+            <tr data-record data-name="文化场馆客流数据" data-form="数据文件"><td></td><td>XQ20261005003</td><td title="文化场馆客流数据">文化场馆客流数据</td><td title="汶上县文化馆">汶上县文化馆</td><td>数据文件</td><td>普通</td><td>文化</td><td>2026-10-20</td><td><span class="status-pill matched"><i></i>已匹配</span></td><td>2026-10-05 14:02</td><td><button class="demand-view-link" type="button">查看</button></td></tr>
+            <tr data-record data-name="融资担保业务数据" data-form="数据接口"><td></td><td>XQ20260928004</td><td title="融资担保业务数据">融资担保业务数据</td><td title="汶上县信用担保中心">汶上县信用担保中心</td><td>数据接口</td><td>紧急</td><td>金融</td><td>2026-10-18</td><td><span class="status-pill closed"><i></i>已结束</span></td><td>2026-09-28 08:45</td><td><button class="demand-view-link" type="button">查看</button></td></tr>
+            <tr data-record data-name="保险理赔辅助数据" data-form="数据接口"><td></td><td>XQ20260921005</td><td title="保险理赔辅助数据">保险理赔辅助数据</td><td title="汶上县财险公司">汶上县财险公司</td><td>数据接口</td><td>普通</td><td>保险</td><td>2026-10-15</td><td><span class="status-pill done"><i></i>已完成</span></td><td>2026-09-21 16:20</td><td><button class="demand-view-link" type="button">查看</button></td></tr>
+          </tbody></table><div class="catalog-empty" id="demandListEmpty" hidden><span>□</span><b>暂无匹配需求</b><p>请调整查询条件后重试</p></div></div>
+          <div class="catalog-pagination"><span>共 <b id="demandListCount">0</b> 条</span><button type="button" disabled>‹</button><em>1 / 1</em><button type="button" disabled>›</button><select><option>6 条/页</option><option>9 条/页</option><option>12 条/页</option></select></div>
+        </section>
+      </section>
+
+      <section class="manager-placeholder" id="managerPlaceholder" hidden><div class="manager-page-title"><div><h1 id="placeholderManagerTitle">功能页面</h1><p id="placeholderManagerDescription">该管理功能已预留，后续逐步完善。</p></div></div><div class="manager-placeholder-card"><span>建</span><h2>页面框架已预留</h2><p>当前已完成管理方后台整体框架和菜单关系，具体审批、订单及配置功能将在后续逐个页面完善。</p></div></section>
+      <div class="manager-placeholder-hint" id="managerPlaceholderHint" hidden></div>
+      </main>
+  </div>
+  <div class="manager-toast" id="managerToast" hidden>详情页面将在后续完善</div>
+  <script src="management.js?v=20261016dq"></script>
+</body>
+</html>

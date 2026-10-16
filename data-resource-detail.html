@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="智慧园林绿地资源数据详情">
+  <title>智慧园林绿地资源数据 - 数据资源详情</title>
+  <link rel="stylesheet" href="data-pages.css">
+<link rel="stylesheet" href="portal-header.css">
+</head>
+<body class="detail-page">
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="返回首页"><span class="brand-mark"></span><span><strong>汶上区域基础设施门户</strong><small>WENSHANG REGIONAL INFRASTRUCTURE</small></span></a>
+      <nav class="nav" id="mainNav" aria-label="主导航">
+        <a class="nav-item" href="index.html">首页</a>
+        <div class="nav-group"><span class="nav-item active">数据中心 <span class="nav-caret">▼</span></span><div class="dropdown"><a class="current" href="data-resources.html">数据资源</a><a href="data-products.html">数据产品</a><a href="high-quality-datasets.html">高质量数据集</a></div></div>
+        <a class="nav-item" href="supply-demand.html">供需中心</a><a class="nav-item" href="scenarios.html">场景中心</a><a class="nav-item" href="tools.html">工具中心</a><a class="nav-item" href="news.html">政策资讯</a>
+      </nav>
+      <div class="header-actions"><button class="menu-btn" id="menuBtn" aria-label="展开导航" aria-expanded="false">☰</button></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="breadcrumb" aria-label="面包屑"><span>◉</span><a href="index.html">首页</a><span>›</span><a href="data-resources.html">数据资源</a><span>›</span><b>资源详情</b></nav>
+
+    <section class="detail-card">
+      <div class="detail-title"><h1>智慧园林绿地资源数据</h1><span class="data-badge public">公共数据</span></div>
+      <p class="summary">汇聚全县公园绿地、道路绿化、古树名木及园林设施等基础资源信息，支撑园林资产统一管理和一图统览。</p>
+      <div class="detail-meta"><span>◷ 更新时间：2026-10-09 15:35:45</span><span>资源状态：正常服务</span><span class="views">◉ 浏览量：128</span></div>
+    </section>
+
+    <section class="detail-section">
+      <div class="section-tab"><span>资源信息</span></div>
+      <h2 class="sub-title">基本信息</h2>
+      <div class="info-grid">
+        <div class="info-item"><label>数据类型：</label><span>公共数据</span></div>
+        <div class="info-item"><label>资源持有方：</label><span>汶上县住房和城乡建设局</span></div>
+        <div class="info-item"><label>数据资源标识码：</label><span>WS-PL-20261009001</span></div>
+        <div class="info-item"><label>所属行业：</label><span>城市治理</span></div>
+        <div class="info-item"><label>联系人：</label><span>张**</span></div>
+        <div class="info-item"><label>联系方式：</label><span>186****7023</span></div>
+        <div class="info-item"><label>数据更新频率：</label><span>实时</span></div>
+        <div class="info-item"><label>数据更新方式：</label><span>增量更新</span></div>
+        <div class="info-item"><label>获取方式：</label><span>原始取得</span></div>
+        <div class="info-item"><label>安全分级分类：</label><span>一般数据 / 公开</span></div>
+        <div class="info-item"><label>是否包含个人信息：</label><span>不涉及</span></div>
+        <div class="info-item"><label>数据资源规模：</label><span>2.38 GB</span></div>
+        <div class="info-item"><label>资源格式：</label><span>JSON、CSV</span></div>
+        <div class="info-item"><label>交付方式：</label><span>API传输、文件传输</span></div>
+        <div class="info-item"><label>数据时间范围：</label><span>2024-01-01 至今</span></div>
+        <div class="info-item"><label>数据资源版本号：</label><span>V1.6</span></div>
+        <div class="info-item"><label>数据加工程度：</label><span>标准化整理</span></div>
+      </div>
+
+      <h2 class="sub-title">资源说明</h2>
+      <div class="description">该资源以园林资产为核心，覆盖绿地、植物、古树名木、灌溉设施、园林建筑及环境感知设备等对象。数据可用于园林资源一图统览、养护任务制定、病虫害监测、精准灌溉和绿化统计分析。</div>
+
+      <h2 class="sub-title">信息项</h2>
+      <div class="table-wrap"><table class="meta-table">
+        <thead><tr><th style="width:80px">序号</th><th>信息项名称</th><th>信息项描述</th><th>数据类型</th><th>是否必填</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>resource_id</td><td>园林资源唯一标识</td><td><span class="type-pill">String</span></td><td>是</td></tr>
+          <tr><td>2</td><td>resource_name</td><td>园林资源名称</td><td><span class="type-pill">String</span></td><td>是</td></tr>
+          <tr><td>3</td><td>resource_type</td><td>绿地、植物、设施等资源类型</td><td><span class="type-pill">String</span></td><td>是</td></tr>
+          <tr><td>4</td><td>location</td><td>资源空间位置坐标</td><td><span class="type-pill">Geometry</span></td><td>是</td></tr>
+          <tr><td>5</td><td>area</td><td>绿地或设施覆盖面积，单位为平方米</td><td><span class="type-pill">Decimal</span></td><td>否</td></tr>
+          <tr><td>6</td><td>maintain_unit</td><td>负责日常维护的单位名称</td><td><span class="type-pill">String</span></td><td>否</td></tr>
+          <tr><td>7</td><td>update_time</td><td>该条资源最后更新时间</td><td><span class="type-pill">Datetime</span></td><td>是</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><div class="footer-main"><div class="footer-brand"><strong>汶上区域基础设施门户</strong><span>WENSHANG REGIONAL INFRASTRUCTURE PORTAL</span></div><div class="footer-links"><a href="data-resources.html">数据中心</a><a href="supply-demand.html">供需中心</a><a href="scenarios.html">场景中心</a><a href="tools.html">工具中心</a><a href="news.html">政策资讯</a></div></div><div class="copyright"><span>主办单位：待确认　·　统一服务热线：0537-XXXXXXX</span><span>© 2026 汶上区域基础设施门户</span></div></div></footer>
+  <script>
+    const menuButton=document.getElementById('menuBtn'),mainNav=document.getElementById('mainNav');
+    menuButton.addEventListener('click',()=>{const opened=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(opened));});
+  </script>
+  <script src="portal-header.js"></script>
+</body>
+</html>

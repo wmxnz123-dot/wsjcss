@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="智慧园林资源空间分析产品详情">
+  <title>智慧园林资源空间分析产品 - 数据产品详情</title>
+  <link rel="stylesheet" href="data-pages.css?v=20261016hqd">
+<link rel="stylesheet" href="portal-header.css">
+</head>
+<body class="detail-page">
+  <header class="header"><div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="返回首页"><span class="brand-mark"></span><span><strong>汶上区域基础设施门户</strong><small>WENSHANG REGIONAL INFRASTRUCTURE</small></span></a>
+    <nav class="nav" id="mainNav" aria-label="主导航"><a class="nav-item" href="index.html">首页</a><div class="nav-group"><span class="nav-item active">数据中心 <span class="nav-caret">▼</span></span><div class="dropdown"><a href="data-resources.html">数据资源</a><a class="current" href="data-products.html">数据产品</a><a href="high-quality-datasets.html">高质量数据集</a></div></div><a class="nav-item" href="supply-demand.html">供需中心</a><a class="nav-item" href="scenarios.html">场景中心</a><a class="nav-item" href="tools.html">工具中心</a><a class="nav-item" href="news.html">政策资讯</a></nav>
+    <div class="header-actions"><button class="menu-btn" id="menuBtn" aria-label="展开导航" aria-expanded="false">☰</button></div>
+  </div></header>
+
+  <main class="wrap">
+    <nav class="breadcrumb" aria-label="面包屑"><span>◉</span><a href="index.html">首页</a><span>›</span><a href="data-products.html">数据产品</a><span>›</span><b>产品详情</b></nav>
+    <section class="detail-card product-detail-head">
+      <div class="product-detail-logo">园林</div>
+      <div><div class="product-title-row"><h1>智慧园林资源空间分析产品</h1><span class="product-type">数据集</span></div><p class="product-intro">融合园林绿地、植物、设施和环境感知数据，为园林资产管理、养护决策与精准灌溉提供空间分析服务。</p><span class="product-provider">提供方：汶上智城数据运营服务中心</span></div>
+      <div class="product-apply"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true" style="vertical-align:-2px;margin-right:4px"><path d="M12 4.5C6 4.5 1.5 10.5 1.5 12s4.5 7.5 10.5 7.5S22.5 13.5 22.5 12 18 4.5 12 4.5zm0 12.25a4.75 4.75 0 1 1 0-9.5 4.75 4.75 0 0 1 0 9.5zm0-2a2.75 2.75 0 1 0 0-5.5 2.75 2.75 0 0 0 0 5.5z"/></svg>浏览量:156</span><button>申请使用</button></div>
+    </section>
+
+    <section class="quality-quick-entry">
+      <span class="qqe-icon">集</span>
+      <div class="qqe-copy"><b>已申报高质量数据集</b><p>该数据集产品申报成功的高质量数据集，点击可查看完整信息与使用说明。</p></div>
+      <a class="qqe-link" href="high-quality-dataset-detail.html"><span class="qqe-link-main"><b>园林植物病虫害图像识别数据集</b><small>公开 · 每月更新</small></span><i>→</i></a>
+    </section>
+
+    <section class="detail-section">
+      <div class="detail-tabs"><button class="detail-tab selected" data-panel="introPanel">产品介绍</button><button class="detail-tab" data-panel="deliveryPanel">交付信息</button></div>
+      <div class="tab-panel" id="introPanel"><div class="empty">同可信空间一样，不调整</div></div>
+      <div class="tab-panel" id="deliveryPanel" hidden><div class="empty">同可信空间一样，不调整</div></div>
+    </section>
+  </main>
+  <footer><div class="wrap"><div class="footer-main"><div class="footer-brand"><strong>汶上区域基础设施门户</strong><span>WENSHANG REGIONAL INFRASTRUCTURE PORTAL</span></div><div class="footer-links"><a href="data-resources.html">数据中心</a><a href="supply-demand.html">供需中心</a><a href="scenarios.html">场景中心</a><a href="tools.html">工具中心</a><a href="news.html">政策资讯</a></div></div><div class="copyright"><span>主办单位：待确认　·　统一服务热线：0537-XXXXXXX</span><span>© 2026 汶上区域基础设施门户</span></div></div></footer>
+  <script>
+    const menuButton=document.getElementById('menuBtn'),mainNav=document.getElementById('mainNav');menuButton.addEventListener('click',()=>{const opened=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(opened));});
+    const tabs=document.querySelectorAll('.detail-tab');tabs.forEach(tab=>tab.addEventListener('click',()=>{tabs.forEach(item=>item.classList.remove('selected'));tab.classList.add('selected');document.querySelectorAll('.tab-panel').forEach(panel=>panel.hidden=panel.id!==tab.dataset.panel);}));
+  </script>
+  <script src="portal-header.js"></script>
+</body>
+</html>

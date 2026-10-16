@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="汶上区域基础设施门户数据资源目录">
+  <title>数据资源 - 汶上区域基础设施门户</title>
+  <link rel="stylesheet" href="data-pages.css?v=20261015dept">
+<link rel="stylesheet" href="portal-header.css">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="返回首页"><span class="brand-mark"></span><span><strong>汶上区域基础设施门户</strong><small>WENSHANG REGIONAL INFRASTRUCTURE</small></span></a>
+      <nav class="nav" id="mainNav" aria-label="主导航">
+        <a class="nav-item" href="index.html">首页</a>
+        <div class="nav-group">
+          <span class="nav-item active">数据中心 <span class="nav-caret">▼</span></span>
+          <div class="dropdown" aria-label="数据中心子菜单">
+            <a class="current" href="data-resources.html">数据资源</a><a href="data-products.html">数据产品</a><a href="high-quality-datasets.html">高质量数据集</a>
+          </div>
+        </div>
+        <a class="nav-item" href="supply-demand.html">供需中心</a><a class="nav-item" href="scenarios.html">场景中心</a><a class="nav-item" href="tools.html">工具中心</a><a class="nav-item" href="news.html">政策资讯</a>
+      </nav>
+      <div class="header-actions"><button class="menu-btn" id="menuBtn" aria-label="展开导航" aria-expanded="false">☰</button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog-hero">
+      <div class="catalog-grid"></div>
+      <div class="cube-stage" aria-hidden="true"><div class="platform"></div><i class="cube one"></i><i class="cube two"></i><i class="cube three"></i><i class="cube four"></i><strong class="catalog-visual-title">数据<br>资源</strong></div>
+      <div class="wrap hero-copy">
+        <small>DATA RESOURCE CATALOG</small>
+        <h1>区域数据资源目录</h1>
+        <p>汇聚公共数据与社会数据，让数据资源找得到、看得懂、用得好</p>
+        <div class="catalog-hero-cta"><form class="catalog-search" id="searchForm"><span>⌕</span><input id="keyword" type="search" placeholder="请输入资源名称、提供单位或关键词"><button type="submit">搜索</button></form><a class="catalog-hero-btn" href="workbench.html?page=%E6%95%B0%E6%8D%AE%E8%B5%84%E6%BA%90%E7%99%BB%E8%AE%B0" title="前往工作台登记数据资源">登记数据资源</a></div>
+      </div>
+    </section>
+
+    <div class="catalog-main"><div class="wrap">
+      <section class="filter-panel" aria-label="数据资源筛选">
+        <div class="scope-tabs" data-filter-group="type"><button class="scope-tab selected" data-value="social">社会数据</button><button class="scope-tab" data-value="public">公共数据</button><button class="scope-tab" data-value="open">开放数据</button></div>
+        <div class="filters">
+          <div class="filter-row" id="scopeRow"><div class="filter-label">数据范围：</div><div class="filter-options" data-filter-group="scope"><button class="filter-chip selected" data-value="all">全部</button><button class="filter-chip" data-value="local">本域</button><button class="filter-chip" data-value="global">全域</button></div></div>
+          <div class="filter-row" id="sourceRow"><div class="filter-label">数据来源：</div><div class="filter-options" data-filter-group="source"><button class="filter-chip selected" data-value="all">全部</button><button class="filter-chip" data-value="原始取得">原始取得</button><button class="filter-chip" data-value="收集取得">收集取得</button><button class="filter-chip" data-value="交易取得">交易取得</button><button class="filter-chip" data-value="共享取得">共享取得</button><button class="filter-chip" data-value="其他">其他</button></div></div>
+          <div class="filter-row" id="serviceRow" hidden><div class="filter-label">服务类型：</div><div class="filter-options" data-filter-group="service"><button class="filter-chip selected" data-value="all">全部</button><button class="filter-chip" data-value="接口">接口</button><button class="filter-chip" data-value="库表">库表</button></div></div>
+          <div class="filter-row"><div class="filter-label">更新频率：</div><div class="filter-options" data-filter-group="frequency"><button class="filter-chip selected" data-value="all">全部</button><button class="filter-chip" data-value="realtime">实时</button><button class="filter-chip" data-value="daily">每天</button><button class="filter-chip" data-value="weekly">每周</button><button class="filter-chip" data-value="monthly">每月</button><button class="filter-chip" data-value="quarterly">每季度</button><button class="filter-chip" data-value="yearly">每年</button><button class="filter-chip" data-value="none">不更新</button></div></div>
+          <div class="filter-row"><div class="filter-label">行业分类：</div><div class="filter-options" data-filter-group="industry"><button class="filter-chip selected" data-value="all">全部</button><button class="filter-chip" data-value="city">城市治理</button><button class="filter-chip" data-value="agriculture">现代农业</button><button class="filter-chip" data-value="commerce">商贸流通</button><button class="filter-chip" data-value="transport">交通运输</button><button class="filter-chip" data-value="finance">金融服务</button><button class="filter-chip" data-value="health">医疗健康</button><button class="filter-chip" data-value="emergency">应急管理</button></div></div>
+          </div>
+      </section>
+
+      <div class="catalog-flex">
+      <section class="results-panel">
+        <div class="results-toolbar"><span>默认排序</span><button class="sort-btn" id="sortBtn">更新时间 ↕</button><span class="result-count">共找到 <b id="resultCount">8</b> 条数据</span></div>
+        <div class="resource-grid" id="resourceGrid">
+          <article class="resource-card" data-scope="local" data-type="public" data-frequency="realtime" data-industry="city" data-source="platform" data-service="接口" data-dept="城建住房" data-updated="20261009" data-keywords="智慧园林 绿地 植物 园林 汶上县住房和城乡建设局">
+            <div class="card-top"><span class="data-badge public">公共数据</span></div><h2><a href="data-resource-detail.html">智慧园林绿地资源数据</a></h2><p>汇聚全县公园绿地、道路绿化、古树名木及园林设施等基础资源信息。</p><div class="card-meta"><span class="card-owner">资源持有方：汶上县住房和城乡建设局</span><span class="card-time">更新：2026-10-09</span></div><div class="card-foot"><span class="resource-code">资源标识码：WS-PL-20261009001</span><span class="card-view">◉ 128</span></div>
+          </article>
+          <article class="resource-card" data-scope="local" data-type="public" data-frequency="daily" data-industry="city" data-source="platform" data-service="库表" data-dept="资源环境" data-updated="20261008" data-keywords="环卫 车辆 收运 公厕 汶上县综合行政执法局">
+            <div class="card-top"><span class="data-badge public">公共数据</span></div><h2><a href="data-resource-detail.html?id=sanitation">环卫设施与车辆运行数据</a></h2><p>包含垃圾收集点、中转站、公厕、环卫车辆及日常收运作业数据。</p><div class="card-meta"><span class="card-owner">资源持有方：汶上县综合行政执法局</span><span class="card-time">更新：2026-10-08</span></div><div class="card-foot"><span class="resource-code">资源标识码：WS-HW-20261008002</span><span class="card-view">◉ 96</span></div>
+          </article>
+          <article class="resource-card" data-scope="local" data-type="social" data-frequency="monthly" data-industry="commerce" data-source="收集取得" data-updated="20261006" data-keywords="商圈 客流 消费 趋势 汶上智数科技有限公司">
+            <div class="card-top"><span class="data-badge social">社会数据</span></div><h2><a href="data-resource-detail.html?id=commerce">重点商圈客流趋势数据</a></h2><p>基于合规采集的商圈客流统计结果，提供分时、分区域的客流变化趋势。</p><div class="card-meta"><span class="card-owner">资源持有方：汶上智数科技有限公司</span><span class="card-time">更新：2026-10-06</span></div><div class="card-foot"><span class="resource-code">资源标识码：WS-SD-20261006003</span><span class="card-view">◉ 75</span></div>
+          </article>
+          <article class="resource-card" data-scope="local" data-type="social" data-frequency="quarterly" data-industry="finance" data-source="共享取得" data-updated="20260928" data-keywords="企业 信用 画像 金融 齐鲁信用服务有限公司">
+            <div class="card-top"><span class="data-badge social">社会数据</span></div><h2><a href="data-resource-detail.html?id=credit">企业信用综合画像数据</a></h2><p>汇聚企业基础信息、经营特征和公开信用信息，形成结构化企业信用指标。</p><div class="card-meta"><span class="card-owner">资源持有方：齐鲁信用服务有限公司</span><span class="card-time">更新：2026-09-28</span></div><div class="card-foot"><span class="resource-code">资源标识码：WS-SD-20260928004</span><span class="card-view">◉ 61</span></div>
+          </article>
+          <article class="resource-card" data-scope="local" data-type="public" data-frequency="monthly" data-industry="transport" data-source="platform" data-service="库表" data-dept="公共交通" data-updated="20260922" data-keywords="停车 充电 充电桩 交通 汶上县交通运输局">
+            <div class="card-top"><span class="data-badge public">公共数据</span></div><h2><a href="data-resource-detail.html?id=parking">公共停车与充电设施数据</a></h2><p>覆盖公共停车场、道路停车泊位、公共充电站及充电终端等基础信息。</p><div class="card-meta"><span class="card-owner">资源持有方：汶上县交通运输局</span><span class="card-time">更新：2026-09-22</span></div><div class="card-foot"><span class="resource-code">资源标识码：WS-JT-20260922005</span><span class="card-view">◉ 54</span></div>
+          </article>
+          <article class="resource-card" data-scope="global" data-type="open" data-frequency="yearly" data-industry="agriculture" data-source="open" data-service="库表" data-dept="农业农村" data-updated="20260918" data-keywords="农业 耕地 土壤 全域 山东省农业农村数据中心">
+            <div class="card-top"><span class="data-badge open">开放数据</span></div><h2><a href="data-resource-detail.html?id=farmland">山东省耕地质量等级数据</a></h2><p>包含各地市耕地质量等级、土壤基础属性及农业生产环境相关统计数据。</p><div class="card-meta"><span class="card-owner">资源持有方：山东省农业农村数据中心</span><span class="card-time">更新：2026-09-18</span></div><div class="card-foot"><span class="resource-code">资源标识码：SD-NY-20260918006</span><span class="card-view">◉ 182</span></div>
+          </article>
+          <article class="resource-card" data-scope="global" data-type="social" data-frequency="weekly" data-industry="transport" data-source="原始取得" data-updated="20260915" data-keywords="物流 运输 车辆 全域 鲁联物流科技公司">
+            <div class="card-top"><span class="data-badge social">社会数据</span></div><h2><a href="data-resource-detail.html?id=logistics">区域物流运力与流向数据</a></h2><p>提供经脱敏和聚合处理的物流车辆运力、主要运输线路及货物流向统计。</p><div class="card-meta"><span class="card-owner">资源持有方：鲁联物流科技公司</span><span class="card-time">更新：2026-09-15</span></div><div class="card-foot"><span class="resource-code">资源标识码：SD-WL-20260915007</span><span class="card-view">◉ 107</span></div>
+          </article>
+          <article class="resource-card" data-scope="global" data-type="public" data-frequency="quarterly" data-industry="health" data-source="platform" data-service="接口" data-dept="医疗健康" data-updated="20260910" data-keywords="医疗 卫生 服务 全域 济宁市卫生健康委员会">
+            <div class="card-top"><span class="data-badge public">公共数据</span></div><h2><a href="data-resource-detail.html?id=health">医疗卫生服务资源目录数据</a></h2><p>包含医疗机构、服务类型、重点科室及公共卫生服务资源的目录信息。</p><div class="card-meta"><span class="card-owner">资源持有方：济宁市卫生健康委员会</span><span class="card-time">更新：2026-09-10</span></div><div class="card-foot"><span class="resource-code">资源标识码：JN-WS-20260910008</span><span class="card-view">◉ 143</span></div>
+          </article>
+          <div class="empty" id="emptyState" hidden>暂未找到符合条件的数据资源，请调整筛选条件。</div>
+        </div>
+        <div class="pagination" id="pagination" aria-label="数据资源分页"></div>
+      </section>
+      </div>
+    </div></div>
+  </main>
+
+  <footer><div class="wrap"><div class="footer-main"><div class="footer-brand"><strong>汶上区域基础设施门户</strong><span>WENSHANG REGIONAL INFRASTRUCTURE PORTAL</span></div><div class="footer-links"><a href="data-resources.html">数据中心</a><a href="supply-demand.html">供需中心</a><a href="scenarios.html">场景中心</a><a href="tools.html">工具中心</a><a href="news.html">政策资讯</a></div></div><div class="copyright"><span>主办单位：待确认　·　统一服务热线：0537-XXXXXXX</span><span>© 2026 汶上区域基础设施门户</span></div></div></footer>
+
+  <script>
+    const state = {type:'social',scope:'all',source:'all',service:'all',frequency:'all',industry:'all',keyword:''};
+    const cards = [...document.querySelectorAll('.resource-card')];
+    const count = document.getElementById('resultCount');
+    const empty = document.getElementById('emptyState');
+    const pagination = document.getElementById('pagination');
+    let page = 1;
+    const pageSize = 3;
+    function matches(card){
+      return (state.scope === 'all' || card.dataset.scope === state.scope) &&
+        (state.type === 'all' || card.dataset.type === state.type) &&
+        (state.service === 'all' || card.dataset.service === state.service) &&
+        (state.frequency === 'all' || card.dataset.frequency === state.frequency) &&
+        (state.industry === 'all' || card.dataset.industry === state.industry) &&
+        (state.source === 'all' || card.dataset.source === state.source) &&
+        (!state.keyword || card.dataset.keywords.toLowerCase().includes(state.keyword));
+    }
+    function renderPagination(total){
+      const pages = Math.max(1, Math.ceil(total / pageSize));
+      if(pages <= 1){pagination.innerHTML='';return;}
+      let html = '';
+      for(let i = 1; i <= pages; i++){html += '<button type="button" class="'+(i === page ? 'selected' : '')+'">'+i+'</button>';}
+      pagination.innerHTML = html;
+      pagination.querySelectorAll('button').forEach((b, i) => b.addEventListener('click', () => {page = i + 1;render();}));
+    }
+    function render(){
+      const list = cards.filter(matches), pages = Math.max(1, Math.ceil(list.length / pageSize));
+      if(page > pages) page = pages;
+      const shown = list.slice((page - 1) * pageSize, page * pageSize);
+      cards.forEach(card => {card.hidden = !shown.includes(card);});
+      count.textContent = list.length;
+      empty.hidden = list.length !== 0;
+      renderPagination(list.length);
+    }
+    function resetGroup(group, value){group.querySelectorAll('button').forEach(item => item.classList.remove('selected'));group.querySelector('[data-value="'+value+'"]')?.classList.add('selected');}
+    function syncTypeFilters(){const social = state.type === 'social';document.getElementById('scopeRow').hidden = !social;document.getElementById('sourceRow').hidden = !social;document.getElementById('serviceRow').hidden = social;}
+    syncTypeFilters();
+    document.querySelectorAll('[data-filter-group]').forEach(group => {
+      group.querySelectorAll('button').forEach(button => button.addEventListener('click', () => {
+        group.querySelectorAll('button').forEach(item => item.classList.remove('selected'));
+        button.classList.add('selected');
+        state[group.dataset.filterGroup] = button.dataset.value;
+        if(group.dataset.filterGroup === 'type'){state.scope='all';state.source='all';state.service='all';resetGroup(document.querySelector('[data-filter-group="scope"]'),'all');resetGroup(document.querySelector('[data-filter-group="source"]'),'all');resetGroup(document.querySelector('[data-filter-group="service"]'),'all');syncTypeFilters();}
+        page = 1; render();
+      }));
+    });
+    document.getElementById('searchForm').addEventListener('submit', event => {
+      event.preventDefault();state.keyword = document.getElementById('keyword').value.trim().toLowerCase();page = 1;render();
+    });
+    let descending = true;
+    document.getElementById('sortBtn').addEventListener('click', () => {
+      descending = !descending;
+      cards.sort((a,b) => descending ? b.dataset.updated.localeCompare(a.dataset.updated) : a.dataset.updated.localeCompare(b.dataset.updated));
+      cards.forEach(card => document.getElementById('resourceGrid').insertBefore(card, empty));
+    });
+    const menuButton = document.getElementById('menuBtn'), mainNav = document.getElementById('mainNav');
+    menuButton.addEventListener('click',()=>{const opened=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(opened));});
+    render();
+  </script>
+  <script src="portal-header.js"></script>
+</body>
+</html>
