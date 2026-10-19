@@ -65,7 +65,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .list-placeholder{height:430px;margin-top:22px;border-radius:14px;box-shadow:var(--card-shadow);background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#8a99a8}.list-placeholder>span{width:66px;height:66px;border-radius:16px;background:#edf3fa;color:#72a7e8;display:grid;place-items:center;font-size:27px}.list-placeholder b{margin-top:18px;font-size:16px;color:#5c718a}.list-placeholder p{margin:6px 0 0;font-size:13px;color:#8a99a8}
 
 .workbench-list-panel{margin-top:22px;padding:27px 30px 30px;border:0;border-radius:15px;box-shadow:var(--card-shadow)}.workbench-search-row{gap:15px}.workbench-search{width:min(720px,100%);height:48px;border-color:#cedbe9;border-radius:9px}.workbench-search:focus-within{border-color:#68a0e8;box-shadow:0 0 0 4px rgba(29,111,232,.08)}.workbench-search>span{font-size:22px;margin-left:16px}.workbench-search input{padding:0 13px;font-size:14px}.workbench-search button{width:94px;font-size:14px;font-weight:600;background:linear-gradient(105deg,#1d6fe8,#248bd8)}.workbench-search-row>select{width:180px;height:48px;border-color:#cedbe9;border-radius:9px;padding:0 14px;font-size:14px}.record-summary{padding:25px 0 14px;font-size:14px}.record-summary b{font-size:18px}.workbench-table-wrap{border-color:#dce5ef;border-radius:11px}.workbench-table{min-width:1080px;font-size:14px}.workbench-table th{height:56px;padding:0 17px;background:#f3f7fc;color:#4e657d;font-size:13px}.workbench-table td{height:82px;padding:13px 17px;color:#51677e;font-size:14px}.workbench-table td:first-child{min-width:260px}.workbench-table td strong{font-size:15px;margin-bottom:5px;color:#203d5b}.workbench-table td small{font-size:12px}.level-tag,.status-tag{height:28px;padding:0 11px;border-radius:14px;font-size:12px}.table-link{min-width:58px;height:32px;padding:0 12px;border:1px solid #bcd2ed;border-radius:6px;background:#f4f8ff;color:#1d6fe8;font-size:13px;font-weight:600}.table-link:hover{background:#1d6fe8;border-color:#1d6fe8;color:#fff}.table-empty{padding:80px;font-size:14px}.workbench-pagination{margin-top:22px}.workbench-pagination button{width:38px;height:38px;border-radius:7px;font-size:14px}
-.workbench-table.demand-admin-table{min-width:0;width:100%;table-layout:auto}.workbench-table.demand-admin-table th,.workbench-table.demand-admin-table td{padding-left:12px;padding-right:12px}.workbench-table.demand-admin-table td:first-child{min-width:0;width:48px}.workbench-table.demand-admin-table td:nth-child(9),.workbench-table.demand-admin-table th:nth-child(9){width:90px}
+.workbench-table.demand-admin-table{min-width:0;width:100%;table-layout:auto}.workbench-table.demand-admin-table th,.workbench-table.demand-admin-table td{padding-left:12px;padding-right:12px}.workbench-table.demand-admin-table td:first-child{min-width:0;width:48px}.workbench-table.demand-admin-table td:nth-child(9),.workbench-table.demand-admin-table th:nth-child(9){width:90px}.tfilt-th{position:relative}.tfilt,.dsort{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-left:6px;border-radius:5px;color:#7d8ea0;font-size:11px;vertical-align:1px;cursor:pointer}.tfilt:hover,.tfilt.on,.dsort:hover{background:#3d86e8;color:#fff}.tfilt-drop{position:absolute;left:4px;top:calc(100% + 6px);z-index:60;width:150px;padding:9px 12px;background:#fff;border:1px solid #dfe7f0;border-radius:8px;box-shadow:0 10px 26px rgba(30,66,110,.16)}.tfilt-drop label{display:flex;align-items:center;gap:8px;height:30px;font-size:13px;color:#3f566d;cursor:pointer}.tfilt-drop input{width:14px;height:14px;accent-color:#3d86e8}.tfilt-ops{display:flex;gap:6px;justify-content:flex-end;padding-top:8px;border-top:1px solid #eef2f6;margin-top:6px}.tfilt-ops button{border:0;background:none;color:#3d86e8;font-size:13px;padding:0 6px}.workbench-table.demand-admin-table th{overflow:visible}.demand-status.returned:before{background:#f5222d}.table-actions{display:inline-flex;gap:8px}.workbench-table.demand-admin-table .table-link{min-width:auto;height:auto;padding:0;border:0;border-radius:0;background:none;color:#1d6fe8;font-weight:500}.workbench-table.demand-admin-table .table-link:hover{background:none;border:0;color:#0b4fb5}
 
 .workbench-modal-overlay{padding:28px;background:rgba(6,25,49,.68);backdrop-filter:blur(4px)}.workbench-modal{width:min(1180px,100%);max-height:94vh;border-radius:17px;box-shadow:0 35px 90px rgba(0,22,52,.34)}.workbench-modal-head{min-height:84px;padding:15px 30px;background:linear-gradient(110deg,#fff,#f6faff)}.workbench-modal-head h2{font-size:24px;color:#1d3c5d}.workbench-modal-head p{margin-top:5px;font-size:13px}.workbench-modal-close{width:40px;height:40px;font-size:23px}.workbench-modal-close:hover{background:#e8f1fb;color:#1d6fe8}.workbench-modal-body{padding:26px 30px 34px}.declaration-section{margin-bottom:21px;border-radius:11px;border-color:#dce6f1}.declaration-section-title{padding:16px 20px;background:linear-gradient(90deg,#edf5ff,#f6faff);color:#1f4f82;font-size:16px}.declaration-fields{padding:22px;gap:20px}.declaration-field{gap:9px}.declaration-field label{font-size:14px;font-weight:500;color:#405b76}.declaration-field input,.declaration-field select,.declaration-field textarea{padding:11px 13px;border-radius:8px;font-size:14px}.declaration-field input,.declaration-field select{height:46px}.declaration-field input[type=file]{min-height:46px;height:auto}.declaration-field textarea{min-height:98px;line-height:1.7}.declaration-field small{font-size:12px}.declaration-radios{min-height:46px;padding:9px 13px;border-radius:8px}.declaration-radios label{font-size:14px;font-weight:400}.workbench-modal-foot{min-height:78px;padding:14px 30px;background:#f8fafc}.workbench-toast{top:40px;padding:16px 24px;border-radius:9px;font-size:14px}
 
@@ -127,3 +127,185 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:760px){.workbench-drawer{width:100%}.drawer-info-grid,.drawer-card-grid{grid-template-columns:1fr}.drawer-info-grid .span2{grid-column:span 1}}.tool-tip{margin:6px 0 0;}.tool-tip p{margin:0;font-size:12px;color:#8a99a8}
 .workbench-table .table-link.danger{color:#d9534f}.workbench-table .table-link.danger:hover{color:#b62b27}.workbench-table .table-link[disabled]{color:#b6c2cf;cursor:not-allowed;opacity:.6}
 .workbench-table.serial-table th:first-child,.workbench-table.serial-table td:first-child{width:64px;min-width:64px;padding-left:20px;color:#7b8ca0}
+
+/* 需求交付 - 审批后台风格（路径导航/Tab卡片/检索卡片/列表卡片） */
+.dd-crumb{display:flex;align-items:center;gap:10px;height:46px;margin:0 -36px;padding:0 36px;background:#fff;border-bottom:1px solid #f0f2f5;font-size:13px;color:#909399}
+.dd-crumb i{font-style:normal;color:#c0c4cc}
+.dd-crumb b{color:#303133;font-weight:600}
+.dd-tabbar{height:46px;margin:16px 0 14px;padding:0 22px;gap:34px;background:#fff;border-radius:4px;box-shadow:var(--card-shadow);align-items:stretch}
+.dd-tabbar button{height:46px;padding:0 2px;font-size:14px;color:#303133}
+.dd-tabbar button.active{font-weight:600}
+.dd-tabbar button.active:after{left:0;right:0;bottom:5px;height:2px;border-radius:1px}
+.dd-search{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 24px;padding:24px 26px;background:#fff;border-radius:4px;box-shadow:var(--card-shadow)}
+.dd-search[hidden]{display:none!important}
+.dd-search label{display:flex;align-items:center;gap:10px;min-width:0}
+.dd-search label>span{flex:0 0 auto;min-width:76px;text-align:right;color:#606266;font-size:14px}
+.dd-search input,.dd-search select{flex:1;min-width:0;width:100%;height:32px;border:1px solid #dcdfe6;border-radius:4px;background:#fff;color:#606266;padding:0 10px;font-size:13px;outline:0}
+.dd-search input::placeholder{color:#c0c4cc}
+.dd-search input:focus,.dd-search select:focus{border-color:#4c8ce8;box-shadow:0 0 0 2px rgba(43,124,234,.1)}
+.dd-search-actions{grid-column:2;justify-self:end;display:flex;gap:10px;align-self:center}
+.dd-search-actions button{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 16px;border-radius:4px;font-size:13px;white-space:nowrap}
+.dd-search-actions button i{font-style:normal;font-size:13px}
+.dd-btn-reset{border:1px solid #dcdfe6;background:#fff;color:#606266}
+.dd-btn-reset:hover{color:#2b7cea;border-color:#c6e2ff;background:#ecf5ff}
+.dd-btn-query{border:1px solid #2b7cea;background:#2b7cea;color:#fff}
+.dd-btn-query:hover{background:#4c8ce8;border-color:#4c8ce8}
+.dd-list{margin-top:14px;padding:0 24px 18px;border-radius:4px}
+.dd-list .list-panel-tools{height:56px;font-size:15px;font-weight:600;color:#303133;border-bottom:0}
+.dd-list .list-panel-tools button{width:30px;height:30px;color:#909399;font-size:16px}
+.dd-list .list-panel-tools button:hover{color:#2b7cea;background:#f0f6ff}
+.dd-list .workbench-table-wrap{border:0;border-radius:0}
+.dd-list .workbench-table{min-width:0;width:100%;table-layout:auto}
+.dd-list .workbench-table th{height:44px;padding:0 14px;background:#f5f7fa;color:#606266;font-size:13px;font-weight:400;text-align:left}
+.dd-list .workbench-table td{height:52px;padding:8px 14px;border-bottom:1px solid #ebeef5;color:#606266;font-size:13px}
+.dd-list .workbench-table tr:last-child td{border-bottom:0}
+.dd-list .workbench-table .table-link{min-width:0;height:auto;padding:0;border:0;border-radius:0;background:none;color:#2b7cea;font-weight:500;font-size:13px}
+.dd-list .workbench-table .table-link:hover{background:none;border:0;color:#4c8ce8;text-decoration:underline}
+.dd-list .table-empty{padding:70px 0;text-align:center;color:#909399;font-size:13px}
+.dd-list .delivery-pagination{display:flex;align-items:center;justify-content:flex-end;gap:6px;padding-top:20px;color:#606266;font-size:13px}
+.dd-list .delivery-pagination b{font-weight:400}
+.dd-list .delivery-pagination button{min-width:28px;height:28px;border:0;border-radius:4px;background:transparent;color:#606266;font-size:13px}
+.dd-list .delivery-pagination button:disabled{color:#c0c4cc;background:transparent;cursor:default}
+.dd-list .delivery-pagination button.active{border:1px solid #dcdfe6;background:#fff;color:#2b7cea;font-weight:600}
+.dd-list .delivery-pagination select{height:28px;border:1px solid #dcdfe6;border-radius:4px;background:#fff;color:#606266;padding:0 8px;font-size:13px}
+@media(max-width:1100px){.dd-search{grid-template-columns:1fr 1fr}.dd-search-actions{grid-column:auto;justify-self:end}}
+@media(max-width:760px){.dd-crumb{margin:0 -15px;padding:0 15px}.dd-tabbar{padding:0 16px;gap:24px}.dd-search{grid-template-columns:1fr;padding:18px 16px;gap:14px}.dd-search label{flex-wrap:wrap}.dd-search label>span{min-width:100%;text-align:left}.dd-search-actions{justify-self:stretch}.dd-search-actions button{flex:1}.dd-list{padding:0 14px 14px}.dd-list .workbench-table{min-width:820px}.dd-list .delivery-pagination{justify-content:center}}
+
+/* 高质量数据集申报 - 审批后台风格 */
+#datasetApplyView .dd-search{margin-top:16px}
+#datasetApplyView .dd-search-actions{grid-column:auto;justify-self:end}
+#datasetApplyView .dd-list{margin-top:14px;padding:0 24px 18px!important;border-radius:4px}
+#datasetApplyView .dd-list .list-panel-tools{height:56px;font-size:15px;font-weight:600;color:#303133;border-bottom:0}
+#datasetApplyView .list-panel-tools>div{display:flex;align-items:center;gap:10px}
+#datasetApplyView .list-panel-tools button{width:30px;height:30px;color:#909399;font-size:16px}
+#datasetApplyView .list-panel-tools button:hover{color:#2b7cea;background:#f0f6ff}
+.dd-add-button{display:inline-flex;align-items:center;justify-content:center;width:auto!important;height:30px!important;padding:0 12px!important;border:0;border-radius:4px;background:#2b7cea!important;color:#fff!important;font-size:13px;font-weight:500}
+.dd-add-button:hover{background:#4c8ce8!important}
+#datasetApplyView .record-summary{padding:16px 0 12px;font-size:13px;color:#606266}
+#datasetApplyView .record-summary b{color:#2b7cea;font-size:15px}
+#datasetApplyView .workbench-table-wrap{border:0;border-radius:0}
+#datasetApplyView .workbench-table{min-width:0;width:100%;table-layout:auto}
+#datasetApplyView .workbench-table th{height:44px;padding:0 14px;background:#f5f7fa;color:#606266;font-size:13px;font-weight:400;text-align:left}
+#datasetApplyView .workbench-table.serial-table th:first-child,#datasetApplyView .workbench-table.serial-table td:first-child{width:64px;min-width:64px;padding-left:20px}
+#datasetApplyView .workbench-table td{height:52px;padding:8px 14px;border-bottom:1px solid #ebeef5;color:#606266;font-size:13px}
+#datasetApplyView .workbench-table tr:last-child td{border-bottom:0}
+#datasetApplyView .workbench-table td strong{font-size:13px;font-weight:600;color:#303133;margin:0}
+#datasetApplyView .status-tag{display:inline-flex;align-items:center;gap:6px;height:auto;padding:0;border-radius:0;font-size:13px;color:#606266}
+#datasetApplyView .status-tag:before{content:"";width:6px;height:6px;border-radius:50%;background:#a6aebb}
+#datasetApplyView .status-tag.pending:before{background:#e6a23c}
+#datasetApplyView .status-tag.approved:before{background:#52c41a}
+#datasetApplyView .status-tag.returned:before{background:#f5222d}
+#datasetApplyView .table-link{min-width:0;height:auto;padding:0;border:0;border-radius:0;background:none;color:#2b7cea;font-weight:500;font-size:13px}
+#datasetApplyView .table-link:hover{background:none;border:0;color:#4c8ce8;text-decoration:underline}
+#datasetApplyView .table-empty{padding:70px 0;text-align:center;color:#909399;font-size:13px}
+#datasetApplyView .workbench-pagination{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin:20px 0 0;color:#606266;font-size:13px}
+#datasetApplyView .workbench-pagination span{font-size:13px}
+#datasetApplyView .workbench-pagination b{font-weight:400}
+#datasetApplyView .workbench-pagination button{min-width:28px;height:28px;border:0;border-radius:4px;background:transparent;color:#606266;font-size:13px}
+#datasetApplyView .workbench-pagination button:disabled{color:#c0c4cc;background:transparent;cursor:default}
+#datasetApplyView .workbench-pagination button.active{border:1px solid #dcdfe6;background:#fff;color:#2b7cea;font-weight:600}
+#datasetApplyView .workbench-pagination select{height:28px;border:1px solid #dcdfe6;border-radius:4px;background:#fff;color:#606266;padding:0 8px;font-size:13px}
+#datasetApplyView .sfilter-th{position:relative}
+#datasetApplyView .sfilter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-left:6px;border-radius:5px;color:#7d8ea0;font-size:11px;vertical-align:1px;cursor:pointer}
+#datasetApplyView .sfilter:hover,#datasetApplyView .sfilter.on{background:#1769e0;color:#fff}
+#datasetApplyView .sfilter-drop{position:absolute;left:4px;top:calc(100% + 6px);z-index:30;width:132px;padding:9px 12px;background:#fff;border:1px solid #dfe7f0;border-radius:8px;box-shadow:0 10px 26px rgba(30,66,110,.16)}
+#datasetApplyView .sfilter-drop label{display:flex;align-items:center;gap:8px;height:30px;font-size:13px;color:#3f566d;cursor:pointer;font-weight:400}
+#datasetApplyView .sfilter-drop input{width:14px;height:14px;accent-color:#1769e0}
+#datasetApplyView .sfilter-ops{display:flex;gap:6px;justify-content:flex-end;padding-top:8px;border-top:1px solid #eef2f6;margin-top:6px}
+#datasetApplyView .sfilter-ops button{border:0;background:none;color:#1769e0;font-size:13px;padding:0 6px}
+#deliveryFilters .dd-search-actions{grid-column:3;justify-self:end;align-self:end}
+#deliveryFilters label>span{min-width:88px;white-space:nowrap}
+#datasetApplyView .workbench-pagination.page-flow .page-left{margin-right:auto;color:#798a9d;font-size:12px}
+#datasetManageView .dd-search-actions{grid-column:auto;justify-self:end}
+#datasetManageView .dd-search{margin-top:16px}
+#datasetManageView .dd-list{margin-top:17px}
+#datasetManageView .workbench-pagination.page-flow .page-left{margin-right:auto;color:#798a9d;font-size:12px}
+@media(max-width:760px){#datasetApplyView .dd-list .workbench-table{min-width:640px}#datasetApplyView .workbench-table-wrap{overflow-x:auto}#datasetApplyView .workbench-pagination{justify-content:center}}
+
+/* 需求发布 - 同高质量数据集申报风格 */
+#demandPublishView .dd-search{margin-top:16px}
+#demandPublishView .dd-search-actions{grid-column:auto;justify-self:end}
+#demandPublishView .dd-list{margin-top:14px;padding:0 24px 18px!important;border-radius:4px}
+#demandPublishView .dd-list .list-panel-tools{height:56px;font-size:15px;font-weight:600;color:#303133;border-bottom:0}
+#demandPublishView .list-panel-tools>div{display:flex;align-items:center;gap:10px}
+#demandPublishView .list-panel-tools button{width:30px;height:30px;color:#909399;font-size:16px}
+#demandPublishView .list-panel-tools button:hover{color:#2b7cea;background:#f0f6ff}
+#demandPublishView .workbench-table-wrap{border:0;border-radius:0}
+#demandPublishView .workbench-table{min-width:0;width:100%}
+#demandPublishView .workbench-table th{height:44px;padding:0 14px;background:#f5f7fa;color:#606266;font-size:13px;font-weight:400;text-align:left;overflow:visible}
+#demandPublishView .workbench-table td{height:52px;padding:8px 14px;border-bottom:1px solid #ebeef5;border-top:0;color:#606266;font-size:13px}
+#demandPublishView .workbench-table tr:last-child td{border-bottom:0}
+#demandPublishView .workbench-table td strong{font-size:13px;font-weight:600;color:#303133;margin:0}
+#demandPublishView .workbench-table .table-link{min-width:0;height:auto;padding:0;border:0;border-radius:0;background:none;color:#2b7cea;font-weight:500;font-size:13px}
+#demandPublishView .workbench-table .table-link:hover{background:none;border:0;color:#4c8ce8;text-decoration:underline}
+#demandPublishView .table-empty{padding:70px 0;text-align:center;color:#909399;font-size:13px}
+#demandPublishView .workbench-pagination{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin:20px 0 0;color:#606266;font-size:13px}
+#demandPublishView .workbench-pagination button{min-width:28px;height:28px;border:0;border-radius:4px;background:transparent;color:#606266;font-size:13px}
+#demandPublishView .workbench-pagination button:disabled{color:#c0c4cc;background:transparent;cursor:default}
+#demandPublishView .workbench-pagination button.active{border:1px solid #dcdfe6;background:#fff;color:#2b7cea;font-weight:600}
+#demandPublishView .workbench-pagination select{height:28px;border:1px solid #dcdfe6;border-radius:4px;background:#fff;color:#606266;padding:0 8px;font-size:13px}
+@media(max-width:760px){#demandPublishView .dd-list .workbench-table{min-width:760px}#demandPublishView .workbench-table-wrap{overflow-x:auto}#demandPublishView .workbench-pagination{justify-content:center}}
+
+/* 已发布需求 - 同审批后台风格（含展开检索） */
+.dd-expand{width:auto!important;height:32px!important;padding:0 2px 0 6px!important;border:0!important;background:none!important;color:#2b7cea!important;font-size:0;display:inline-flex;align-items:center}
+.dd-expand:before{content:"展开 ▾";font-size:13px;font-weight:500}
+.dd-expand[aria-expanded="true"]:before{content:"收起 ∧"}
+.dd-expand:hover{color:#4c8ce8!important;text-decoration:underline}
+.dd-extra{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 24px;padding:2px 0 4px}
+.dd-extra[hidden]{display:none!important}
+.dd-extra label{display:flex;align-items:center;gap:10px;min-width:0}
+.dd-extra label>span{flex:0 0 auto;min-width:76px;text-align:right;color:#606266;font-size:14px}
+.dd-extra select,.dd-extra input{flex:1;min-width:0;width:100%;height:32px;border:1px solid #dcdfe6;border-radius:4px;background:#fff;color:#606266;padding:0 10px;font-size:13px;outline:0}
+.dd-extra select:focus,.dd-extra input:focus{border-color:#4c8ce8;box-shadow:0 0 0 2px rgba(43,124,234,.1)}
+#publishedDemandView .dd-search{margin-top:16px}
+#publishedDemandView .dd-search-actions{grid-column:auto;justify-self:end}
+#publishedDemandView .dd-list{margin-top:14px;padding:0 24px 18px!important;border-radius:4px}
+#publishedDemandView .dd-list .list-panel-tools{height:56px;font-size:15px;font-weight:600;color:#303133;border-bottom:0}
+#publishedDemandView .list-panel-tools>div{display:flex;align-items:center;gap:5px}
+#publishedDemandView .list-panel-tools button{width:30px;height:30px;color:#909399;font-size:16px}
+#publishedDemandView .list-panel-tools button:hover{color:#2b7cea;background:#f0f6ff}
+#publishedDemandView .workbench-table-wrap{border:0;border-radius:0}
+#publishedDemandView .workbench-table th{height:44px;padding:0 14px;background:#f5f7fa;color:#606266;font-size:13px;font-weight:400;text-align:left;overflow:visible}
+#publishedDemandView .workbench-table td{height:52px;padding:8px 14px;border-bottom:1px solid #ebeef5;border-top:0;color:#606266;font-size:13px}
+#publishedDemandView .workbench-table tr:last-child td{border-bottom:0}
+#publishedDemandView .workbench-table td strong{font-size:13px;font-weight:600;color:#303133;margin:0}
+#publishedDemandView .workbench-table .table-link{min-width:0;height:auto;padding:0;border:0;border-radius:0;background:none;color:#2b7cea;font-weight:500;font-size:13px}
+#publishedDemandView .workbench-table .table-link:hover{background:none;border:0;color:#4c8ce8;text-decoration:underline}
+#publishedDemandView .table-empty{padding:70px 0;text-align:center;color:#909399;font-size:13px}
+#publishedDemandView .workbench-pagination{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin:20px 0 0;color:#606266;font-size:13px}
+#publishedDemandView .workbench-pagination button{min-width:28px;height:28px;border:0;border-radius:4px;background:transparent;color:#606266;font-size:13px}
+#publishedDemandView .workbench-pagination button:disabled{color:#c0c4cc;background:transparent;cursor:default}
+#publishedDemandView .workbench-pagination button.active{border:1px solid #dcdfe6;background:#fff;color:#2b7cea;font-weight:600}
+#publishedDemandView .workbench-pagination select{height:28px;border:1px solid #dcdfe6;border-radius:4px;background:#fff;color:#606266;padding:0 8px;font-size:13px}
+@media(max-width:1100px){.dd-extra{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.dd-extra{grid-template-columns:1fr;gap:14px}.dd-extra label{flex-wrap:wrap}.dd-extra label>span{min-width:100%;text-align:left}#publishedDemandView .dd-search-actions{justify-self:stretch}#publishedDemandView .dd-search-actions button{flex:1}#publishedDemandView .dd-list .workbench-table{min-width:820px}#publishedDemandView .workbench-table-wrap{overflow-x:auto}#publishedDemandView .workbench-pagination{justify-content:center}}
+
+/* 工具中心两页 - 同已发布需求风格 */
+#toolOrderView .dd-search,#myToolsView .dd-search{margin-top:16px}
+#toolOrderView .dd-search-actions,#myToolsView .dd-search-actions{grid-column:auto;justify-self:end}
+#toolOrderView .dd-list,#myToolsView .dd-list{margin-top:14px;padding:0 24px 18px!important;border-radius:4px}
+#toolOrderView .dd-list .list-panel-tools,#myToolsView .dd-list .list-panel-tools{height:56px;font-size:15px;font-weight:600;color:#303133;border-bottom:0}
+#toolOrderView .list-panel-tools>div,#myToolsView .list-panel-tools>div{display:flex;align-items:center;gap:5px}
+#toolOrderView .list-panel-tools button,#myToolsView .list-panel-tools button{width:30px;height:30px;color:#909399;font-size:16px}
+#toolOrderView .list-panel-tools button:hover,#myToolsView .list-panel-tools button:hover{color:#2b7cea;background:#f0f6ff}
+#toolOrderView .record-summary,#myToolsView .record-summary{padding:14px 0 10px;font-size:13px;color:#8a99a8}
+#toolOrderView .record-summary p,#myToolsView .record-summary p{margin:0}
+#toolOrderView .workbench-table-wrap,#myToolsView .workbench-table-wrap{border:0;border-radius:0}
+#toolOrderView .workbench-table,#myToolsView .workbench-table{min-width:0;width:100%}
+#toolOrderView .workbench-table th,#myToolsView .workbench-table th{height:44px;padding:0 14px;background:#f5f7fa;color:#606266;font-size:13px;font-weight:400;text-align:left;overflow:visible}
+#toolOrderView .workbench-table td,#myToolsView .workbench-table td{height:52px;padding:8px 14px;border-bottom:1px solid #ebeef5;border-top:0;color:#606266;font-size:13px}
+#toolOrderView .workbench-table tr:last-child td,#myToolsView .workbench-table tr:last-child td{border-bottom:0}
+#toolOrderView .workbench-table td strong,#myToolsView .workbench-table td strong{font-size:13px;font-weight:600;color:#303133;margin:0}
+#toolOrderView .status-tag,#myToolsView .status-tag{display:inline-flex;align-items:center;gap:6px;height:auto;padding:0;border-radius:0;font-size:13px;color:#606266}
+#toolOrderView .status-tag:before,#myToolsView .status-tag:before{content:"";width:6px;height:6px;border-radius:50%;background:#e6a23c}
+#toolOrderView .status-tag.approved:before,#myToolsView .status-tag.approved:before{background:#52c41a}
+#toolOrderView .status-tag.returned:before,#myToolsView .status-tag.returned:before{background:#f5222d}
+#toolOrderView .table-link,#myToolsView .table-link{min-width:0;height:auto;padding:0;border:0;border-radius:0;background:none;color:#2b7cea;font-weight:500;font-size:13px}
+#toolOrderView .table-link:hover,#myToolsView .table-link:hover{background:none;border:0;color:#4c8ce8;text-decoration:underline}
+#toolOrderView .table-empty,#myToolsView .table-empty{padding:70px 0;text-align:center;color:#909399;font-size:13px}
+#toolOrderView .workbench-pagination,#myToolsView .workbench-pagination{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin:20px 0 0;color:#606266;font-size:13px}
+#toolOrderView .workbench-pagination b,#myToolsView .workbench-pagination b{font-weight:400}
+#toolOrderView .workbench-pagination button,#myToolsView .workbench-pagination button{min-width:28px;height:28px;border:0;border-radius:4px;background:transparent;color:#606266;font-size:13px}
+#toolOrderView .workbench-pagination button.active,#myToolsView .workbench-pagination button.active{border:1px solid #dcdfe6;background:#fff;color:#2b7cea;font-weight:600}
+#toolOrderView .workbench-pagination select,#myToolsView .workbench-pagination select{height:28px;border:1px solid #dcdfe6;border-radius:4px;background:#fff;color:#606266;padding:0 8px;font-size:13px}
+@media(max-width:760px){#toolOrderView .dd-list .workbench-table,#myToolsView .dd-list .workbench-table{min-width:640px}#toolOrderView .workbench-table-wrap,#myToolsView .workbench-table-wrap{overflow-x:auto}#toolOrderView .workbench-pagination,#myToolsView .workbench-pagination{justify-content:center}}

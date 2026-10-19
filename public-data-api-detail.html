@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据要素数据资源-接口003详情">
+  <title>数据要素数据资源-接口003 - 数据资源详情</title>
+  <link rel="stylesheet" href="data-pages.css">
+<link rel="stylesheet" href="portal-header.css">
+<style>
+.service-type{display:inline-flex;flex-direction:column;align-items:center;gap:4px;margin-left:auto;padding:8px 11px;border:1.5px solid #4a90d9;border-radius:8px;color:#4a90d9;background:#fff}
+.service-type svg{width:20px;height:20px}
+.service-type em{font-style:normal;font-size:12px;font-weight:600;line-height:1}
+.api-card{margin:0 0 22px;padding:18px 24px;border-radius:10px;background:#f7f8fa;border:1px solid #edf0f3}
+.api-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin:0}
+.api-grid dt{color:#8a99a8;font-size:12px;margin-bottom:5px}
+.api-grid dd{margin:0;color:#344c66;font-size:14px;word-break:break-all}
+@media(max-width:760px){.api-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="detail-page">
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="返回首页"><span class="brand-mark"></span><span><strong>汶上区域基础设施门户</strong><small>WENSHANG REGIONAL INFRASTRUCTURE</small></span></a>
+      <nav class="nav" id="mainNav" aria-label="主导航">
+        <a class="nav-item" href="index.html">首页</a>
+        <div class="nav-group"><span class="nav-item active">数据中心 <span class="nav-caret">▼</span></span><div class="dropdown"><a class="current" href="data-resources.html">数据资源</a><a href="data-products.html">数据产品</a><a href="high-quality-datasets.html">高质量数据集</a></div></div>
+        <a class="nav-item" href="supply-demand.html">供需中心</a><a class="nav-item" href="scenarios.html">场景中心</a><a class="nav-item" href="tools.html">工具中心</a><a class="nav-item" href="news.html">政策资讯</a>
+      </nav>
+      <div class="header-actions"><button class="menu-btn" id="menuBtn" aria-label="展开导航" aria-expanded="false">☰</button></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="breadcrumb" aria-label="面包屑"><span>◉</span><a href="index.html">首页</a><span>›</span><a href="data-resources.html">数据资源</a><span>›</span><b>资源详情</b></nav>
+
+    <section class="detail-card">
+      <div class="detail-title"><h1>数据要素数据资源-接口003</h1><span class="data-badge public">公共数据</span><span class="service-type"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 1-5.66-5.66l3-3a4 4 0 0 1 5.66 5.66M14 10a4 4 0 0 1 5.66 5.66l-3 3a4 4 0 0 1-5.66-5.66"/></svg><em>接口</em></span></div>
+      <p class="summary">该资源以接口形式提供经济领域相关数据要素，所属数据管理局，每周定期更新，支持按统一社会信用代码查询企业风险标签与风险评分。</p>
+      <div class="detail-meta"><span>◷ 更新时间：2026-06-23 10:16:48</span><span>资源状态：正常服务</span><span class="views">◉ 浏览量：88</span></div>
+    </section>
+
+    <section class="detail-section">
+      <div class="section-tab"><span>资源信息</span></div>
+      <h2 class="sub-title">基本信息</h2>
+      <div class="info-grid">
+        <div class="info-item"><label>资源名称：</label><span>数据要素数据资源-接口003</span></div>
+        <div class="info-item"><label>所属分类：</label><span>经济</span></div>
+        <div class="info-item"><label>数据更新周期：</label><span>每周</span></div>
+        <div class="info-item"><label>更新时间：</label><span>2026-06-23 10:16:48</span></div>
+        <div class="info-item"><label>数据所属方：</label><span>数据管理局</span></div>
+        <div class="info-item"><label>资源类型：</label><span>接口</span></div>
+      </div>
+
+      <h2 class="sub-title">接口信息</h2>
+      <div class="api-card"><dl class="api-grid">
+        <div><dt>接口URL</dt><dd>http://10.193.3.18/risk</dd></div>
+        <div><dt>接口Path</dt><dd>/company/risk-tags</dd></div>
+        <div><dt>请求类型</dt><dd>POST</dd></div>
+        <div><dt>返回类型</dt><dd>json</dd></div>
+      </dl></div>
+
+      <h2 class="sub-title">请求参数</h2>
+      <div class="table-wrap"><table class="meta-table">
+        <thead><tr><th style="width:80px">序号</th><th>名称</th><th>描述</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>creditCode</td><td>统一社会信用代码</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 class="sub-title">返回参数</h2>
+      <div class="table-wrap"><table class="meta-table">
+        <thead><tr><th style="width:80px">序号</th><th>名称</th><th>描述</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>riskTags</td><td>风险标签列表</td></tr>
+          <tr><td>2</td><td>score</td><td>风险评分</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><div class="footer-main"><div class="footer-brand"><strong>汶上区域基础设施门户</strong><span>WENSHANG REGIONAL INFRASTRUCTURE PORTAL</span></div><div class="footer-links"><a href="data-resources.html">数据中心</a><a href="supply-demand.html">供需中心</a><a href="scenarios.html">场景中心</a><a href="tools.html">工具中心</a><a href="news.html">政策资讯</a></div></div><div class="copyright"><span>主办单位：待确认　·　统一服务热线：0537-XXXXXXX</span><span>© 2026 汶上区域基础设施门户</span></div></div></footer>
+  <script>
+    const menuButton=document.getElementById('menuBtn'),mainNav=document.getElementById('mainNav');
+    menuButton.addEventListener('click',()=>{const opened=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(opened));});
+  </script>
+  <script src="portal-header.js"></script>
+</body>
+</html>

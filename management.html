@@ -6,7 +6,7 @@
   <meta name="description" content="汶上区域基础设施管理方后台">
   <title>管理方后台 - 汶上区域基础设施门户</title>
   <meta http-equiv="Cache-Control" content="no-cache">
-  <link rel="stylesheet" href="management.css?v=20261016dr">
+  <link rel="stylesheet" href="management.css?v=20261016rv3">
   <link rel="stylesheet" href="management-public-create.css?v=20261016pa">
 </head>
 <body>
@@ -37,7 +37,7 @@
 
         <section class="manager-menu-group">
           <button class="manager-group-title" type="button" aria-expanded="false"><span><i class="menu-icon">⚙</i><b>配置管理</b></span><em>⌄</em></button>
-          <div class="manager-submenu"><button type="button" data-page="工具配置" data-description="维护工具中心平台配置">工具配置</button><button class="manager-submenu-disabled" type="button" disabled aria-disabled="true">政策/资讯配置</button></div>
+          <div class="manager-submenu"><button type="button" data-page="工具配置" data-description="维护工具中心平台配置">工具配置</button><button type="button" data-page="内容管理" data-description="管理网站内容发布与配置">内容管理</button></div>
         </section>
       </nav>
     </aside>
@@ -114,14 +114,14 @@
             <label class="catalog-level-filter"><span>数据更新周期</span><select id="publicCycle"><option value="all">请选择</option><option>每月</option><option>每季度</option><option>其他</option></select></label>
           </div>
           <div class="catalog-table-tools"><h2>公共数据目录列表</h2><div><button class="catalog-create-button" id="openPublicCreate" type="button">＋ 新增公共数据</button><button id="refreshPublicData" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
-          <div class="catalog-table-wrap"><table class="catalog-table"><thead><tr><th>序号</th><th>目录名称</th><th>服务类型</th><th>数据更新周期</th><th>数据持有方</th><th>更新时间 ⇅</th><th>操作</th></tr></thead><tbody id="publicDataBody">
-            <tr data-record data-name="严重违法失信企业详细信息" data-type="库表" data-cycle="每月" data-holder="市发展和改革委员会"><td></td><td title="严重违法失信企业详细信息（市场监督局）">严重违法失信企业详细信息（市场监督局）</td><td>库表</td><td>每月</td><td title="市发展和改革委员会">市发展和改革委员会</td><td>2026-06-10 11:43:56</td><td><button class="detail-button" type="button">查看</button></td></tr>
-            <tr data-record data-name="人民监督员履职信息" data-type="接口" data-cycle="每季度" data-holder="市司法局"><td></td><td title="人民监督员监督活动与履职信息数据">人民监督员监督活动与履职信息数据</td><td>接口</td><td>每季度</td><td title="市司法局">市司法局</td><td>2026-06-09 09:12:30</td><td><button class="detail-button" type="button">查看</button></td></tr>
-            <tr data-record data-name="医疗就诊结算信息" data-type="接口" data-cycle="每月" data-holder="市医疗保障局"><td></td><td title="定点医疗机构就诊结算信息数据">定点医疗机构就诊结算信息数据</td><td>接口</td><td>每月</td><td title="市医疗保障局">市医疗保障局</td><td>2026-06-08 15:24:18</td><td><button class="detail-button" type="button">查看</button></td></tr>
-            <tr data-record data-name="城乡居民医保参保信息" data-type="库表" data-cycle="每月" data-holder="市医疗保障局"><td></td><td title="城乡居民基本医疗保险参保信息">城乡居民基本医疗保险参保信息</td><td>库表</td><td>每月</td><td title="市医疗保障局">市医疗保障局</td><td>2026-06-07 10:05:42</td><td><button class="detail-button" type="button">查看</button></td></tr>
-            <tr data-record data-name="公积金缴存与提取信息" data-type="库表" data-cycle="每月" data-holder="市住房公积金管理中心"><td></td><td title="住房公积金个人缴存与提取信息">住房公积金个人缴存与提取信息</td><td>库表</td><td>每月</td><td title="市住房公积金管理中心">市住房公积金管理中心</td><td>2026-06-06 17:40:09</td><td><button class="detail-button" type="button">查看</button></td></tr>
-            <tr data-record data-name="学校参保学生信息" data-type="库表" data-cycle="每季度" data-holder="市卫生健康委员会"><td></td><td title="学校参保学生基本信息数据">学校参保学生基本信息数据</td><td>库表</td><td>每季度</td><td title="市卫生健康委员会">市卫生健康委员会</td><td>2026-06-05 08:55:21</td><td><button class="detail-button" type="button">查看</button></td></tr>
-            <tr data-record data-name="药店药品销售记录" data-type="接口+库表" data-cycle="其他" data-holder="市卫生健康委员会"><td></td><td title="定点药店药品销售流水记录数据">定点药店药品销售流水记录数据</td><td>接口+库表</td><td>其他</td><td title="市卫生健康委员会">市卫生健康委员会</td><td>2026-06-04 14:32:47</td><td><button class="detail-button" type="button">查看</button></td></tr>
+          <div class="catalog-table-wrap"><table class="catalog-table"><thead><tr><th>序号</th><th>目录名称</th><th>服务类型</th><th>数据更新周期</th><th>数据持有方</th><th class="sfilter-th">状态<span class="sfilter" id="publicStatusTrigger">▾</span><div class="sfilter-drop" id="publicStatusDrop" hidden><label><input type="checkbox" value="草稿"><i></i>草稿</label><label><input type="checkbox" value="已发布"><i></i>已发布</label><label><input type="checkbox" value="已下线"><i></i>已下线</label><div class="sfilter-ops"><button id="publicStatusOk" type="button">确定</button><button id="publicStatusReset" type="button">重置</button></div></div></th><th>更新时间 ⇅</th><th>操作</th></tr></thead><tbody id="publicDataBody">
+            <tr data-record data-status="已发布" data-name="严重违法失信企业详细信息" data-type="库表" data-cycle="每月" data-holder="市发展和改革委员会"><td></td><td title="严重违法失信企业详细信息（市场监督局）">严重违法失信企业详细信息（市场监督局）</td><td>库表</td><td>每月</td><td title="市发展和改革委员会">市发展和改革委员会</td><td>2026-06-10 11:43:56</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-status="已发布" data-name="人民监督员履职信息" data-type="接口" data-cycle="每季度" data-holder="市司法局"><td></td><td title="人民监督员监督活动与履职信息数据">人民监督员监督活动与履职信息数据</td><td>接口</td><td>每季度</td><td title="市司法局">市司法局</td><td>2026-06-09 09:12:30</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-status="已发布" data-name="医疗就诊结算信息" data-type="接口" data-cycle="每月" data-holder="市医疗保障局"><td></td><td title="定点医疗机构就诊结算信息数据">定点医疗机构就诊结算信息数据</td><td>接口</td><td>每月</td><td title="市医疗保障局">市医疗保障局</td><td>2026-06-08 15:24:18</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-status="草稿" data-name="城乡居民医保参保信息" data-type="库表" data-cycle="每月" data-holder="市医疗保障局"><td></td><td title="城乡居民基本医疗保险参保信息">城乡居民基本医疗保险参保信息</td><td>库表</td><td>每月</td><td title="市医疗保障局">市医疗保障局</td><td>2026-06-07 10:05:42</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-status="已下线" data-name="公积金缴存与提取信息" data-type="库表" data-cycle="每月" data-holder="市住房公积金管理中心"><td></td><td title="住房公积金个人缴存与提取信息">住房公积金个人缴存与提取信息</td><td>库表</td><td>每月</td><td title="市住房公积金管理中心">市住房公积金管理中心</td><td>2026-06-06 17:40:09</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-status="草稿" data-name="学校参保学生信息" data-type="库表" data-cycle="每季度" data-holder="市卫生健康委员会"><td></td><td title="学校参保学生基本信息数据">学校参保学生基本信息数据</td><td>库表</td><td>每季度</td><td title="市卫生健康委员会">市卫生健康委员会</td><td>2026-06-05 08:55:21</td><td><button class="detail-button" type="button">查看</button></td></tr>
+            <tr data-record data-status="草稿" data-name="药店药品销售记录" data-type="接口+库表" data-cycle="其他" data-holder="市卫生健康委员会"><td></td><td title="定点药店药品销售流水记录数据">定点药店药品销售流水记录数据</td><td>接口+库表</td><td>其他</td><td title="市卫生健康委员会">市卫生健康委员会</td><td>2026-06-04 14:32:47</td><td><button class="detail-button" type="button">查看</button></td></tr>
           </tbody></table><div class="catalog-empty" id="publicDataEmpty" hidden><span>□</span><b>暂无匹配数据</b><p>请调整查询条件后重试</p></div></div>
           <div class="catalog-pagination"><span>共 <b id="publicDataCount">7</b> 条</span><button id="publicPrevPage" type="button">‹</button><em id="publicPageLabel">1 / 1</em><button id="publicNextPage" type="button">›</button><select id="publicPageSize"><option value="6">6 条/页</option><option value="9">9 条/页</option><option value="12">12 条/页</option></select></div>
         </section>
@@ -190,25 +190,27 @@
       </section>
 
       <section class="demand-review-view" id="demandReviewView" hidden>
-        <div class="review-tabs" role="tablist">
+        <div class="dd-crumb"><span>审批中心</span><i>/</i><span>待处理</span><i>/</i><b>需求审核</b></div>
+        <div class="dd-tabbar" role="tablist">
           <button class="active" id="pendingReviewTab" type="button" role="tab" aria-selected="true">待审核</button>
           <button id="reviewedReviewTab" type="button" role="tab" aria-selected="false">已审核</button>
         </div>
-        <section class="review-panel">
-          <div class="review-filter-bar">
-            <label><span>需求名称：</span><input id="reviewDemandName" type="search" placeholder="请输入"></label>
-            <label><span>交付形式：</span><select id="reviewDeliveryType"><option value="all">请选择</option><option>数据接口</option><option>数据报告</option><option>高质量数据集</option></select></label>
-            <div class="review-filter-actions"><button class="reset-button" id="resetReviewFilters" type="button">↻ 重置</button><button class="query-button" id="queryReviewFilters" type="button">⌕ 查询</button><button class="review-expand" id="reviewExpandFilters" type="button">展开 ▾</button></div>
-          </div>
-          <div class="review-filter-more" id="reviewExtraFilters" hidden>
-            <label><span>紧急程度：</span><select id="reviewUrgency"><option value="all">请选择</option><option>普通</option><option>紧急</option></select></label>
-            <label><span>适用场景：</span><select id="reviewScene"><option value="all">请选择</option><option>保险</option><option>商贸</option><option>城市治理</option></select></label>
-          </div>
+        <div class="dd-search">
+          <label><span>需求名称:</span><input id="reviewDemandName" type="search" placeholder="请输入"></label>
+          <label><span>交付形式:</span><select id="reviewDeliveryType"><option value="all">请选择</option><option>数据接口</option><option>数据报告</option><option>高质量数据集</option></select></label>
+          <label><span>紧急程度:</span><select id="reviewUrgency"><option value="all">请选择</option><option>普通</option><option>紧急</option></select></label>
+          <label><span>适用场景:</span><select id="reviewScene"><option value="all">请选择</option><option>保险</option><option>商贸</option><option>城市治理</option></select></label>
+          <div class="dd-search-actions"><button class="dd-btn-reset" id="resetReviewFilters" type="button"><i>↻</i>重置</button><button class="dd-btn-query" id="queryReviewFilters" type="button"><i>⌕</i>查询</button></div>
+        </div>
+        <section class="review-panel dd-list">
           <div class="review-table-tools"><h2 id="reviewListTitle">需求发布待审核列表</h2><div><button id="refreshReviewList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
           <div class="review-table-wrap"><table class="review-table"><thead><tr><th>序号</th><th>需求编号</th><th>需求名称</th><th>交付形式</th><th>紧急程度</th><th>适用场景</th><th>结束时间 ⇅</th><th>数据需求方</th><th>申请时间 ⇅</th><th>操作</th></tr></thead>
             <tbody id="pendingReviewBody">
               <tr data-review-record data-name="企业经营分析数据需求" data-delivery="数据接口" data-urgency="紧急" data-scene="保险"><td>1</td><td>XQ20260608001</td><td>企业经营分析数据需求</td><td>数据接口</td><td>紧急</td><td>保险</td><td>2026-06-12</td><td>**信息技术有限公司</td><td>2026-06-08 16:33:50</td><td><button class="detail-button review-action" type="button">审核</button></td></tr>
               <tr data-review-record data-name="企业数据治理需求" data-delivery="数据接口" data-urgency="普通" data-scene="保险"><td>2</td><td>XQ20260203001</td><td>企业数据治理需求</td><td>数据接口</td><td>普通</td><td>保险</td><td>2026-02-04</td><td>**信息技术有限公司</td><td>2026-02-03 15:26:43</td><td><button class="detail-button review-action" type="button">审核</button></td></tr>
+              <tr data-review-record data-name="城市基础设施运行监测数据需求" data-delivery="数据接口" data-urgency="紧急" data-scene="城市治理"><td>3</td><td>XQ20260501003</td><td>城市基础设施运行监测数据需求</td><td>数据接口</td><td>紧急</td><td>城市治理</td><td>2026-06-20</td><td>汶上县城市管理局</td><td>2026-05-01 11:08:24</td><td><button class="detail-button review-action" type="button">审核</button></td></tr>
+              <tr data-review-record data-name="企业信用风险分析数据需求" data-delivery="数据接口" data-urgency="普通" data-scene="保险"><td>4</td><td>XQ20260412004</td><td>企业信用风险分析数据需求</td><td>数据接口</td><td>普通</td><td>保险</td><td>2026-05-30</td><td>**保险经纪有限公司</td><td>2026-04-12 17:45:30</td><td><button class="detail-button review-action" type="button">审核</button></td></tr>
+              <tr data-review-record data-name="农产品溯源数据需求" data-delivery="数据接口" data-urgency="普通" data-scene="商贸"><td>5</td><td>XQ20260405005</td><td>农产品溯源数据需求</td><td>数据接口</td><td>普通</td><td>商贸</td><td>2026-05-10</td><td>汶上县供销合作社</td><td>2026-04-05 13:12:07</td><td><button class="detail-button review-action" type="button">审核</button></td></tr>
             </tbody>
             <tbody id="reviewedReviewBody" hidden>
               <tr data-review-record data-name="物流地址查询核验接口" data-delivery="数据接口" data-urgency="普通" data-scene="商贸"><td>1</td><td>XQ20260306001</td><td>物流地址查询核验接口</td><td>数据接口</td><td>普通</td><td>商贸</td><td>2026-03-29</td><td>**人才科技有限公司</td><td>2026-03-06 16:08:35</td><td><button class="detail-button review-action" type="button">查看</button></td></tr>
@@ -220,12 +222,17 @@
       </section>
 
       <section class="quality-review-view" id="qualityReviewView" hidden>
-        <div class="quality-review-tabs" role="tablist"><button class="active" id="qualityPendingTab" type="button">待审核</button><button id="qualityReviewedTab" type="button">已审核</button></div>
-        <section class="review-panel quality-review-panel">
-          <div class="review-filter-bar quality-filter-bar"><label><span>数据集名称：</span><input id="qualityDatasetName" type="search" placeholder="请输入"></label><label><span>所属领域：</span><select id="qualityDomain"><option value="all">请选择</option><option>城市治理</option><option>医疗健康</option><option>金融服务</option></select></label><div class="review-filter-actions"><button class="reset-button" id="resetQualityFilters" type="button">↻ 重置</button><button class="query-button" id="queryQualityFilters" type="button">⌕ 查询</button></div></div>
+        <div class="dd-crumb"><span>审批中心</span><i>/</i><span>待处理</span><i>/</i><b>高质量数据集审核</b></div>
+        <div class="dd-tabbar" role="tablist"><button class="active" id="qualityPendingTab" type="button">待审核</button><button id="qualityReviewedTab" type="button">已审核</button></div>
+        <div class="dd-search">
+          <label><span>数据集名称:</span><input id="qualityDatasetName" type="search" placeholder="请输入"></label>
+          <label><span>所属领域:</span><select id="qualityDomain"><option value="all">请选择</option><option>城市治理</option><option>医疗健康</option><option>金融服务</option></select></label>
+          <div class="dd-search-actions"><button class="dd-btn-reset" id="resetQualityFilters" type="button"><i>↻</i>重置</button><button class="dd-btn-query" id="queryQualityFilters" type="button"><i>⌕</i>查询</button></div>
+        </div>
+        <section class="review-panel quality-review-panel dd-list">
           <div class="review-table-tools"><h2 id="qualityListTitle">高质量数据集待审核列表</h2><div><button id="refreshQualityList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
           <div class="review-table-wrap"><table class="review-table quality-review-table"><thead><tr><th>序号</th><th>数据集名称</th><th>所属领域</th><th>关联产品</th><th>申报单位</th><th class="quality-result-col">审核结果</th><th class="quality-time-col">申报时间</th><th class="quality-action-col">操作</th></tr></thead>
-            <tbody id="qualityPendingBody"><tr data-quality-record data-domain="城市治理"><td>1</td><td>园林病虫害训练样本数据集</td><td>城市治理</td><td>智慧园林数据产品</td><td>汶上县园林绿化服务中心</td><td class="quality-result-col">—</td><td>2026-10-12 10:30:16</td><td><button class="detail-button quality-review-action" type="button">审核</button></td></tr><tr data-quality-record data-domain="医疗健康"><td>2</td><td>医疗临床研究高质量数据集</td><td>医疗健康</td><td>医疗健康数据产品</td><td>汶上县人民医院</td><td class="quality-result-col">—</td><td>2026-10-09 15:35:45</td><td><button class="detail-button quality-review-action" type="button">审核</button></td></tr></tbody>
+            <tbody id="qualityPendingBody"><tr data-quality-record data-domain="城市治理"><td>1</td><td>园林病虫害训练样本数据集</td><td>城市治理</td><td>智慧园林数据产品</td><td>汶上县园林绿化服务中心</td><td class="quality-result-col">—</td><td>2026-10-12 10:30:16</td><td><button class="detail-button quality-review-action" type="button">审核</button></td></tr><tr data-quality-record data-domain="医疗健康"><td>2</td><td>医疗临床研究高质量数据集</td><td>医疗健康</td><td>医疗健康数据产品</td><td>汶上县人民医院</td><td class="quality-result-col">—</td><td>2026-10-09 15:35:45</td><td><button class="detail-button quality-review-action" type="button">审核</button></td></tr><tr data-quality-record data-domain="城市治理"><td>3</td><td>市民出行通勤数据集</td><td>城市治理</td><td>智慧交通数据产品</td><td>汶上县交通运输局</td><td class="quality-result-col">—</td><td>2026-10-11 09:02:40</td><td><button class="detail-button quality-review-action" type="button">审核</button></td></tr><tr data-quality-record data-domain="金融服务"><td>4</td><td>企业纳税信用高质量数据集</td><td>金融服务</td><td>纳税信用数据产品</td><td>国家税务总局汶上县税务局</td><td class="quality-result-col">—</td><td>2026-10-10 16:18:55</td><td><button class="detail-button quality-review-action" type="button">审核</button></td></tr><tr data-quality-record data-domain="医疗健康"><td>5</td><td>医疗影像辅助诊断数据集</td><td>医疗健康</td><td>智慧医疗数据产品</td><td>汶上县中医院</td><td class="quality-result-col">—</td><td>2026-10-09 11:40:22</td><td><button class="detail-button quality-review-action" type="button">审核</button></td></tr></tbody>
             <tbody id="qualityReviewedBody" hidden><tr data-quality-record data-domain="金融服务"><td>1</td><td>企业信用评价高质量数据集</td><td>金融服务</td><td>企业信用评价数据产品</td><td>山东亿云信息技术有限公司</td><td class="quality-result-col"><span class="quality-result approved">已通过</span></td><td>2026-10-08 14:20:10</td><td><button class="detail-button quality-view-action" type="button">查看</button></td></tr><tr data-quality-record data-domain="城市治理"><td>2</td><td>城市公共设施运行数据集</td><td>汶上县城市管理局</td><td>城市运行数据产品</td><td>汶上县城市管理局</td><td class="quality-result-col"><span class="quality-result rejected">已驳回</span></td><td>2026-10-06 09:18:32</td><td><button class="detail-button quality-view-action" type="button">查看</button></td></tr></tbody>
           </table><div class="review-empty" id="qualityReviewEmpty" hidden>暂无符合条件的数据集</div></div>
           <div class="review-pagination"><span>共 <b id="qualityReviewCount">2</b> 条</span><button type="button" disabled>‹</button><button class="active" type="button">1</button><button type="button" disabled>›</button><select aria-label="每页条数"><option>10 条/页</option></select></div>
@@ -233,12 +240,16 @@
       </section>
 
       <section class="quality-review-view tool-review-view" id="toolReviewView" hidden>
-        <div class="quality-review-tabs" role="tablist"><button class="active" id="toolPendingTab" type="button">待审核</button><button id="toolReviewedTab" type="button">已审核</button></div>
-        <section class="review-panel quality-review-panel">
-          <div class="review-filter-bar quality-filter-bar"><label><span>工具名称：</span><input id="toolNameFilter" type="search" placeholder="请输入"></label><div></div><div class="review-filter-actions"><button class="reset-button" id="resetToolFilters" type="button">↻ 重置</button><button class="query-button" id="queryToolFilters" type="button">⌕ 查询</button></div></div>
+        <div class="dd-crumb"><span>审批中心</span><i>/</i><span>待处理</span><i>/</i><b>工具使用审核</b></div>
+        <div class="dd-tabbar" role="tablist"><button class="active" id="toolPendingTab" type="button">待审核</button><button id="toolReviewedTab" type="button">已审核</button></div>
+        <div class="dd-search">
+          <label><span>工具名称:</span><input id="toolNameFilter" type="search" placeholder="请输入"></label>
+          <div class="dd-search-actions"><button class="dd-btn-reset" id="resetToolFilters" type="button"><i>↻</i>重置</button><button class="dd-btn-query" id="queryToolFilters" type="button"><i>⌕</i>查询</button></div>
+        </div>
+        <section class="review-panel quality-review-panel dd-list">
           <div class="review-table-tools"><h2 id="toolListTitle">工具使用待审核列表</h2><div><button id="refreshToolList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
           <div class="review-table-wrap"><table class="review-table quality-review-table"><thead><tr><th>序号</th><th>工具名称</th><th>申请单位</th><th class="tool-result-col">审核结果</th><th>申请时间</th><th>操作</th></tr></thead>
-            <tbody id="toolPendingBody"><tr data-tool-record><td>1</td><td>物联网感知平台</td><td>汶上县园林绿化服务中心</td><td class="tool-result-col">—</td><td>2026-10-12 10:25:16</td><td><button class="detail-button tool-review-action" type="button">审核</button></td></tr><tr data-tool-record><td>2</td><td>数据服务平台</td><td>山东亿云信息技术有限公司</td><td class="tool-result-col">—</td><td>2026-10-10 15:35:45</td><td><button class="detail-button tool-review-action" type="button">审核</button></td></tr></tbody>
+            <tbody id="toolPendingBody"><tr data-tool-record><td>1</td><td>物联网感知平台</td><td>汶上县园林绿化服务中心</td><td class="tool-result-col">—</td><td>2026-10-12 10:25:16</td><td><button class="detail-button tool-review-action" type="button">审核</button></td></tr><tr data-tool-record><td>2</td><td>数据服务平台</td><td>山东亿云信息技术有限公司</td><td class="tool-result-col">—</td><td>2026-10-10 15:35:45</td><td><button class="detail-button tool-review-action" type="button">审核</button></td></tr><tr data-tool-record><td>3</td><td>遥感影像分析平台</td><td>汶上县自然资源和规划局</td><td class="tool-result-col">—</td><td>2026-10-11 14:32:18</td><td><button class="detail-button tool-review-action" type="button">审核</button></td></tr><tr data-tool-record><td>4</td><td>城市三维建模工具</td><td>汶上县行政审批服务局</td><td class="tool-result-col">—</td><td>2026-10-10 10:12:44</td><td><button class="detail-button tool-review-action" type="button">审核</button></td></tr><tr data-tool-record><td>5</td><td>大模型智能问答助手</td><td>山东亿云信息技术有限公司</td><td class="tool-result-col">—</td><td>2026-10-09 17:26:31</td><td><button class="detail-button tool-review-action" type="button">审核</button></td></tr></tbody>
             <tbody id="toolReviewedBody" hidden><tr data-tool-record><td>1</td><td>视频融合与分析平台</td><td>汶上县城市管理局</td><td class="tool-result-col"><span class="quality-result approved">已通过</span></td><td>2026-10-08 14:20:10</td><td><button class="detail-button tool-view-action" type="button">查看</button></td></tr><tr data-tool-record><td>2</td><td>EvayBI平台</td><td>汶上县行政审批服务局</td><td class="tool-result-col"><span class="quality-result rejected">已驳回</span></td><td>2026-10-06 09:18:32</td><td><button class="detail-button tool-view-action" type="button">查看</button></td></tr></tbody>
           </table><div class="review-empty" id="toolReviewEmpty" hidden>暂无符合条件的工具申请</div></div>
           <div class="review-pagination"><span>共 <b id="toolReviewCount">2</b> 条</span><button type="button" disabled>‹</button><button class="active" type="button">1</button><button type="button" disabled>›</button><select aria-label="每页条数"><option>10 条/页</option></select></div>
@@ -304,7 +315,7 @@
             <div class="catalog-filter-actions"><button class="reset-button" id="resetDemandList" type="button">↻ 重置</button><button class="query-button" id="queryDemandList" type="button">⌕ 查询</button></div>
           </div>
           <div class="catalog-table-tools"><h2>需求清单列表</h2><div><button id="refreshDemandList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
-          <div class="catalog-table-wrap"><table class="catalog-table demand-table"><thead><tr><th>序号</th><th>需求编号</th><th>需求名称</th><th>数据需求方</th><th>交付形态</th><th>紧急程度</th><th>适用场景</th><th>结束时间</th><th>需求状态</th><th>创建时间</th><th>操作</th></tr></thead><tbody id="demandListBody">
+          <div class="catalog-table-wrap"><table class="catalog-table demand-table"><thead><tr><th>序号</th><th>需求编号</th><th>需求名称</th><th>数据需求方</th><th>交付形态</th><th>紧急程度</th><th>适用场景</th><th>结束时间<span class="dsort" data-sort="end">↕</span></th><th class="sfilter-th">需求状态<span class="sfilter" id="demandStatusTrigger">▾</span><div class="sfilter-drop" id="demandStatusDrop" hidden><label><input type="checkbox" value="已匹配"><i></i>已匹配</label><label><input type="checkbox" value="已完成"><i></i>已完成</label><label><input type="checkbox" value="已结束"><i></i>已结束</label><div class="sfilter-ops"><button id="demandStatusOk" type="button">确定</button><button id="demandStatusReset" type="button">重置</button></div></div></th><th>创建时间<span class="dsort" data-sort="create">↕</span></th><th>操作</th></tr></thead><tbody id="demandListBody">
             <tr data-record data-name="城市道路通行状况分析数据" data-form="数据接口"><td></td><td>XQ20261014001</td><td title="城市道路通行状况分析数据">城市道路通行状况分析数据</td><td title="**人才科技有限公司">**人才科技有限公司</td><td>数据接口</td><td>紧急</td><td>保险</td><td>2026-10-31</td><td><span class="status-pill matched"><i></i>已匹配</span></td><td>2026-10-14 09:30</td><td><button class="demand-view-link" type="button">查看</button></td></tr>
             <tr data-record data-name="消费主体画像数据" data-form="数据接口"><td></td><td>XQ20261009002</td><td title="消费主体画像数据">消费主体画像数据</td><td title="汶上县商贸服务协会">汶上县商贸服务协会</td><td>数据接口</td><td>普通</td><td>商贸</td><td>2026-10-25</td><td><span class="status-pill done"><i></i>已完成</span></td><td>2026-10-09 10:12</td><td><button class="demand-view-link" type="button">查看</button></td></tr>
             <tr data-record data-name="文化场馆客流数据" data-form="数据文件"><td></td><td>XQ20261005003</td><td title="文化场馆客流数据">文化场馆客流数据</td><td title="汶上县文化馆">汶上县文化馆</td><td>数据文件</td><td>普通</td><td>文化</td><td>2026-10-20</td><td><span class="status-pill matched"><i></i>已匹配</span></td><td>2026-10-05 14:02</td><td><button class="demand-view-link" type="button">查看</button></td></tr>
@@ -320,6 +331,6 @@
       </main>
   </div>
   <div class="manager-toast" id="managerToast" hidden>详情页面将在后续完善</div>
-  <script src="management.js?v=20261016dq"></script>
+  <script src="management.js?v=20261016rv2"></script>
 </body>
 </html>
