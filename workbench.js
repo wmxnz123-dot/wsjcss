@@ -270,7 +270,7 @@ const myTools=[
   {name:'数据标注平台',cat:'AI数据',scene:'训练样本标注',status:'待开通',openTime:'2026-10-13',provider:'汶上数据运营中心',desc:'提供图像、文本等多模态数据的标注工具与任务管理能力。'}
 ];
 const myToolBody=document.getElementById('myToolBody');
-function renderMyTools(){let html='';myTools.forEach((o,i)=>{const cls=o.status==='已开通'?'approved':'pending';html+='<tr data-mytool data-status="'+o.status+'" data-keywords="'+(o.name+' '+o.cat+' '+o.scene)+'"><td>'+(i+1)+'</td><td><strong>'+o.name+'</strong></td><td>'+o.cat+'</td><td>'+o.scene+'</td><td>'+o.openTime+'</td><td><span class="status-tag '+cls+'">'+o.status+'</span></td><td><button class="table-link" type="button">查看</button></td></tr>';});myToolBody.innerHTML=html;filterMyTools();}
+function renderMyTools(){let html='';myTools.forEach((o,i)=>{html+='<tr data-mytool data-status="'+o.status+'" data-keywords="'+(o.name+' '+o.cat+' '+o.scene)+'"><td>'+(i+1)+'</td><td><strong>'+o.name+'</strong></td><td>'+o.cat+'</td><td>'+o.scene+'</td><td>'+o.openTime+'</td><td><button class="table-link" type="button">查看</button></td></tr>';});myToolBody.innerHTML=html;filterMyTools();}
 function filterMyTools(){const keyword=document.getElementById('myToolKeyword').value.trim().toLowerCase(),status=document.getElementById('myToolStatus').value;let visible=0;myToolBody.querySelectorAll('[data-mytool]').forEach(row=>{const show=(!keyword||row.dataset.keywords.toLowerCase().includes(keyword))&&(status==='all'||row.dataset.status===status);row.hidden=!show;if(show)visible++;});document.getElementById('myToolEmpty').hidden=visible!==0;document.getElementById('myToolCount').textContent=visible;}
 const myToolMask=document.getElementById('myToolDrawerMask');
 const myToolTabs=[...document.querySelectorAll('[data-mytool-tab]')];
