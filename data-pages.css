@@ -613,6 +613,19 @@ footer{background:#071c39;color:#9eb1c7;padding:31px 0 24px}.footer-main{display
   border-left-color: #dbe5f0;
 }
 
+/* 数据要素全链路阶段筛选 */
+.datachain-stage { margin: 22px 0 8px; }
+.datachain-stage-head { font-size: 16px; font-weight: 700; color: #203a57; margin-bottom: 16px; }
+.datachain-stage-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.datachain-stage-flow button { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 16px 8px; border: 1px solid #e0e9f3; border-radius: 10px; background: #f7fafd; color: #5a6f85; text-align: center; transition: .2s; }
+.datachain-stage-flow button:hover { border-color: #b6d0ef; color: #1769e0; }
+.datachain-stage-flow button.selected { background: #edf4ff; border-color: #74a4e8; color: #1769e0; box-shadow: 0 6px 16px rgba(23,105,224,.08); }
+.datachain-stage-flow button b { font-size: 14px; color: inherit; }
+.datachain-stage-flow button span { font-size: 12px; color: #8b9cb0; }
+.datachain-stage-flow button.selected span { color: #1769e0; }
+@media(max-width:1000px){ .datachain-stage-flow { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:600px){ .datachain-stage-flow { grid-template-columns: 1fr; } }
+
 /* 政策资讯卡片 */
 .news-tabs {
   height: 74px;

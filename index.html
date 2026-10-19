@@ -183,9 +183,9 @@
       <div class="section-head"><div><div class="section-en">SUPPLY & DEMAND</div><h2>供需中心</h2><p>聚合数据产品与高质量数据集需求，推动供需高效匹配</p></div><a class="more" href="#demand">查看全部需求 ↗</a></div>
       <div class="demand-layout">
         <div class="demand-list">
-          <article class="demand-row"><span class="demand-type product">数据产品</span><div><h3>城市运行数据分析产品需求</h3><p>城市治理 · 中优先级 · 汶上县</p></div><span class="demand-state">征集中</span></article>
-          <article class="demand-row"><span class="demand-type dataset">高质量数据集</span><div><h3>园林绿化病虫害识别图像数据集需求</h3><p>智慧园林 · 高优先级 · 汶上县</p></div><span class="demand-state">征集中</span></article>
-          <article class="demand-row"><span class="demand-type product">数据产品</span><div><h3>环卫车辆运行监测数据服务需求</h3><p>智慧环卫 · 中优先级 · 汶上县</p></div><span class="demand-state">对接中</span></article>
+          <article class="demand-row"><span class="demand-type product">数据产品</span><div><h3>城市运行数据分析产品需求</h3><p>城市治理 · 中优先级 · 汶上县</p></div><span class="demand-state">匹配中</span></article>
+          <article class="demand-row"><span class="demand-type dataset">高质量数据集</span><div><h3>园林绿化病虫害识别图像数据集需求</h3><p>智慧园林 · 高优先级 · 汶上县</p></div><span class="demand-state">已匹配</span></article>
+          <article class="demand-row"><span class="demand-type product">数据产品</span><div><h3>环卫车辆运行监测数据服务需求</h3><p>智慧环卫 · 中优先级 · 汶上县</p></div><span class="demand-state">已完成</span></article>
         </div>
         <aside class="demand-action"><small>DEMAND RELEASE</small><h3>有数据需求？</h3><p>发布数据产品或高质量数据集需求，通过平台匹配更合适的供给方。登录后进入工作台完成发布。</p><a class="outline-btn" href="#top">进入供需中心 <span>→</span></a></aside>
       </div>
@@ -237,6 +237,11 @@
       mainNav.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
     }));
+    const featureLinks = {'data-resource':'data-resources.html','data-product':'data-products.html','quality-data':'high-quality-datasets.html'};
+    Object.entries(featureLinks).forEach(([id, href]) => {
+      const card = document.getElementById(id);
+      if (card) card.addEventListener('click', () => { window.location.href = href; });
+    });
   </script>
   <script src="portal-header.js"></script>
 </body>
