@@ -133,10 +133,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .dd-crumb{display:flex;align-items:center;gap:10px;height:46px;margin:0 -36px;padding:0 36px;background:#fff;border-bottom:1px solid #f0f2f5;font-size:13px;color:#909399}
 .dd-crumb i{font-style:normal;color:#c0c4cc}
 .dd-crumb b{color:#303133;font-weight:600}
-.dd-tabbar{height:46px;margin:16px 0 14px;padding:0 22px;gap:34px;background:#fff;border-radius:4px;box-shadow:var(--card-shadow);align-items:stretch}
-.dd-tabbar button{height:46px;padding:0 2px;font-size:14px;color:#303133}
-.dd-tabbar button.active{font-weight:600}
-.dd-tabbar button.active:after{left:0;right:0;bottom:5px;height:2px;border-radius:1px}
+.dd-tabbar{display:flex;height:46px;margin:16px 0 14px;padding:0 22px;gap:34px;background:#fff;border-radius:4px;box-shadow:var(--card-shadow);align-items:stretch}
+.dd-tabbar button{position:relative;height:46px;padding:0 2px;border:0;background:transparent;font-size:14px;color:#303133}
+.dd-tabbar button.active{color:var(--blue);font-weight:600}
+.dd-tabbar button.active:after{content:"";position:absolute;left:0;right:0;bottom:5px;height:2px;border-radius:1px;background:var(--blue)}
 .dd-search{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 24px;padding:24px 26px;background:#fff;border-radius:4px;box-shadow:var(--card-shadow)}
 .dd-search[hidden]{display:none!important}
 .dd-search label{display:flex;align-items:center;gap:10px;min-width:0}
@@ -366,3 +366,21 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .sidebar-panel>.nav-subgroup{margin-bottom:12px!important}
 .sidebar-panel>.nav-disabled{margin-bottom:12px!important;height:41px}
 .nav-subgroup-title{height:41px!important}
+/* 高质量数据集申请审核视图（同 #hqOrderView 样式） */
+#hqApplyView .workbench-table{min-width:0;width:100%}
+#hqApplyView .workbench-table th{height:44px;padding:0 14px;background:#f5f7fa;color:#606266;font-size:13px;font-weight:400;text-align:left;overflow:visible}
+#hqApplyView .workbench-table td{height:52px;padding:8px 14px;border-bottom:1px solid #ebeef5;border-top:0;color:#606266;font-size:13px}
+#hqApplyView .workbench-table tr:last-child td{border-bottom:0}
+#hqApplyView .workbench-table td strong{font-size:13px;font-weight:600;color:#303133;margin:0}
+#hqApplyView .status-tag{display:inline-flex;align-items:center;gap:6px;height:auto;padding:0;border-radius:0;font-size:13px;color:#606266}
+#hqApplyView .status-tag:before{content:"";width:6px;height:6px;border-radius:50%;background:#e6a23c}
+#hqApplyView .status-tag.approved:before{background:#52c41a}
+#hqApplyView .status-tag.returned:before{background:#f5222d}
+#hqApplyView .table-link{min-width:0;height:auto;padding:0;border:0;border-radius:0;background:none;color:#2b7cea;font-weight:500;font-size:13px}
+#hqApplyView .table-link:hover{background:none;border:0;color:#4c8ce8;text-decoration:underline}
+#hqApplyView .table-empty{padding:70px 0;text-align:center;color:#909399;font-size:13px}
+#hqApplyView .workbench-pagination{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin:20px 0 0;color:#606266;font-size:13px}
+#hqApplyView .workbench-pagination b{font-weight:400}
+#hqApplyView .workbench-pagination button{min-width:28px;height:28px;border:0;border-radius:4px;background:transparent;color:#606266;font-size:13px}
+#hqApplyView .workbench-pagination button.active{border:1px solid #dcdfe6;background:#fff;color:#2b7cea;font-weight:600}
+@media(max-width:760px){#hqApplyView .dd-list .workbench-table{min-width:640px}#hqApplyView .workbench-table-wrap{overflow-x:auto}#hqApplyView .workbench-pagination{justify-content:center}}

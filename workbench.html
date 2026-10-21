@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="汶上区域基础设施门户企业工作台">
   <title>我的工作台 - 汶上区域基础设施门户</title>
-  <link rel="stylesheet" href="workbench.css?v=20261021hqo10">
+  <link rel="stylesheet" href="workbench.css?v=20261021hqo13">
 </head>
 <body>
   <header class="workbench-header">
@@ -33,7 +33,7 @@
           <div class="nav-subgroup open"><button class="nav-subgroup-title" type="button" aria-expanded="true"><span>数据产品管理</span><i>⌄</i></button><div class="nav-leaves"><button type="button" data-page="数据产品登记" data-description="登记并管理数据产品">数据产品登记</button><button class="nav-leaf-disabled" type="button" disabled aria-disabled="true">数据产品发布</button><button class="nav-leaf-disabled" type="button" disabled aria-disabled="true">发布产品管理</button></div></div>
           <div class="nav-subgroup open"><button class="nav-subgroup-title" type="button" aria-expanded="true"><span>高质量数据集管理</span><i class="menu-badge badge-new">新</i><i>⌄</i></button><div class="nav-leaves"><button type="button" data-page="高质量数据集申报" data-description="填写并提交高质量数据集申报材料">高质量数据集申报<i class="menu-badge badge-new">新</i></button><button type="button" data-page="高质量数据集管理" data-description="管理已申报的高质量数据集，支持查看与撤销">高质量数据集管理<i class="menu-badge badge-new">新</i></button></div></div>
           <div class="nav-subgroup open"><button class="nav-subgroup-title" type="button" aria-expanded="true"><span>控制策略管理</span><i>⌄</i></button><div class="nav-leaves"><button class="nav-leaf-disabled" type="button" disabled aria-disabled="true">控制规则库</button><button class="nav-leaf-disabled" type="button" disabled aria-disabled="true">我的策略模板</button></div></div>
-          <div class="nav-subgroup"><button class="nav-subgroup-title" type="button" aria-expanded="false"><span>订单管理</span><i class="menu-badge badge-new">新</i><i>⌄</i></button><div class="nav-leaves"><button class="nav-leaf-disabled" type="button" disabled aria-disabled="true">产品订单审核</button><button type="button" data-page="需求交付" data-description="查看待交付及已交付需求">需求交付<i class="menu-badge badge-new">新</i></button></div></div>
+          <div class="nav-subgroup"><button class="nav-subgroup-title" type="button" aria-expanded="false"><span>订单管理</span><i class="menu-badge badge-new">新</i><i>⌄</i></button><div class="nav-leaves"><button class="nav-leaf-disabled" type="button" disabled aria-disabled="true">产品订单审核</button><button type="button" data-page="需求交付" data-description="查看待交付及已交付需求">需求交付<i class="menu-badge badge-new">新</i></button><button type="button" data-page="高质量数据集申请审核" data-description="查看需方提交的高质量数据集使用申请">高质量数据集申请审核<i class="menu-badge badge-new">新</i></button></div></div>
           <div class="nav-subgroup open"><button class="nav-subgroup-title" type="button" aria-expanded="true"><span>数字合约管理</span><i>⌄</i></button><div class="nav-leaves"><button class="nav-leaf-disabled" type="button" disabled aria-disabled="true">数据交付管理</button></div></div>
           <div class="nav-subgroup open"><button class="nav-subgroup-title" type="button" aria-expanded="true"><span>计量计费管理</span><i>⌄</i></button><div class="nav-leaves"><button class="nav-leaf-disabled" type="button" disabled aria-disabled="true">计量中心</button><button class="nav-leaf-disabled" type="button" disabled aria-disabled="true">计费中心</button></div></div>
         </section>
@@ -227,6 +227,24 @@
         </section>
       </section>
 
+      <section class="hq-order-view" id="hqApplyView" hidden>
+        <div class="dd-crumb"><span>供方中心</span><i>/</i><span>订单管理</span><i>/</i><b>高质量数据集申请审核</b></div>
+        <div class="dd-tabbar" role="tablist"><button class="active" id="wbHqApplyPendingTab" type="button">待审核</button><button id="wbHqApplyReviewedTab" type="button">已审核</button></div>
+        <div class="dd-search">
+          <label><span>数据集名称:</span><input id="wbHqApplyKeyword" type="search" placeholder="搜索数据集名称"></label>
+          <label><span>申请单位:</span><input id="wbHqApplyOrgFilter" type="search" placeholder="搜索申请单位"></label>
+          <div class="dd-search-actions"><button class="dd-btn-reset" id="wbHqApplyReset" type="button"><i>↻</i>重置</button><button class="dd-btn-query" id="wbHqApplyQuery" type="button"><i>⌕</i>查询</button></div>
+        </div>
+        <section class="workbench-list-panel demand-admin-panel unified-list-panel dd-list">
+          <div class="list-panel-tools"><span id="wbHqApplyListTitle">高质量数据集申请待审核列表</span><div><button id="wbHqApplyRefresh" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
+          <div class="workbench-table-wrap"><table class="workbench-table demand-admin-table"><thead><tr><th>序号</th><th>申请工单</th><th>数据集名称</th><th>所属领域</th><th>申请单位</th><th class="wb-hqapply-result-col">审核结果</th><th>申请时间</th><th>操作</th></tr></thead>
+            <tbody id="wbHqApplyPendingBody"><tr data-wb-hqapply data-domain="城市治理" data-applicant="张明" data-phone="13805378812" data-apporg="山东天力能源股份有限公司" data-scene="用于园林病虫害智能识别模型训练与养护决策支持。" data-memo="需按批次提供标注样本。"><td>1</td><td>JGSJ20261012001</td><td><strong>园林植物病虫害图像识别数据集</strong></td><td>城市治理</td><td>山东天力能源股份有限公司</td><td class="wb-hqapply-result-col">—</td><td>2026-10-12 09:26</td><td><button class="table-link" type="button">查看</button></td></tr><tr data-wb-hqapply data-domain="城市治理" data-applicant="李伟" data-phone="13905376621" data-apporg="山东天力能源股份有限公司" data-scene="用于环卫设施智能巡检与城市精细化管理研究。" data-memo=""><td>2</td><td>JGSJ20261008002</td><td><strong>城市环卫设施识别数据集</strong></td><td>城市治理</td><td>山东天力能源股份有限公司</td><td class="wb-hqapply-result-col">—</td><td>2026-10-08 14:18</td><td><button class="table-link" type="button">查看</button></td></tr><tr data-wb-hqapply data-domain="城市治理" data-applicant="孙倩" data-phone="13705371166" data-apporg="山东天力能源股份有限公司" data-scene="用于城市气象要素变化趋势分析与应用研究。" data-memo=""><td>3</td><td>JGSJ20260912005</td><td><strong>气象要素逐日观测数据集</strong></td><td>城市治理</td><td>山东天力能源股份有限公司</td><td class="wb-hqapply-result-col">—</td><td>2026-09-12 08:47</td><td><button class="table-link" type="button">查看</button></td></tr></tbody>
+            <tbody id="wbHqApplyReviewedBody" hidden><tr data-wb-hqapply data-domain="交通运输" data-applicant="王芳" data-phone="13605379908" data-apporg="山东天力能源股份有限公司" data-scene="用于区域停车充电一体化布局分析与规划评估。" data-memo="已按申请约定提供数据。"><td>1</td><td>JGSJ20260928003</td><td><strong>公共停车与充电设施时空数据集</strong></td><td>交通运输</td><td>山东天力能源股份有限公司</td><td class="wb-hqapply-result-col"><span class="status-tag approved">已通过</span></td><td>2026-09-28 10:04</td><td><button class="table-link" type="button">查看</button></td></tr><tr data-wb-hqapply data-domain="现代农业" data-applicant="赵强" data-phone="13505372233" data-apporg="山东天力能源股份有限公司" data-scene="用于农业墒情监测与产量预测模型开发。" data-memo="申请材料不完整，请补充数据使用说明后重新提交。"><td>2</td><td>JGSJ20260922004</td><td><strong>作物墒情与长势预测数据集</strong></td><td>现代农业</td><td>山东天力能源股份有限公司</td><td class="wb-hqapply-result-col"><span class="status-tag returned">已驳回</span></td><td>2026-09-22 16:47</td><td><button class="table-link" type="button">查看</button></td></tr></tbody>
+          </table><div class="table-empty" id="wbHqApplyEmpty" hidden>暂未找到符合条件的申请</div></div>
+          <div class="workbench-pagination"><span>共 <b id="wbHqApplyCount">0</b> 条</span><button class="active" type="button">1</button></div>
+        </section>
+      </section>
+
       <section class="tool-order-view" id="toolOrderView" hidden>
         <div class="dd-crumb"><span>工具中心</span><i>/</i><b>工具申请工单</b></div>
         <div class="dd-search">
@@ -413,6 +431,30 @@
     </aside>
   </div>
 
+  <div class="workbench-drawer-mask" id="wbHqApplyDrawerMask" hidden>
+    <aside class="workbench-drawer" role="dialog" aria-modal="true" aria-labelledby="wbHqApplyDrawerTitle">
+      <header class="drawer-head"><h2 id="wbHqApplyDrawerTitle">高质量数据集申请详情</h2><button class="drawer-close" id="closeWbHqApplyDrawer" type="button" aria-label="关闭">×</button></header>
+      <div class="drawer-summary">
+        <span class="drawer-summary-icon">集</span>
+        <div class="drawer-summary-main"><h3 id="wbHqApplyDrawerName">—</h3><div class="drawer-summary-meta"><span class="drawer-status" id="wbHqApplyDrawerStatus"></span><span id="wbHqApplyDrawerNo">—</span><i></i><span id="wbHqApplyDrawerTime">—</span></div></div>
+      </div>
+      <div class="drawer-body">
+        <section class="drawer-pane">
+          <section class="drawer-card"><h4>申请人信息</h4><dl class="drawer-card-grid">
+            <div><dt>申请人姓名</dt><dd id="wbHqApplyApplicant">—</dd></div>
+            <div><dt>联系电话</dt><dd id="wbHqApplyPhone">—</dd></div>
+            <div class="span2"><dt>申请单位</dt><dd id="wbHqApplyAppOrg">—</dd></div>
+          </dl></section>
+          <section class="drawer-card"><h4>使用需求</h4><dl class="drawer-card-grid">
+            <div class="span2"><dt>申请数据集</dt><dd id="wbHqApplyName">—</dd></div>
+            <div><dt>所属领域</dt><dd id="wbHqApplyDomain">—</dd></div>
+            <div class="span2"><dt>使用场景与申请说明</dt><dd id="wbHqApplyScene">—</dd></div>
+            <div class="span2"><dt>备注</dt><dd id="wbHqApplyMemo">—</dd></div>
+          </dl></section>
+        </section>
+      </div>
+    </aside>
+  </div>
   <div class="workbench-drawer-mask" id="hqOrderDrawerMask" hidden>
     <aside class="workbench-drawer" role="dialog" aria-modal="true" aria-labelledby="hqOrderDrawerTitle">
       <header class="drawer-head"><h2 id="hqOrderDrawerTitle">高质量数据集订单详情</h2><button class="drawer-close" id="closeHqOrderDrawer" type="button" aria-label="关闭">×</button></header>
@@ -432,7 +474,6 @@
             <div class="span2"><dt>申请数据集</dt><dd id="hqoDataset">—</dd></div>
             <div><dt>所属领域</dt><dd id="hqoDatasetDomain">—</dd></div>
             <div><dt>所属单位</dt><dd id="hqoDatasetOrg">—</dd></div>
-            <div><dt>使用截止时间</dt><dd id="hqoDeadline">—</dd></div>
             <div class="span2"><dt>使用场景与申请说明</dt><dd id="hqoScenario">—</dd></div>
             <div class="span2"><dt>备注</dt><dd id="hqoRemark">—</dd></div>
           </dl></section>
@@ -447,6 +488,6 @@
     </aside>
   </div>
 
-  <script src="workbench.js?v=20261021hqo3"></script>
+  <script src="workbench.js?v=20261021hqo11"></script>
 </body>
 </html>
