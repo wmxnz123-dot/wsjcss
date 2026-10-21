@@ -11,6 +11,7 @@
 .service-type{display:inline-flex;flex-direction:column;align-items:center;gap:4px;margin-left:auto;padding:8px 11px;border:1.5px solid #4a90d9;border-radius:8px;color:#4a90d9;background:#fff}
 .service-type svg{width:20px;height:20px}
 .service-type em{font-style:normal;font-size:12px;font-weight:600;line-height:1}
+.info-item.full{grid-column:1/-1}
 </style>
 </head>
 <body class="detail-page">
@@ -37,25 +38,24 @@
 
     <section class="detail-section">
       <div class="section-tab"><span>资源信息</span></div>
-      <h2 class="sub-title">基本信息</h2>
+      <h2 class="sub-title">目录基本信息</h2>
       <div class="info-grid">
-        <div class="info-item"><label>资源名称：</label><span>数据要素数据资源-库表003</span></div>
-        <div class="info-item"><label>所属分类：</label><span>经济</span></div>
+        <div class="info-item"><label>目录名称：</label><span>数据要素数据资源-库表003</span></div>
+        <div class="info-item"><label>行业分类：</label><span>经济</span></div>
         <div class="info-item"><label>数据更新周期：</label><span>每周</span></div>
-        <div class="info-item"><label>更新时间：</label><span>2026-06-23 10:26:19</span></div>
-        <div class="info-item"><label>数据所属方：</label><span>数据管理局</span></div>
-        <div class="info-item"><label>资源类型：</label><span>库表</span></div>
+        <div class="info-item"><label>数据持有方：</label><span>数据管理局</span></div>
+        <div class="info-item full"><label>目录摘要：</label><span>该资源以库表形式提供经济领域相关数据要素，每周定期更新，支持按结构化字段进行查询、统计与分析应用。</span></div>
       </div>
 
-      <h2 class="sub-title">表字段展示</h2>
+      <h2 class="sub-title">信息项</h2>
       <div class="table-wrap"><table class="meta-table">
-        <thead><tr><th style="width:80px">序号</th><th>字段名称</th><th>字段类型</th><th>字段描述</th></tr></thead>
+        <thead><tr><th style="width:80px">序号</th><th>信息项名称</th><th>信息项类型</th><th>数据长度</th><th>敏感级别</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>id</td><td><span class="type-pill">bigint</span></td><td>主键ID</td></tr>
-          <tr><td>2</td><td>ip</td><td><span class="type-pill">varchar(64)</span></td><td>IP地址</td></tr>
-          <tr><td>3</td><td>type</td><td><span class="type-pill">varchar(32)</span></td><td>类型</td></tr>
-          <tr><td>4</td><td>create_by</td><td><span class="type-pill">varchar(64)</span></td><td>创建人</td></tr>
-          <tr><td>5</td><td>update_by</td><td><span class="type-pill">varchar(64)</span></td><td>更新人</td></tr>
+          <tr><td>1</td><td>id</td><td><span class="type-pill">bigint</span></td><td>—</td><td>普通</td></tr>
+          <tr><td>2</td><td>ip</td><td><span class="type-pill">varchar</span></td><td>64</td><td>普通</td></tr>
+          <tr><td>3</td><td>type</td><td><span class="type-pill">varchar</span></td><td>32</td><td>普通</td></tr>
+          <tr><td>4</td><td>create_by</td><td><span class="type-pill">varchar</span></td><td>64</td><td>普通</td></tr>
+          <tr><td>5</td><td>update_by</td><td><span class="type-pill">varchar</span></td><td>64</td><td>普通</td></tr>
         </tbody>
       </table></div>
     </section>

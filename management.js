@@ -268,7 +268,7 @@ function openHqApplyDrawer(row){
     tSet('hqApplyDetailName',name);tSet('hqApplyDetailOrg',row.dataset.apporg||'—');tSet('hqApplyDetailTime',time);
     tSet('hqApplyApplicant',row.dataset.applicant||'—');tSet('hqApplyPhone',row.dataset.phone||'—');tSet('hqApplyAppOrg',row.dataset.apporg||'—');
     tSet('hqApplyNo',no);tSet('hqApplyName',name);tSet('hqApplyDomain',domain);tSet('hqApplyDatasetOrg',row.dataset.dsorg||'—');
-    tSet('hqApplyScene',row.dataset.scene||'—');tSet('hqApplyMemo',row.dataset.memo||'—');
+    tSet('hqApplyScene',row.dataset.scene||'—');const hqApplyAtt=document.getElementById('hqApplyAttachment');hqApplyAtt.textContent=row.dataset.attachment||'—';hqApplyAtt.classList.toggle('attached',!!row.dataset.attachment);tSet('hqApplyMemo',row.dataset.memo||'—');
     const statusText=reviewed?cells[6].textContent.trim():'待审核';
     const status=document.getElementById('hqApplyDetailStatus');
     if(status){status.textContent=statusText;status.className='md-status '+(statusText.includes('驳回')?'rejected':(statusText.includes('通过')?'approved':'pending'));}

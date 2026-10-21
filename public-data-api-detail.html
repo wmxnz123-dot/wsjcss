@@ -11,11 +11,7 @@
 .service-type{display:inline-flex;flex-direction:column;align-items:center;gap:4px;margin-left:auto;padding:8px 11px;border:1.5px solid #4a90d9;border-radius:8px;color:#4a90d9;background:#fff}
 .service-type svg{width:20px;height:20px}
 .service-type em{font-style:normal;font-size:12px;font-weight:600;line-height:1}
-.api-card{margin:0 0 22px;padding:18px 24px;border-radius:10px;background:#f7f8fa;border:1px solid #edf0f3}
-.api-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin:0}
-.api-grid dt{color:#8a99a8;font-size:12px;margin-bottom:5px}
-.api-grid dd{margin:0;color:#344c66;font-size:14px;word-break:break-all}
-@media(max-width:760px){.api-grid{grid-template-columns:1fr}}
+.info-item.full{grid-column:1/-1}
 </style>
 </head>
 <body class="detail-page">
@@ -42,38 +38,22 @@
 
     <section class="detail-section">
       <div class="section-tab"><span>资源信息</span></div>
-      <h2 class="sub-title">基本信息</h2>
+      <h2 class="sub-title">目录基本信息</h2>
       <div class="info-grid">
-        <div class="info-item"><label>资源名称：</label><span>数据要素数据资源-接口003</span></div>
-        <div class="info-item"><label>所属分类：</label><span>经济</span></div>
+        <div class="info-item"><label>目录名称：</label><span>数据要素数据资源-接口003</span></div>
+        <div class="info-item"><label>行业分类：</label><span>经济</span></div>
         <div class="info-item"><label>数据更新周期：</label><span>每周</span></div>
-        <div class="info-item"><label>更新时间：</label><span>2026-06-23 10:16:48</span></div>
-        <div class="info-item"><label>数据所属方：</label><span>数据管理局</span></div>
-        <div class="info-item"><label>资源类型：</label><span>接口</span></div>
+        <div class="info-item"><label>数据持有方：</label><span>数据管理局</span></div>
+        <div class="info-item full"><label>目录摘要：</label><span>该资源以接口形式提供经济领域相关数据要素，每周定期更新，支持按统一社会信用代码查询企业风险标签与风险评分。</span></div>
       </div>
 
-      <h2 class="sub-title">接口信息</h2>
-      <div class="api-card"><dl class="api-grid">
-        <div><dt>接口URL</dt><dd>http://10.193.3.18/risk</dd></div>
-        <div><dt>接口Path</dt><dd>/company/risk-tags</dd></div>
-        <div><dt>请求类型</dt><dd>POST</dd></div>
-        <div><dt>返回类型</dt><dd>json</dd></div>
-      </dl></div>
-
-      <h2 class="sub-title">请求参数</h2>
+      <h2 class="sub-title">信息项</h2>
       <div class="table-wrap"><table class="meta-table">
-        <thead><tr><th style="width:80px">序号</th><th>名称</th><th>描述</th></tr></thead>
+        <thead><tr><th style="width:80px">序号</th><th>信息项名称</th><th>信息项类型</th><th>数据长度</th><th>敏感级别</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>creditCode</td><td>统一社会信用代码</td></tr>
-        </tbody>
-      </table></div>
-
-      <h2 class="sub-title">返回参数</h2>
-      <div class="table-wrap"><table class="meta-table">
-        <thead><tr><th style="width:80px">序号</th><th>名称</th><th>描述</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>riskTags</td><td>风险标签列表</td></tr>
-          <tr><td>2</td><td>score</td><td>风险评分</td></tr>
+          <tr><td>1</td><td>creditCode</td><td><span class="type-pill">varchar</span></td><td>18</td><td>普通</td></tr>
+          <tr><td>2</td><td>riskTags</td><td><span class="type-pill">string</span></td><td>—</td><td>普通</td></tr>
+          <tr><td>3</td><td>score</td><td><span class="type-pill">number</span></td><td>—</td><td>普通</td></tr>
         </tbody>
       </table></div>
     </section>

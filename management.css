@@ -382,3 +382,6 @@
 /* 菜单字号回调 */
 .manager-direct b,.manager-group-title b{font-size:14px}
 .manager-submenu button{font-size:13px}
+/* 详情抽屉附件名称（有附件时显示为蓝色链接样式） */
+.md-info-grid dd.attached{color:var(--blue);cursor:pointer}
+.md-info-grid dd.attached:hover{text-decoration:underline}
