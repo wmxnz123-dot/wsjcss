@@ -325,3 +325,60 @@
 .dashboard-empty-state span svg{width:44px;height:44px}
 @media(max-width:1200px){.dashboard-stat-grid{grid-template-columns:repeat(5,1fr);row-gap:14px}.dashboard-stat-item+.dashboard-stat-item{border-left:0}.dashboard-todo-list{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.dashboard-welcome{padding:22px}.dashboard-welcome-slogan{display:none}.dashboard-stat-grid{grid-template-columns:repeat(2,1fr)}.dashboard-todo-list{grid-template-columns:1fr}.dashboard-monitor-stats{grid-template-columns:1fr 1fr}}
+
+/* 侧边栏菜单图标 */
+.manager-submenu button{display:flex;align-items:center;gap:8px}
+.manager-submenu button svg{width:15px;height:15px;flex-shrink:0}
+
+/* 侧边栏菜单 - 按参考图样式 */
+.manager-nav{padding:14px 12px 30px}
+.manager-menu-group{margin-bottom:6px}
+.manager-direct,.manager-group-title{height:54px;padding:0 14px;gap:12px;border-radius:8px}
+.manager-direct b,.manager-group-title b{font-size:15.5px;color:#33475c}
+.menu-icon{width:24px;height:24px;border-radius:0;background:none;color:#5f7d9c;display:grid;place-items:center;font-size:0}
+.menu-icon svg{width:21px;height:21px}
+.manager-direct.active{background:none;color:var(--blue)}
+.manager-direct.active .menu-icon,.manager-direct.active b,.manager-group-title:hover .menu-icon{color:var(--blue)}
+.manager-direct.active .menu-icon,.manager-group-title:hover .menu-icon{background:none}
+.manager-submenu{padding:0 0 8px 26px}
+.manager-submenu button{min-height:46px;padding:10px 12px;font-size:14px;border-radius:0 8px 8px 0}
+.manager-submenu button.active{background:#e8f2ff;color:var(--blue);font-weight:600}
+.manager-submenu button.active:before{left:-26px;top:0;width:5px;height:100%}
+/* 侧边栏菜单 - 按参考图样式 */
+.manager-nav{padding:14px 12px 30px}
+.manager-menu-group{margin-bottom:6px}
+.manager-direct,.manager-group-title{height:54px;padding:0 14px;gap:12px;border-radius:8px}
+.manager-direct b,.manager-group-title b{font-size:15.5px;color:#33475c}
+.menu-icon{width:24px;height:24px;border-radius:0;background:none;color:#5f7d9c;display:grid;place-items:center;font-size:0}
+.menu-icon svg{width:21px;height:21px}
+.manager-direct.active{background:none;color:var(--blue)}
+.manager-direct.active .menu-icon,.manager-direct.active b,.manager-group-title:hover .menu-icon{color:var(--blue)}
+.manager-direct.active .menu-icon,.manager-group-title:hover .menu-icon{background:none}
+.manager-submenu{padding:0 0 8px 26px}
+.manager-submenu button{min-height:46px;padding:10px 12px;font-size:14px;border-radius:0 8px 8px 0}
+.manager-submenu button.active{background:#e8f2ff;color:var(--blue);font-weight:600}
+.manager-submenu button.active:before{left:-26px;top:0;width:5px;height:100%;border-radius:0 3px 3px 0;transform:none}
+
+/* 菜单选中态修正 - 按参考图 */
+.manager-direct b,.manager-group-title b{font-weight:400}
+.manager-menu-group.open .manager-group-title,.manager-menu-group.open .manager-group-title b,.manager-menu-group.open .manager-group-title .menu-icon{color:var(--blue)}
+.manager-menu-group.open .manager-group-title em{color:var(--blue)}
+.manager-submenu{padding:0 0 10px 0}
+.manager-submenu button{min-height:54px;padding:14px 16px 14px 58px;font-size:15px;border-radius:0;font-weight:400}
+.manager-submenu button svg{width:17px;height:17px}
+.manager-submenu button.active{background:#e8f2ff;color:var(--blue);font-weight:400}
+.manager-submenu button.active:before{left:-12px;top:0;width:5px;height:100%;border-radius:0;transform:none}
+
+/* 菜单新/升标记 */
+.menu-badge{display:inline-grid;place-items:center;width:20px;height:20px;margin-left:6px;border-radius:50%;color:#fff;font-size:11px;font-style:normal;font-weight:600;flex-shrink:0;line-height:1;box-sizing:border-box}
+.menu-badge.badge-new{background:#f24559;animation:badge-halo-new 2.4s ease-in-out infinite}
+.menu-badge.badge-up{background:#3d86e8;animation:badge-halo-up 2.4s ease-in-out infinite}
+/* 菜单徽标防换行 */
+.manager-direct,.manager-group-title,.manager-submenu button{flex-wrap:nowrap;white-space:nowrap}
+.manager-direct b,.manager-group-title b,.manager-submenu button>span,.manager-submenu button>i{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.manager-direct .menu-badge,.manager-group-title .menu-badge,.manager-submenu button .menu-badge{margin-left:9px}
+@keyframes badge-halo-new{0%{box-shadow:0 0 0 0 rgba(242,69,89,.55)}45%{box-shadow:0 0 7px 3px rgba(242,69,89,.3)}100%{box-shadow:0 0 0 0 rgba(242,69,89,0)}}
+@keyframes badge-halo-up{0%{box-shadow:0 0 0 0 rgba(61,134,232,.55)}45%{box-shadow:0 0 7px 3px rgba(61,134,232,.3)}100%{box-shadow:0 0 0 0 rgba(61,134,232,0)}}
+/* 菜单字号回调 */
+.manager-direct b,.manager-group-title b{font-size:14px}
+.manager-submenu button{font-size:13px}

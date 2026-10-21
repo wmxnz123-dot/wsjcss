@@ -310,3 +310,59 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 #toolOrderView .workbench-pagination button.active,#myToolsView .workbench-pagination button.active{border:1px solid #dcdfe6;background:#fff;color:#2b7cea;font-weight:600}
 #toolOrderView .workbench-pagination select,#myToolsView .workbench-pagination select{height:28px;border:1px solid #dcdfe6;border-radius:4px;background:#fff;color:#606266;padding:0 8px;font-size:13px}
 @media(max-width:760px){#toolOrderView .dd-list .workbench-table,#myToolsView .dd-list .workbench-table{min-width:640px}#toolOrderView .workbench-table-wrap,#myToolsView .workbench-table-wrap{overflow-x:auto}#toolOrderView .workbench-pagination,#myToolsView .workbench-pagination{justify-content:center}}
+#hqOrderView .workbench-table{min-width:0;width:100%}
+#hqOrderView .workbench-table th{height:44px;padding:0 14px;background:#f5f7fa;color:#606266;font-size:13px;font-weight:400;text-align:left;overflow:visible}
+#hqOrderView .workbench-table td{height:52px;padding:8px 14px;border-bottom:1px solid #ebeef5;border-top:0;color:#606266;font-size:13px}
+#hqOrderView .workbench-table tr:last-child td{border-bottom:0}
+#hqOrderView .workbench-table td strong{font-size:13px;font-weight:600;color:#303133;margin:0}
+#hqOrderView .status-tag{display:inline-flex;align-items:center;gap:6px;height:auto;padding:0;border-radius:0;font-size:13px;color:#606266}
+#hqOrderView .status-tag:before{content:"";width:6px;height:6px;border-radius:50%;background:#e6a23c}
+#hqOrderView .status-tag.approved:before{background:#52c41a}
+#hqOrderView .status-tag.returned:before{background:#f5222d}
+#hqOrderView .table-link{min-width:0;height:auto;padding:0;border:0;border-radius:0;background:none;color:#2b7cea;font-weight:500;font-size:13px}
+#hqOrderView .table-link:hover{background:none;border:0;color:#4c8ce8;text-decoration:underline}
+#hqOrderView .table-empty{padding:70px 0;text-align:center;color:#909399;font-size:13px}
+#hqOrderView .workbench-pagination{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin:20px 0 0;color:#606266;font-size:13px}
+#hqOrderView .workbench-pagination b{font-weight:400}
+#hqOrderView .workbench-pagination button{min-width:28px;height:28px;border:0;border-radius:4px;background:transparent;color:#606266;font-size:13px}
+#hqOrderView .workbench-pagination button.active{border:1px solid #dcdfe6;background:#fff;color:#2b7cea;font-weight:600}
+@media(max-width:760px){#hqOrderView .dd-list .workbench-table{min-width:640px}#hqOrderView .workbench-table-wrap{overflow-x:auto}#hqOrderView .workbench-pagination{justify-content:center}}
+
+/* 侧边栏菜单「新」标记（同管理后台） */
+.menu-badge{display:inline-grid;place-items:center;width:20px;height:20px;margin-left:6px;border-radius:50%;color:#fff;font-size:11px;font-style:normal;font-weight:600;flex-shrink:0;line-height:1}
+.menu-badge.badge-new{background:#f05a5a;box-shadow:0 0 0 3px #fde5e5}
+.nav-subgroup-title i.menu-badge{margin-left:6px;margin-right:0;color:#fff}
+.nav-subgroup-title i.menu-badge{transform:none!important}
+.workbench-primary-nav .menu-badge{vertical-align:middle;margin-left:5px;margin-top:-3px}
+.nav-direct .menu-badge{margin-right:2px}
+/* 一级菜单与工具中心两菜单徽标防换行 */
+.workbench-primary-nav button{white-space:nowrap}
+.workbench-primary-nav .menu-badge{width:18px;height:18px;font-size:10px;margin-left:4px;margin-top:0}
+.nav-direct b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.nav-direct .menu-badge{width:18px;height:18px;font-size:10px;margin-left:4px;margin-right:2px;flex-shrink:0}
+.nav-direct em{flex-shrink:0}
+.nav-direct{gap:6px}
+/* 菜单上下间距调大 */
+.sidebar-panel>.nav-subgroup{margin-bottom:16px}
+.sidebar-panel>.nav-disabled{margin-bottom:16px;height:44px}
+.nav-subgroup-title{height:46px}
+.nav-leaves{padding:3px 0 10px 10px}
+.nav-leaves button{min-height:43px}
+/* 间距回调：适中幅度，三级菜单项之间加间距 */
+.sidebar-panel>.nav-subgroup{margin-bottom:10px}
+.sidebar-panel>.nav-disabled{margin-bottom:10px;height:42px}
+.nav-subgroup-title{height:44px}
+.nav-leaves{padding:2px 0 8px 10px}
+.nav-leaves button{min-height:40px;padding:9px 9px;margin-bottom:4px}
+.nav-leaves button:last-child{margin-bottom:0}
+/* 菜单间距定稿：分组间 14px，叶子项间 7px */
+.sidebar-panel>.nav-subgroup{margin-bottom:14px!important}
+.sidebar-panel>.nav-disabled{margin-bottom:14px!important;height:43px}
+.nav-subgroup-title{height:45px!important}
+.nav-leaves{padding:4px 0 10px 10px!important}
+.nav-leaves button{min-height:42px!important;padding:10px 9px!important;margin-bottom:7px!important}
+.nav-leaves button:last-child{margin-bottom:0!important}
+/* 二级菜单（分组标题）回调，三级保持 */
+.sidebar-panel>.nav-subgroup{margin-bottom:12px!important}
+.sidebar-panel>.nav-disabled{margin-bottom:12px!important;height:41px}
+.nav-subgroup-title{height:41px!important}

@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="园林植物病虫害图像识别数据集详情"><title>园林植物病虫害图像识别数据集</title><link rel="stylesheet" href="data-pages.css?v=20261016hqd3"><link rel="stylesheet" href="portal-header.css">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="园林植物病虫害图像识别数据集详情"><title>园林植物病虫害图像识别数据集</title><link rel="stylesheet" href="data-pages.css?v=20261020hqd5"><link rel="stylesheet" href="portal-header.css">
 </head>
 <body class="detail-page">
   <header class="header"><div class="wrap header-inner"><a class="brand" href="index.html"><span class="brand-mark"></span><span><strong>汶上区域基础设施门户</strong><small>WENSHANG REGIONAL INFRASTRUCTURE</small></span></a><nav class="nav" id="mainNav"><a class="nav-item" href="index.html">首页</a><div class="nav-group"><span class="nav-item active">数据中心 <span class="nav-caret">▼</span></span><div class="dropdown"><a href="data-resources.html">数据资源</a><a href="data-products.html">数据产品</a><a class="current" href="high-quality-datasets.html">高质量数据集</a></div></div><a class="nav-item" href="supply-demand.html">供需中心</a><a class="nav-item" href="scenarios.html">场景中心</a><a class="nav-item" href="tools.html">工具中心</a><a class="nav-item" href="news.html">政策资讯</a></nav><div class="header-actions"><button class="menu-btn" id="menuBtn">☰</button></div></div></header>
   <main class="wrap"><nav class="breadcrumb"><span>◉</span><a href="index.html">首页</a><span>›</span><a href="high-quality-datasets.html">高质量数据集</a><span>›</span><b>数据集详情</b></nav>
-    <section class="detail-card dataset-summary"><div class="dataset-symbol">虫情</div><div class="dataset-summary-main"><h1>园林植物病虫害图像识别数据集</h1><p>覆盖常见园林植物病害、虫害及健康样本，提供标准化图像标注与分类信息。</p><div class="dataset-summary-tags"><span class="task-badge">图像</span><span class="grade-badge open">按月更新</span><span class="space-badge">自主建设</span></div></div><div class="product-apply"><span>更新频率：每月</span></div></section>
-    <section class="quality-quick-entry"><span class="qqe-icon">品</span><div class="qqe-copy"><b>关联数据产品</b><p>该高质量数据集依托此已发布数据产品申报生成；如需使用数据集，请前往对应产品页面申请。</p></div><a class="qqe-link" href="data-product-detail.html"><span class="qqe-link-main"><b>智慧园林资源空间分析产品</b><small>按次计费 · 审核后授权</small></span><i>→</i></a></section>
+    <section class="detail-card dataset-summary"><div class="dataset-symbol">虫情</div><div class="dataset-summary-main"><h1>园林植物病虫害图像识别数据集</h1><p>覆盖常见园林植物病害、虫害及健康样本，提供标准化图像标注与分类信息。</p><div class="dataset-summary-tags"><span class="task-badge">图像</span><span class="grade-badge open">按月更新</span><span class="space-badge">自主建设</span></div></div><div class="product-apply"><button class="apply-btn" id="openDatasetApply" type="button">申请使用</button></div></section>
     <section class="detail-section"><div class="section-tab"><span>数据集信息</span></div>
       <h2 class="sub-title">基本信息</h2><div class="info-grid">
       <div class="info-item"><label>高质量数据集名称：</label><span>园林植物病虫害图像识别数据集</span></div><div class="info-item"><label>建设重点领域：</label><span>城市治理</span></div>
@@ -18,7 +17,27 @@
     </div>
     </section>
   </main>
+  <div class="modal-overlay" id="datasetApplyModal" role="dialog" aria-modal="true" aria-labelledby="datasetApplyTitle" hidden><div class="modal"><div class="modal-head"><div><h2 id="datasetApplyTitle">申请使用高质量数据集</h2><p>请完整填写申请信息，带 * 的项目为必填项</p></div><button class="modal-close" id="closeDatasetApply" type="button" aria-label="关闭">×</button></div><form id="datasetApplyForm"><div class="modal-body">
+    <section class="form-section"><div class="form-section-title">申请人信息</div><div class="form-section-body"><div class="form-field"><label class="required" for="dsApplicant">申请人姓名</label><input id="dsApplicant" required placeholder="请输入姓名"></div><div class="form-field"><label class="required" for="dsPhone">联系电话</label><input id="dsPhone" type="tel" required pattern="1[3-9][0-9]{9}" placeholder="请输入11位手机号码"></div><div class="form-field span-2"><label class="required" for="dsOrg">申请单位</label><input id="dsOrg" required placeholder="请输入单位全称"></div></div></section>
+    <section class="form-section"><div class="form-section-title">使用需求</div><div class="form-section-body"><div class="form-field span-2"><label class="required" for="dsName">申请数据集</label><input id="dsName" readonly required></div><div class="form-field"><label class="required" for="dsDeadline">使用截止时间</label><input id="dsDeadline" type="date" required></div><div class="form-field span-3"><label class="required" for="dsScenario">使用场景与申请说明</label><textarea id="dsScenario" required placeholder="请描述业务场景、使用目标及数据用途"></textarea></div><div class="form-field span-3"><label for="dsRemark">备注</label><textarea id="dsRemark" placeholder="如需补充说明，请在此填写"></textarea></div></div></section>
+    <div class="modal-foot"><button class="cancel-btn" id="cancelDatasetApply" type="button">取消</button><button class="submit-btn" type="submit">提交申请</button></div></form>
+  </div></div>
+  <div class="modal-overlay" id="datasetSuccessModal" role="dialog" aria-modal="true" aria-labelledby="datasetSuccessTitle" hidden><div class="modal tool-success-modal" data-success-modal><span class="success-icon">✓</span><h2 id="datasetSuccessTitle">提交成功</h2><p>数据集使用申请已提交成功，请前往企业工作台的「高质量数据集申请」页面查看审核进度。</p><div class="success-actions"><button class="success-secondary" id="laterDsView" type="button">关闭</button><button class="success-primary" id="goToolOrder2" type="button">前往查看</button></div></div></div>
   <footer><div class="wrap"><div class="footer-main"><div class="footer-brand"><strong>汶上区域基础设施门户</strong><span>WENSHANG REGIONAL INFRASTRUCTURE PORTAL</span></div><div class="footer-links"><a href="data-resources.html">数据中心</a><a href="supply-demand.html">供需中心</a><a href="scenarios.html">场景中心</a><a href="tools.html">工具中心</a><a href="news.html">政策资讯</a></div></div><div class="copyright"><span>主办单位：待确认</span><span>© 2026 汶上区域基础设施门户</span></div></div></footer>
-  <script>const menuButton=document.getElementById('menuBtn'),mainNav=document.getElementById('mainNav');menuButton.addEventListener('click',()=>{const opened=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(opened));});</script>
+  <script>const menuButton=document.getElementById('menuBtn'),mainNav=document.getElementById('mainNav');menuButton.addEventListener('click',()=>{const opened=mainNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(opened));});
+    const dsModal=document.getElementById('datasetApplyModal'),dsClose=document.getElementById('closeDatasetApply'),dsCancel=document.getElementById('cancelDatasetApply'),dsForm=document.getElementById('datasetApplyForm'),dsName=document.getElementById('dsName'),dsSuccess=document.getElementById('datasetSuccessModal');
+    function openDsApply(){dsName.value='园林植物病虫害图像识别数据集';dsModal.hidden=false;document.body.classList.add('modal-open');setTimeout(()=>document.getElementById('dsApplicant').focus(),0);}
+    function closeDsApply(){dsModal.hidden=true;document.body.classList.remove('modal-open');}
+    function openDsSuccess(){dsModal.hidden=true;dsSuccess.hidden=false;document.body.classList.add('modal-open');}
+    function closeDsSuccess(){dsSuccess.hidden=true;document.body.classList.remove('modal-open');}
+    document.getElementById('openDatasetApply').addEventListener('click',openDsApply);
+    dsClose.addEventListener('click',closeDsApply);dsCancel.addEventListener('click',closeDsApply);
+    dsModal.addEventListener('click',event=>{if(event.target===dsModal)closeDsApply();});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!dsModal.hidden)closeDsApply();});
+    dsForm.addEventListener('submit',event=>{event.preventDefault();if(!dsForm.reportValidity())return;dsForm.reset();openDsSuccess();});
+    document.getElementById('laterDsView').addEventListener('click',closeDsSuccess);
+    dsSuccess.addEventListener('click',event=>{if(event.target===dsSuccess)closeDsSuccess();});
+    document.getElementById('goToolOrder2').addEventListener('click',()=>{location.href='workbench.html';});
+  </script>
   <script src="portal-header.js"></script>
 </body></html>
