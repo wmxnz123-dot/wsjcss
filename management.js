@@ -237,14 +237,14 @@ function setToolReviewMode(mode){toolReviewMode=mode;const pending=mode==='pendi
 function tSet(id,val){const el=document.getElementById(id);if(el)el.textContent=val;}
 function openToolDrawer(row){
   try{
-    const reviewed=toolReviewMode==='reviewed';const cells=[...row.children];const no=cells[1].textContent,name=cells[2].textContent,org=cells[3].textContent,deadline=cells[4].textContent,time=cells[6].textContent;
+    const reviewed=toolReviewMode==='reviewed';const cells=[...row.children];const no=cells[1].textContent,name=cells[2].textContent,org=cells[3].textContent,time=cells[5].textContent;
     tSet('toolDetailName',name);tSet('toolDetailOrg',org);tSet('toolDetailTime',time);
     tSet('toolInfoNo',no);tSet('toolInfoName',name);tSet('toolInfoOrg',org);
     tSet('toolInfoApplicant',row.dataset.applicant||'—');tSet('toolInfoPhone',row.dataset.phone||'—');
-    tSet('toolInfoTime',time);tSet('toolInfoDeadline',deadline);
+    tSet('toolInfoTime',time);
     tSet('toolInfoScene',row.dataset.scene||'—');tSet('toolInfoMemo',row.dataset.memo||'—');tSet('toolInfoFile',row.dataset.file||'—');
     const status=document.getElementById('toolDetailStatus');
-    if(status){status.textContent=reviewed?cells[5].textContent:'待审核';status.className='md-status '+(reviewed&&cells[5].textContent.includes('驳回')?'rejected':'pending');}
+    if(status){status.textContent=reviewed?cells[4].textContent:'待审核';status.className='md-status '+(reviewed&&cells[4].textContent.includes('驳回')?'rejected':'pending');}
     const actions=document.getElementById('toolDrawerActions');if(actions)actions.hidden=reviewed;
     const mask=document.getElementById('toolDrawerMask');
     if(mask){mask.hidden=false;}else{console.error('toolDrawerMask 元素不存在');}
@@ -273,6 +273,8 @@ function openHqApplyDrawer(row){
     const status=document.getElementById('hqApplyDetailStatus');
     if(status){status.textContent=statusText;status.className='md-status '+(statusText.includes('驳回')?'rejected':(statusText.includes('通过')?'approved':'pending'));}
     const actions=document.getElementById('hqApplyDrawerActions');if(actions)actions.hidden=reviewed;
+    fillHqApplyTimeline(row.dataset.applicant||'—',row.dataset.apporg||'—',time,statusText);
+    setHqApplyDrawerTab('info');
     const mask=document.getElementById('hqApplyDrawerMask');if(mask)mask.hidden=false;
   }catch(err){
     console.error('打开高质量数据集申请详情失败：',err);
@@ -280,6 +282,18 @@ function openHqApplyDrawer(row){
     if(toast){toast.textContent='打开详情失败：'+err.message;toast.hidden=false;clearTimeout(window.managerToastTimer);window.managerToastTimer=setTimeout(()=>toast.hidden=true,4000);}
   }
 }
+function setHqApplyDrawerTab(tab){document.querySelectorAll('[data-hqapply-tab]').forEach(button=>{const active=button.dataset.hqapplyTab===tab;button.classList.toggle('active',active);button.setAttribute('aria-selected',active?'true':'false');});document.getElementById('hqApplyPaneInfo').hidden=tab!=='info';document.getElementById('hqApplyPaneApproval').hidden=tab!=='approval';}
+function fillHqApplyTimeline(applicant,org,time,statusText){
+  const timeline=document.getElementById('hqApplyTimeline');
+  const item=(cls,title,icon,items)=>'<li class="'+cls+'"><span class="mt-dot">'+(icon||'')+'</span><div class="mt-content"><h4>'+title+'</h4><div class="mt-info">'+items.map(it=>'<div><b>'+it[0]+'</b>'+it[1]+'</div>').join('')+'</div></div></li>';
+  const meta=[['处理时间',time],['处理人',applicant],['处理部门',org],['结果','提交'],['意见','高质量数据集使用申请已提交']];
+  let review='';
+  if(statusText==='待审核'){review=item('current','平台运营方审核','⏳',[['处理人','数据资源运营团队'],['结果','待审核'],['意见','等待平台运营方审核处理']]);}
+  else if(statusText.includes('通过')){review=item('current','平台运营方审核','✓',[['处理时间',time],['处理部门','数据资源运营团队'],['结果','通过'],['意见','申请信息完整，使用场景合理，审核通过']]);}
+  else{review=item('current','平台运营方审核','✕',[['处理时间',time],['处理部门','数据资源运营团队'],['结果','驳回'],['意见','申请材料不完整，请补充数据使用说明后重新提交']]);}
+  timeline.innerHTML=item('start','开始','●',[])+item('','提交申请','●',meta)+review+item('end','结束','●',[]);
+}
+document.querySelectorAll('[data-hqapply-tab]').forEach(button=>button.addEventListener('click',()=>setHqApplyDrawerTab(button.dataset.hqapplyTab)));
 document.getElementById('hqApplyPendingTab').addEventListener('click',()=>setHqApplyReviewMode('pending'));
 document.getElementById('hqApplyReviewedTab').addEventListener('click',()=>setHqApplyReviewMode('reviewed'));
 document.getElementById('queryHqApplyFilters').addEventListener('click',renderHqApplyRecords);
@@ -297,7 +311,7 @@ hqApplyOpinionMask.querySelector('.hqapply-opinion-cancel').addEventListener('cl
 hqApplyOpinionMask.addEventListener('click',event=>{if(event.target===event.currentTarget)closeHqApplyOpinion();});
 hqApplyOpinionMask.querySelector('.hqapply-opinion-confirm').addEventListener('click',()=>{closeHqApplyOpinion();document.getElementById('hqApplyDrawerMask').hidden=true;const toast=document.getElementById('managerToast');toast.textContent='审核结果已提交';toast.hidden=false;clearTimeout(window.managerToastTimer);window.managerToastTimer=setTimeout(()=>toast.hidden=true,2600);});
 setHqApplyReviewMode('pending');
-const toolConfigMask=document.getElementById('toolConfigMask');function closeToolConfigForm(){toolConfigMask.hidden=true;}document.getElementById('openToolConfigForm').addEventListener('click',()=>{document.getElementById('toolConfigForm').reset();toolConfigMask.hidden=false;});document.getElementById('closeToolConfigForm').addEventListener('click',closeToolConfigForm);document.getElementById('cancelToolConfigForm').addEventListener('click',closeToolConfigForm);document.getElementById('toolConfigForm').addEventListener('submit',event=>{event.preventDefault();closeToolConfigForm();const toast=document.getElementById('managerToast');toast.textContent='工具配置已保存';toast.hidden=false;clearTimeout(window.managerToastTimer);window.managerToastTimer=setTimeout(()=>toast.hidden=true,2600);});toolConfigMask.addEventListener('click',event=>{if(event.target===event.currentTarget)closeToolConfigForm();});document.querySelectorAll('.status-switch').forEach(button=>button.addEventListener('click',()=>{button.classList.toggle('on');button.querySelector('span').textContent=button.classList.contains('on')?'已上架':'未上架';}));document.querySelectorAll('.config-action').forEach(button=>button.addEventListener('click',()=>{if(button.textContent==='查看')return;const toast=document.getElementById('managerToast');toast.textContent=button.textContent==='删除'?'删除操作已触发':`${button.textContent}工具配置`;toast.hidden=false;clearTimeout(window.managerToastTimer);window.managerToastTimer=setTimeout(()=>toast.hidden=true,2200);}));
+const toolConfigMask=document.getElementById('toolConfigMask');function closeToolConfigForm(){toolConfigMask.hidden=true;}document.getElementById('openToolConfigForm').addEventListener('click',()=>{document.getElementById('toolConfigForm').reset();toolConfigMask.hidden=false;});document.getElementById('closeToolConfigForm').addEventListener('click',closeToolConfigForm);document.getElementById('cancelToolConfigForm').addEventListener('click',closeToolConfigForm);document.getElementById('toolConfigForm').addEventListener('submit',event=>{event.preventDefault();const stageChecked=document.querySelectorAll('#toolConfigStageGroup input[name="toolStage"]:checked').length>0;const toast=document.getElementById('managerToast');if(!stageChecked){toast.textContent='请至少选择一个所属阶段';toast.hidden=false;clearTimeout(window.managerToastTimer);window.managerToastTimer=setTimeout(()=>toast.hidden=true,2600);return;}closeToolConfigForm();toast.textContent='工具配置已保存';toast.hidden=false;clearTimeout(window.managerToastTimer);window.managerToastTimer=setTimeout(()=>toast.hidden=true,2600);});toolConfigMask.addEventListener('click',event=>{if(event.target===event.currentTarget)closeToolConfigForm();});document.querySelectorAll('.status-switch').forEach(button=>button.addEventListener('click',()=>{button.classList.toggle('on');button.querySelector('span').textContent=button.classList.contains('on')?'已上架':'未上架';}));document.querySelectorAll('.config-action').forEach(button=>button.addEventListener('click',()=>{if(button.textContent==='查看')return;const toast=document.getElementById('managerToast');toast.textContent=button.textContent==='删除'?'删除操作已触发':`${button.textContent}工具配置`;toast.hidden=false;clearTimeout(window.managerToastTimer);window.managerToastTimer=setTimeout(()=>toast.hidden=true,2200);}));
 const toolDetailMask=document.getElementById('toolDetailMask');
 function closeToolDetail(){toolDetailMask.hidden=true;}
 document.getElementById('closeToolDetail').addEventListener('click',closeToolDetail);
