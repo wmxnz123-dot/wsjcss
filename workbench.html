@@ -314,8 +314,11 @@
       <div class="declaration-field span-3"><label class="required" for="demandDescription">需求描述</label><textarea id="demandDescription" required placeholder="请详细描述数据类型、数量、格式、质量要求、数据规模、预算和用途等信息"></textarea></div>
       <div class="declaration-field span-2"><label for="demandAttachment">附件</label><input id="demandAttachment" type="file" accept=".docx,.doc,.pdf,.xlsx,.xls,.txt"><small>支持 DOCX、DOC、PDF、XLSX、XLS、TXT，可上传一个文件，最大 10MB</small></div>
       <div class="declaration-field span-3"><label for="demandRemark">备注</label><textarea id="demandRemark" placeholder="请输入需要补充说明的内容"></textarea></div>
-      <div class="declaration-field"><label class="required" for="demandContact">联系人</label><input id="demandContact" required value="数据开发方"></div>
+    </div></section>
+    <section class="declaration-section"><div class="declaration-section-title">单位信息</div><div class="declaration-fields demand-form-fields">
+      <div class="declaration-field"><label class="required" for="demandContact">联系人</label><input id="demandContact" required value="张明"></div>
       <div class="declaration-field"><label class="required" for="demandPhone">联系方式</label><input id="demandPhone" type="tel" required pattern="1[3-9][0-9]{9}" value="18615677829"></div>
+      <div class="declaration-field"><label class="required" for="demandOrg">申请单位</label><input id="demandOrg" required value="自定义名称555"></div>
     </div></section>
   </div><div class="workbench-modal-foot"><button class="secondary-action" id="cancelDemandPublish" type="button">取消</button><button class="primary-action" type="submit">确定发布</button></div></form></div></div><div class="workbench-toast" id="demandPublishToast" hidden>需求已提交，等待平台运营方审核</div>
 

@@ -6,7 +6,7 @@
   <meta name="description" content="汶上区域基础设施管理方后台">
   <title>管理方后台 - 汶上区域基础设施门户</title>
   <meta http-equiv="Cache-Control" content="no-cache">
-  <link rel="stylesheet" href="management.css?v=20261022logo30">
+  <link rel="stylesheet" href="management.css?v=20261022logo31">
   <link rel="stylesheet" href="management-public-create.css?v=20261016pa">
 </head>
 <body>
@@ -32,7 +32,7 @@
 
         <section class="manager-menu-group">
           <button class="manager-group-title" type="button" aria-expanded="false"><span><i class="menu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 8H8L6 3H3"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></i><b>订单列表</b><i class="menu-badge badge-new">新</i></span><em>⌄</em></button>
-          <div class="manager-submenu"><button class="manager-submenu-disabled" type="button" disabled aria-disabled="true">数据产品订单</button><button type="button" data-page="需求清单" data-description="查看和管理需求清单">需求清单<i class="menu-badge badge-new">新</i></button></div>
+          <div class="manager-submenu"><button class="manager-submenu-disabled" type="button" disabled aria-disabled="true">数据产品订单</button><button type="button" data-page="需求清单" data-description="查看和管理需求清单">需求清单<i class="menu-badge badge-new">新</i></button><button type="button" data-page="高质量数据集申请订单" data-description="查看需方提交的高质量数据集使用申请订单">高质量数据集申请订单<i class="menu-badge badge-new">新</i></button></div>
         </section>
 
         <section class="manager-menu-group">
@@ -171,11 +171,14 @@
             <section class="public-form-section" id="catalogInfo">
               <h2>目录信息</h2>
               <div class="public-form-grid">
+                <label class="required span-2"><span>目录编码</span><input id="publicCreateCode" placeholder="请输入目录编码"></label>
                 <label class="required span-2"><span>目录名称</span><input id="publicCreateName" required placeholder="请输入"></label>
                 <label class="span-2"><span>行业分类</span><select><option value="">请选择行业分类</option><option>城市治理</option><option>现代农业</option><option>交通运输</option><option>医疗健康</option><option>金融服务</option><option>商贸流通</option><option>应急管理</option></select></label>
                 <label class="required"><span>数据更新周期</span><select required><option value="">请选择</option><option>实时</option><option>每日</option><option>每月</option><option>每季度</option></select></label>
                 <label class="required span-2"><span>目录摘要</span><textarea required placeholder="请输入数据目录摘要"></textarea></label>
                 <label class="span-2"><span>数据持有方</span><input value="**信息技术有限公司" readonly></label>
+                <label class="span-2"><span>数据来源</span><input id="publicCreateSource" placeholder="请输入数据来源"></label>
+                <label class="span-2"><span>数据地址</span><input id="publicCreateUrl" type="url" placeholder="请输入数据地址（网址）"></label>
               </div>
             </section>
 
@@ -259,8 +262,7 @@
       </section>
 
       <section class="quality-review-view tool-review-view" id="hqApplyReviewView" hidden>
-        <div class="dd-crumb"><span>审批中心</span><i>/</i><span>待处理</span><i>/</i><b>高质量数据集申请审核</b></div>
-        <div class="dd-tabbar" role="tablist"><button class="active" id="hqApplyPendingTab" type="button">待审核</button><button id="hqApplyReviewedTab" type="button">已审核</button></div>
+        <div class="dd-crumb" id="hqApplyCrumbPath"><span>审批中心</span><i>/</i><span>待处理</span><i>/</i><b>高质量数据集申请审核</b></div>
         <div class="dd-search">
           <label><span>数据集名称:</span><input id="hqApplyNameFilter" type="search" placeholder="请输入"></label>
           <label><span>所属单位:</span><input id="hqApplyDsOrgFilter" type="search" placeholder="请输入"></label>
@@ -268,10 +270,10 @@
           <div class="dd-search-actions"><button class="dd-btn-reset" id="resetHqApplyFilters" type="button"><i>↻</i>重置</button><button class="dd-btn-query" id="queryHqApplyFilters" type="button"><i>⌕</i>查询</button></div>
         </div>
         <section class="review-panel quality-review-panel dd-list">
-          <div class="review-table-tools"><h2 id="hqApplyListTitle">高质量数据集申请待审核列表</h2><div><button id="refreshHqApplyList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
+          <div class="review-table-tools"><h2 id="hqApplyListTitle">高质量数据集申请列表</h2><div><button id="refreshHqApplyList" type="button" aria-label="刷新">↻</button><button type="button" aria-label="表格密度">↕</button><button type="button" aria-label="列表设置">⚙</button></div></div>
           <div class="review-table-wrap"><table class="review-table quality-review-table"><thead><tr><th>序号</th><th>申请工单</th><th>数据集名称</th><th>所属领域</th><th>所属单位</th><th>申请单位</th><th class="hqapply-result-col">审核结果</th><th>申请时间</th><th>操作</th></tr></thead>
-            <tbody id="hqApplyPendingBody"><tr data-hqapply-record data-domain="城市治理" data-applicant="张明" data-phone="13805378812" data-apporg="山东天力能源股份有限公司" data-deadline="2026-12-31" data-dsorg="汶上县园林服务中心" data-scene="用于园林病虫害智能识别模型训练与养护决策支持。" data-memo="需按批次提供标注样本。" data-attachment="园林病虫害识别应用方案.pdf"><td>1</td><td>JGSJ20261012001</td><td>园林植物病虫害图像识别数据集</td><td>城市治理</td><td>汶上县园林服务中心</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col">—</td><td>2026-10-12 09:26</td><td><button class="detail-button hqapply-review-action" type="button">审核</button></td></tr><tr data-hqapply-record data-domain="城市治理" data-applicant="李伟" data-phone="13905376621" data-apporg="山东天力能源股份有限公司" data-deadline="2026-12-15" data-dsorg="汶上县综合行政执法局" data-scene="用于环卫设施智能巡检与城市精细化管理研究。" data-memo="" data-attachment=""><td>2</td><td>JGSJ20261008002</td><td>城市环卫设施识别数据集</td><td>城市治理</td><td>汶上县综合行政执法局</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col">—</td><td>2026-10-08 14:18</td><td><button class="detail-button hqapply-review-action" type="button">审核</button></td></tr><tr data-hqapply-record data-domain="城市治理" data-applicant="孙倩" data-phone="13705371166" data-apporg="山东天力能源股份有限公司" data-deadline="2027-09-30" data-dsorg="汶上县园林服务中心" data-scene="用于城市气象要素变化趋势分析与应用研究。" data-memo="" data-attachment=""><td>3</td><td>JGSJ20260912005</td><td>气象要素逐日观测数据集</td><td>城市治理</td><td>汶上县园林服务中心</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col">—</td><td>2026-09-12 08:47</td><td><button class="detail-button hqapply-review-action" type="button">审核</button></td></tr></tbody>
-            <tbody id="hqApplyReviewedBody" hidden><tr data-hqapply-record data-domain="交通运输" data-applicant="王芳" data-phone="13605379908" data-apporg="山东天力能源股份有限公司" data-deadline="2027-03-31" data-dsorg="汶上县住房和城乡建设局" data-scene="用于区域停车充电一体化布局分析与规划评估。" data-memo="已按申请约定提供数据。" data-attachment="停车充电数据分析需求说明.pdf"><td>1</td><td>JGSJ20260928003</td><td>公共停车与充电设施时空数据集</td><td>交通运输</td><td>汶上县住房和城乡建设局</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col"><span class="quality-result approved">已通过</span></td><td>2026-09-28 10:04</td><td><button class="detail-button hqapply-view-action" type="button">查看</button></td></tr><tr data-hqapply-record data-domain="现代农业" data-applicant="赵强" data-phone="13505372233" data-apporg="山东天力能源股份有限公司" data-deadline="2027-06-30" data-dsorg="汶上县民政局" data-scene="用于农业墒情监测与产量预测模型开发。" data-memo="申请材料不完整，请补充数据使用说明后重新提交。" data-attachment=""><td>2</td><td>JGSJ20260922004</td><td>作物墒情与长势预测数据集</td><td>现代农业</td><td>汶上县民政局</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col"><span class="quality-result rejected">已驳回</span></td><td>2026-09-22 16:47</td><td><button class="detail-button hqapply-view-action" type="button">查看</button></td></tr></tbody>
+            <tbody id="hqApplyPendingBody"><tr data-hqapply-record data-domain="城市治理" data-applicant="张明" data-phone="13805378812" data-apporg="山东天力能源股份有限公司" data-deadline="2026-12-31" data-dsorg="汶上县园林服务中心" data-scene="用于园林病虫害智能识别模型训练与养护决策支持。" data-memo="需按批次提供标注样本。" data-attachment="园林病虫害识别应用方案.pdf"><td>1</td><td>JGSJ20261012001</td><td>园林植物病虫害图像识别数据集</td><td>城市治理</td><td>汶上县园林服务中心</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col"><span class="quality-result pending">待审核</span></td><td>2026-10-12 09:26</td><td><button class="detail-button hqapply-view-action" type="button">查看</button></td></tr><tr data-hqapply-record data-domain="城市治理" data-applicant="李伟" data-phone="13905376621" data-apporg="山东天力能源股份有限公司" data-deadline="2026-12-15" data-dsorg="汶上县综合行政执法局" data-scene="用于环卫设施智能巡检与城市精细化管理研究。" data-memo="" data-attachment=""><td>2</td><td>JGSJ20261008002</td><td>城市环卫设施识别数据集</td><td>城市治理</td><td>汶上县综合行政执法局</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col"><span class="quality-result pending">待审核</span></td><td>2026-10-08 14:18</td><td><button class="detail-button hqapply-view-action" type="button">查看</button></td></tr><tr data-hqapply-record data-domain="城市治理" data-applicant="孙倩" data-phone="13705371166" data-apporg="山东天力能源股份有限公司" data-deadline="2027-09-30" data-dsorg="汶上县园林服务中心" data-scene="用于城市气象要素变化趋势分析与应用研究。" data-memo="" data-attachment=""><td>3</td><td>JGSJ20260912005</td><td>气象要素逐日观测数据集</td><td>城市治理</td><td>汶上县园林服务中心</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col"><span class="quality-result pending">待审核</span></td><td>2026-09-12 08:47</td><td><button class="detail-button hqapply-view-action" type="button">查看</button></td></tr>
+            <tr data-hqapply-record data-domain="交通运输" data-applicant="王芳" data-phone="13605379908" data-apporg="山东天力能源股份有限公司" data-deadline="2027-03-31" data-dsorg="汶上县住房和城乡建设局" data-scene="用于区域停车充电一体化布局分析与规划评估。" data-memo="已按申请约定提供数据。" data-attachment="停车充电数据分析需求说明.pdf"><td>4</td><td>JGSJ20260928003</td><td>公共停车与充电设施时空数据集</td><td>交通运输</td><td>汶上县住房和城乡建设局</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col"><span class="quality-result approved">已通过</span></td><td>2026-09-28 10:04</td><td><button class="detail-button hqapply-view-action" type="button">查看</button></td></tr><tr data-hqapply-record data-domain="现代农业" data-applicant="赵强" data-phone="13505372233" data-apporg="山东天力能源股份有限公司" data-deadline="2027-06-30" data-dsorg="汶上县民政局" data-scene="用于农业墒情监测与产量预测模型开发。" data-memo="申请材料不完整，请补充数据使用说明后重新提交。" data-attachment=""><td>5</td><td>JGSJ20260922004</td><td>作物墒情与长势预测数据集</td><td>现代农业</td><td>汶上县民政局</td><td>山东天力能源股份有限公司</td><td class="hqapply-result-col"><span class="quality-result rejected">已驳回</span></td><td>2026-09-22 16:47</td><td><button class="detail-button hqapply-view-action" type="button">查看</button></td></tr></tbody>
           </table><div class="review-empty" id="hqApplyReviewEmpty" hidden>暂无符合条件的申请</div></div>
           <div class="review-pagination"><span>共 <b id="hqApplyReviewCount">0</b> 条</span><button type="button" disabled>‹</button><button class="active" type="button">1</button><button type="button" disabled>›</button><select aria-label="每页条数"><option>10 条/页</option></select></div>
         </section>
@@ -289,6 +291,7 @@
           <div class="md-tabs" role="tablist"><button class="active" type="button" data-md-tab="info" role="tab" aria-selected="true">需求信息</button><button type="button" data-md-tab="approval" role="tab" aria-selected="false">审批记录</button></div>
           <div class="md-body">
             <section class="md-pane" id="mdPaneInfo">
+              <h4 class="tool-apply-group-title">使用需求</h4>
               <dl class="md-info-grid">
                 <div><dt>需求编号</dt><dd id="mdCode">—</dd></div>
                 <div><dt>需求名称</dt><dd id="mdName2">—</dd></div>
@@ -296,12 +299,15 @@
                 <div><dt>产品形态</dt><dd id="mdDelivery">—</dd></div>
                 <div><dt>紧急程度</dt><dd id="mdUrgency">—</dd></div>
                 <div><dt>适用场景</dt><dd id="mdScene">—</dd></div>
-                <div><dt>数据需求方</dt><dd id="mdRequester2">—</dd></div>
+                <div class="span2"><dt>需求描述</dt><dd id="mdDesc">—</dd></div>
+                <div class="span2"><dt>附件</dt><dd>--</dd></div>
+                <div class="span2"><dt>备注</dt><dd>--</dd></div>
+              </dl>
+              <h4 class="tool-apply-group-title">申请人信息</h4>
+              <dl class="md-info-grid">
+                <div><dt>申请单位</dt><dd id="mdRequester2">—</dd></div>
                 <div><dt>联系人</dt><dd>数据需求方</dd></div>
                 <div><dt>联系方式</dt><dd>18615677828</dd></div>
-                <div><dt>附件</dt><dd>--</dd></div>
-                <div class="span2"><dt>需求描述</dt><dd id="mdDesc">—</dd></div>
-                <div class="span2"><dt>备注</dt><dd>--</dd></div>
               </dl>
             </section>
             <section class="md-pane" id="mdPaneApproval" hidden>
@@ -373,6 +379,6 @@
       </main>
   </div>
   <div class="manager-toast" id="managerToast" hidden>详情页面将在后续完善</div>
-  <script src="management.js?v=20261021ha10"></script>
+  <script src="management.js?v=20261021ha14"></script>
 </body>
 </html>

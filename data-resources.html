@@ -106,8 +106,8 @@
         (!state.keyword || card.dataset.keywords.toLowerCase().includes(state.keyword));
     }
     function renderPagination(total){
+      if(total === 0){pagination.innerHTML='';return;}
       const pages = Math.max(1, Math.ceil(total / pageSize));
-      if(pages <= 1){pagination.innerHTML='';return;}
       let html = '';
       for(let i = 1; i <= pages; i++){html += '<button type="button" class="'+(i === page ? 'selected' : '')+'">'+i+'</button>';}
       pagination.innerHTML = html;
