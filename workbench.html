@@ -307,10 +307,10 @@
   <div class="workbench-modal-overlay" id="demandPublishModal" role="dialog" aria-modal="true" aria-labelledby="demandPublishTitle" hidden><div class="workbench-modal demand-publish-modal"><div class="workbench-modal-head"><div><h2 id="demandPublishTitle">发布需求</h2><p>请完整填写需求内容，带 * 的项目为必填项</p></div><button class="workbench-modal-close" id="closeDemandPublish" type="button" aria-label="关闭">×</button></div><form id="demandPublishForm"><div class="workbench-modal-body">
     <section class="declaration-section"><div class="declaration-section-title">需求基本信息</div><div class="declaration-fields demand-form-fields">
       <div class="declaration-field span-3"><label class="required" for="demandName">需求名称</label><input id="demandName" required placeholder="请输入清晰、具体的需求名称"></div>
-      <div class="declaration-field span-2"><label class="required">交付形式</label><div class="declaration-radios"><label><input type="radio" name="demandDelivery" value="数据接口" required> 数据接口</label><label><input type="radio" name="demandDelivery" value="数据报告"> 数据报告</label><label><input type="radio" name="demandDelivery" value="高质量数据集"> 高质量数据集</label></div></div>
+      <div class="declaration-field span-2"><label class="required">交付形式</label><div class="declaration-radios"><label><input type="radio" name="demandDelivery" value="数据接口" required> 数据接口</label><label><input type="radio" name="demandDelivery" value="数据报告"> 数据报告</label><label><input type="radio" name="demandDelivery" value="数据集"> 数据集</label><label><input type="radio" name="demandDelivery" value="高质量数据集"> 高质量数据集</label></div></div>
       <div class="declaration-field"><label class="required">紧急程度</label><div class="declaration-radios"><label><input type="radio" name="demandUrgency" value="普通" required checked> 普通</label><label><input type="radio" name="demandUrgency" value="紧急"> 紧急</label></div></div>
-      <div class="declaration-field span-2"><label class="required" for="demandScene">适用场景</label><select id="demandScene" required><option value="">请选择适用场景</option><option>城市治理</option><option>现代农业</option><option>交通运输</option><option>文化</option><option>信用</option><option>商贸</option><option>金融</option><option>医疗</option><option>其他</option></select></div>
-      <div class="declaration-field"><label class="required" for="demandDeadline">截止时间</label><input id="demandDeadline" type="date" required></div>
+      <div class="declaration-field span-2"><label class="required" for="demandScene">行业分类</label><select id="demandScene" required><option value="">请选择行业分类</option><option>城市治理</option><option>现代农业</option><option>交通运输</option><option>文化</option><option>信用</option><option>商贸</option><option>金融</option><option>医疗</option><option>其他</option></select></div>
+      <div class="declaration-field"><label class="required" for="demandDeadline">期望交付</label><input id="demandDeadline" type="date" required></div>
       <div class="declaration-field span-3"><label class="required" for="demandDescription">需求描述</label><textarea id="demandDescription" required placeholder="请详细描述数据类型、数量、格式、质量要求、数据规模、预算和用途等信息"></textarea></div>
       <div class="declaration-field span-2"><label for="demandAttachment">附件</label><input id="demandAttachment" type="file" accept=".docx,.doc,.pdf,.xlsx,.xls,.txt"><small>支持 DOCX、DOC、PDF、XLSX、XLS、TXT，可上传一个文件，最大 10MB</small></div>
       <div class="declaration-field span-3"><label for="demandRemark">备注</label><textarea id="demandRemark" placeholder="请输入需要补充说明的内容"></textarea></div>
@@ -335,10 +335,10 @@
           <dl class="drawer-info-grid">
             <div><dt>需求编号</dt><dd id="diNo">—</dd></div>
             <div><dt>需求名称</dt><dd id="diName">—</dd></div>
-            <div><dt>结束时间</dt><dd id="diDeadline">—</dd></div>
-            <div><dt>产品形态</dt><dd id="diDelivery">—</dd></div>
+            <div><dt>期望交付</dt><dd id="diDeadline">—</dd></div>
+            <div><dt>交付形式</dt><dd id="diDelivery">—</dd></div>
             <div><dt>紧急程度</dt><dd id="diUrgency">—</dd></div>
-            <div><dt>适用场景</dt><dd id="diScene">—</dd></div>
+            <div><dt>行业分类</dt><dd id="diScene">—</dd></div>
             <div><dt>数据需求方</dt><dd id="diRequester">—</dd></div>
             <div><dt>联系人</dt><dd id="diContact">—</dd></div>
             <div><dt>联系方式</dt><dd id="diPhone">—</dd></div>
