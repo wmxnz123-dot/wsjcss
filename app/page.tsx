@@ -1,45 +1,85 @@
-import Link from "next/link";
-import Header from "./components/Header";
+"use client";
 
-const dataCards = [
-  { icon: "资", title: "数据资源", desc: "汇聚政务、社会与行业数据，形成全域资源目录。", count: "1,286", unit: "项资源" },
-  { icon: "品", title: "数据产品", desc: "面向业务需求，提供可调用、可交易的标准数据产品。", count: "368", unit: "个产品" },
-  { icon: "集", title: "高质量数据集", desc: "聚焦重点领域，沉淀可信、可用、可追溯的主题数据。", count: "86", unit: "个数据集" },
+import { useEffect, useMemo, useState } from "react";
+
+type Page = "home" | "resources" | "stats" | "profile" | "admin";
+type Entry = { name: string; desc?: string; icon?: string; access?: boolean; tag?: string };
+
+const primaryPlatforms: Entry[] = [
+  { icon: "联", name: "物联网感知平台", desc: "实现全域物联设备的统一接入、适配和管理，为城市运行提供实时感知数据支撑。", tag: "12,680 个感知设备", access: true },
+  { icon: "视", name: "视频融合分析平台", desc: "整合全域视频资源，提供视频接入、融合管理及智能分析能力。", tag: "4,286 路视频资源", access: true },
+  { icon: "城", name: "CIM城市信息模型平台", desc: "构建全域三维数字底板，实现城市空间要素的可视化表达和动态管理。", tag: "186.5 km² 建模范围", access: true },
+];
+const trusted: Entry[] = [
+  { icon: "通", name: "数据流通服务平台", desc: "可信数据空间与流通服务", access: true }, { icon: "资", name: "数据资产管理平台", desc: "数据资产登记与价值管理", access: true },
+  { icon: "治", name: "数据资源治理平台", desc: "数据标准、质量与治理", access: true }, { icon: "协", name: "数据协作开发平台", desc: "安全可控的数据协作开发", access: true },
+];
+const enablement: Entry[] = [
+  { icon: "融", name: "融合应用开发平台", desc: "提供组件化、可复用的应用开发能力，支撑业务应用快速构建。", tag: "96 个应用组件", access: true },
+  { icon: "BI", name: "BI可视化开发平台", desc: "提供数据分析、可视化报表及数据展示能力，支撑业务数据分析应用。", tag: "128 张分析报表", access: true },
+  { icon: "智", name: "智能体开发应用平台", desc: "提供智能体创建、配置、发布和应用能力，支撑人工智能技术在业务场景中的应用。", tag: "23 个智能体", access: true },
+];
+const resources = [
+  { name: "全县视频监控点位资源目录", category: "视频资源", unit: "县公安局", desc: "汇聚全县公共区域视频监控点位及基础属性信息。", update: "2026-10-28", count: "4,286 条" },
+  { name: "城市道路与附属设施数据", category: "空间地理", unit: "县住建局", desc: "县域道路、桥梁、路灯及附属设施空间信息。", update: "2026-10-26", count: "18,592 条" },
+  { name: "园林绿化资产资源目录", category: "智慧园林", unit: "县综合执法局", desc: "公园、绿地、古树名木及园林设施资产信息。", update: "2026-10-25", count: "32,108 条" },
+  { name: "环卫车辆实时运行数据", category: "智慧环卫", unit: "县综合执法局", desc: "环卫车辆基础档案、实时位置及作业状态数据。", update: "2026-10-24", count: "286 条" },
+  { name: "停车场与泊位基础信息", category: "停充一体化", unit: "县交通运输局", desc: "公共停车场、道路泊位与运营主体基础信息。", update: "2026-10-22", count: "12,460 条" },
+  { name: "物联感知设备状态数据", category: "物联感知", unit: "县大数据中心", desc: "全域物联设备在线状态、告警与运行指标数据。", update: "2026-10-20", count: "12,680 条" },
+  { name: "雨污管网监测专题数据", category: "市政公用", unit: "县水务局", desc: "雨污管网液位、流量与监测设施专题信息。", update: "2026-10-18", count: "2,417 条" },
+  { name: "公共充电设施运行数据", category: "停充一体化", unit: "县发改局", desc: "充电站、充电桩及实时可用状态信息。", update: "2026-10-16", count: "1,036 条" },
+];
+const scenes: { key: string; name: string; subtitle: string; accent: string; intro: string; items: Entry[] }[] = [
+  { key: "garden", name: "智慧园林", subtitle: "SMART LANDSCAPING", accent: "园", intro: "围绕园林资源管理、养护作业、巡查处置及智能感知，实现园林绿化的数字化、精细化和智能化管理。", items: [
+    { name: "园林数据普查", access: false }, { name: "基础数据管理系统", access: true }, { name: "园林资产管理系统", access: true }, { name: "车辆监管系统", access: true }, { name: "养护作业全流程管理系统", access: true }, { name: "事件移动巡查与处置系统", access: true }, { name: "智慧路灯管理系统", access: true }, { name: "土壤墒情监测系统", access: true }, { name: "病虫害智能化监测与防治", access: true }, { name: "智能喷灌系统", access: true }, { name: "硬件终端", access: false, tag: "建设内容" },
+  ]},
+  { key: "sanitation", name: "智慧环卫", subtitle: "SMART SANITATION", accent: "环", intro: "围绕垃圾收集、运输、中转及公厕管理，实现环卫业务全过程数字化监管。", items: [
+    { name: "垃圾收运监管系统", access: true }, { name: "垃圾中转站监管系统", access: true }, { name: "智慧公厕系统", access: true }, { name: "垃圾桶满溢监控系统", access: true }, { name: "硬件终端", access: false, tag: "建设内容" },
+  ]},
+  { key: "municipal", name: "市政公用", subtitle: "MUNICIPAL UTILITIES", accent: "政", intro: "围绕市政道路、雨污管网、桥梁及相关设施，提供智能巡检、状态监测和综合管理能力。", items: [
+    { name: "市政综合管理平台", access: true, tag: "主要入口" }, { name: "道路巡检智能化模块", access: true }, { name: "雨污管网智能监测模块", access: true }, { name: "桥梁健康监测模块", access: true }, { name: "硬件设备", access: false, tag: "建设内容" },
+  ]},
+  { key: "parking", name: "停充一体化", subtitle: "PARKING & CHARGING", accent: "充", intro: "整合停车与充电资源，提供停车充电服务、企业运营、业务管理及综合监管分析能力。", items: [
+    { name: "联网服务中心", access: true }, { name: "基础应用中心", access: true }, { name: "业务管理中心", access: true }, { name: "企业运营中心", access: true }, { name: "便民服务中心", access: true }, { name: "监督管理中心", access: true }, { name: "决策分析平台", access: true }, { name: "监督管理平台", access: true },
+  ]},
+];
+const statGroups = [
+  { name: "数智基础设施", color: "#2f6cd8", values: [["物联设备总数", "12,680", "台"], ["在线设备数", "11,942", "台"], ["视频资源总数", "4,286", "路"], ["CIM模型资源", "1,865", "个"]] },
+  { name: "业务赋能应用", color: "#25a7a0", values: [["融合应用数量", "96", "个"], ["BI报表数量", "128", "张"], ["智能体数量", "23", "个"], ["本月调用次数", "86,214", "次"]] },
+  { name: "全域数据资源", color: "#7d68d9", values: [["数据资源数量", "2,486", "项"], ["数据目录数量", "856", "项"], ["数据服务数量", "316", "个"], ["本月服务调用", "128万", "次"]] },
+  { name: "智慧场景", color: "#e7953b", values: [["园林管理资源", "32,108", "项"], ["环卫作业任务", "6,842", "次"], ["市政设施数量", "18,592", "处"], ["停车充电设施", "13,496", "个"]] },
 ];
 
-const scenarios = [
-  { num: "01", tag: "城市治理", title: "城市运行一网统管", desc: "融合城市部件、物联感知与视频数据，让城市运行态势可感、可视、可管。" },
-  { num: "02", tag: "产业发展", title: "产业经济精准分析", desc: "围绕产业链、企业和项目数据，提供运行监测与决策研判支撑。" },
-  { num: "03", tag: "民生服务", title: "民生服务一站通办", desc: "打通跨部门数据链路，以数据多跑路推动群众办事少跑腿。" },
-];
+function SectionTitle({ no, title, subtitle, action }: { no: string; title: string; subtitle: string; action?: React.ReactNode }) { return <div className="section-heading"><span>{no}</span><div><h2>{title}</h2><p>{subtitle}</p></div>{action}</div>; }
+function SystemCard({ item, index, onOpen }: { item: Entry; index: number; onOpen: (name: string) => void }) { return <button className="platform-card" onClick={() => onOpen(item.name)}><div className="icon-box">{item.icon}</div><div className="card-no">0{index + 1}</div><h3>{item.name}</h3><p>{item.desc}</p><div className="card-footer"><span>{item.tag}</span><b>进入平台 →</b></div></button>; }
 
-export default function Home() {
-  return <main>
-    <Header />
-    <section className="hero">
-      <div className="hero-grid" /><div className="orbital" aria-hidden="true"><span /><span /><span /><span /></div>
-      <div className="container hero-content">
-        <div className="eyebrow"><span /> DATA ELEMENT INFRASTRUCTURE</div>
-        <h1>汇聚数据动能<br /><em>赋能城市新未来</em></h1>
-        <p>建设安全、可信、高效的数据要素流通基础设施<br />让每一份数据价值都被看见、被激活、被释放</p>
-        <div className="hero-actions"><Link href="#数据中心" className="primary-btn">探索数据资源 <span>→</span></Link><Link href="/tools" className="ghost-btn">进入工具中心</Link></div>
-        <div className="hero-stats"><div><strong>1,740<sup>+</sup></strong><span>已汇聚数据资源</span></div><div><strong>52<sup>个</sup></strong><span>覆盖委办局部门</span></div><div><strong>98.6<sup>%</sup></strong><span>数据质量达标率</span></div></div>
-      </div>
-      <div className="hero-side-label">汶上县数据要素基础设施 <span /></div><div className="scroll-cue"><i /> 向下滚动</div>
-    </section>
-
-    <section className="section data-section" id="数据中心"><div className="container">
-      <div className="section-heading"><div><span className="section-kicker">DATA CENTER</span><h2>数据中心</h2><p>一站式发现、理解与使用城市数据</p></div><a href="#" className="text-link">查看全部 <span>↗</span></a></div>
-      <div className="data-grid">{dataCards.map((card, i) => <article className="data-card" key={card.title}><div className={`data-icon tone-${i}`}><span>{card.icon}</span></div><div className="card-index">0{i + 1}</div><h3>{card.title}</h3><p>{card.desc}</p><div className="card-bottom"><b>{card.count}</b><span>{card.unit}</span><i>→</i></div></article>)}</div>
-    </div></section>
-
-    <section className="section scenes-section" id="场景中心"><div className="container">
-      <div className="section-heading light"><div><span className="section-kicker">APPLICATION SCENARIOS</span><h2>重点应用场景</h2><p>以真实场景牵引数据价值释放</p></div><a href="#" className="text-link">全部场景 <span>↗</span></a></div>
-      <div className="scene-grid">{scenarios.map((scene) => <article className="scene-card" key={scene.num}><span className="scene-num">{scene.num}</span><span className="scene-tag">{scene.tag}</span><h3>{scene.title}</h3><p>{scene.desc}</p><a href="#">了解详情 →</a></article>)}</div>
-    </div></section>
-
-    <section className="tool-cta"><div className="container tool-cta-inner"><div><span className="section-kicker">TOOLS & PLATFORMS</span><h2>一站集成，让数据能力触手可及</h2><p>从感知、治理、开发到应用，为数据全生命周期提供专业工具支撑。</p></div><Link href="/tools" className="dark-btn">进入工具中心 <span>→</span></Link></div></section>
-
-    <footer><div className="container footer-inner"><div className="footer-brand"><span className="brand-mark small"><i /><i /><i /></span><div><b>数据要素基础设施门户</b><small>DATA ELEMENT INFRASTRUCTURE PORTAL</small></div></div><div className="footer-meta"><span>统一服务热线：0537-XXXXXXX</span><span>© 2026 汶上县大数据中心</span></div></div></footer>
+export default function Portal() {
+  const [page, setPage] = useState<Page>("home"), [userOpen, setUserOpen] = useState(false), [query, setQuery] = useState(""), [category, setCategory] = useState("全部分类"), [statTab, setStatTab] = useState(0), [range, setRange] = useState("近30天");
+  const [modal, setModal] = useState<{ type: "system" | "resource"; title: string; detail?: typeof resources[number] } | null>(null);
+  useEffect(() => { const sync = () => { const h = location.hash.replace("#", "") as Page; if (["home", "resources", "stats", "profile", "admin"].includes(h)) setPage(h); }; sync(); addEventListener("hashchange", sync); return () => removeEventListener("hashchange", sync); }, []);
+  const go = (next: Page) => { setPage(next); setUserOpen(false); location.hash = next; scrollTo({ top: 0, behavior: "smooth" }); };
+  const openSystem = (name: string) => setModal({ type: "system", title: name });
+  const filtered = useMemo(() => resources.filter(r => (category === "全部分类" || r.category === category) && (r.name.includes(query) || r.unit.includes(query))), [category, query]);
+  return <main><header className="topbar"><button className="brand" onClick={() => go("home")}><span className="brand-mark"><i/><i/><i/></span><span><b>汶上县全域数字化基础设施管理平台</b><small>WENSHANG DIGITAL INFRASTRUCTURE</small></span></button><nav aria-label="主导航"><button className={page === "home" ? "active" : ""} onClick={() => go("home")}>首页</button><button className={page === "resources" ? "active" : ""} onClick={() => go("resources")}>资源中心</button><button className={page === "stats" ? "active" : ""} onClick={() => go("stats")}>统计中心</button></nav><div className="user-wrap"><button className="user" onClick={() => setUserOpen(!userOpen)}><span className="avatar">张</span><span>张建国<small>运营管理方</small></span><b>⌄</b></button>{userOpen && <div className="user-menu"><button onClick={() => go("profile")}>◉　个人中心</button><button onClick={() => go("admin")}>▦　管理后台</button><i/><button onClick={() => setModal({ type: "system", title: "退出登录" })}>↗　退出登录</button></div>}</div></header>
+    {page === "home" && <Home go={go} openSystem={openSystem} setModal={setModal}/>} {page === "resources" && <Resources filtered={filtered} query={query} setQuery={setQuery} category={category} setCategory={setCategory} setModal={setModal}/>} {page === "stats" && <Stats statTab={statTab} setStatTab={setStatTab} range={range} setRange={setRange}/>} {page === "profile" && <Profile/>} {page === "admin" && <Admin go={go}/>} 
+    {modal && <div className="modal-backdrop" onMouseDown={() => setModal(null)}><div className="modal" role="dialog" aria-modal="true" onMouseDown={e => e.stopPropagation()}><button className="modal-close" onClick={() => setModal(null)}>×</button>{modal.type === "system" ? <><div className="modal-icon">{modal.title === "退出登录" ? "↗" : "链"}</div><h2>{modal.title}</h2><p>{modal.title === "退出登录" ? "原型演示环境暂不执行真实退出操作。" : "该入口尚未配置正式系统地址，当前为原型模拟访问。系统接入后可从统一门户直接进入。"}</p><button className="primary-btn" onClick={() => setModal(null)}>我知道了</button></> : <ResourceDetail resource={modal.detail!}/>}</div></div>}
   </main>;
 }
+
+function Home({ go, openSystem, setModal }: { go: (p: Page) => void; openSystem: (n: string) => void; setModal: (m: { type: "resource"; title: string; detail: typeof resources[number] }) => void }) { return <>
+  <section className="hero"><div className="hero-inner"><div className="hero-copy"><span className="eyebrow"><i/> 全域数字底座 · 一体协同门户</span><h1>汶上县全域数字化<br/><em>基础设施管理平台</em></h1><h2>硬件筑基 <i/> 平台赋能 <i/> 数据融通 <i/> 协同治理</h2><p>构建“1+2+N”智慧基础设施体系，汇聚全域数字资源，<br/>赋能智慧城市治理。</p><div className="hero-stats"><span><b>4</b> 大能力板块</span><span><b>15</b> 个平台入口</span><span><b>29</b> 项场景建设</span></div></div><div className="hero-visual"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="core"><span>1+2+N</span><small>全域数智底座</small></div><div className="node n1"><b>感知</b><small>IoT</small></div><div className="node n2"><b>数据</b><small>DATA</small></div><div className="node n3"><b>场景</b><small>SCENE</small></div><div className="node n4"><b>赋能</b><small>AI + BI</small></div></div></div></section>
+  <section className="section"><SectionTitle no="01" title="数智基础设施" subtitle="DIGITAL INTELLIGENCE INFRASTRUCTURE · 夯实城市数字化底座"/><div className="platform-grid">{primaryPlatforms.map((x,i)=><SystemCard item={x} index={i} key={x.name} onOpen={openSystem}/>)}</div><div className="trusted"><div className="trusted-head"><span className="trusted-badge">可信</span><div><h3>可信流通平台</h3><p>围绕数据资源治理、资产管理、协作开发及数据流通服务，构建数据可信流通与价值释放的基础能力体系。</p></div><span>TRUSTED DATA SPACE</span></div><div className="trusted-grid">{trusted.map(x=><button key={x.name} onClick={()=>openSystem(x.name)}><span>{x.icon}</span><div><b>{x.name}</b><small>{x.desc}</small></div><i>↗</i></button>)}</div></div></section>
+  <section className="section alt"><SectionTitle no="02" title="业务赋能应用中心" subtitle="BUSINESS ENABLEMENT · 低代码、可视化与智能化协同赋能"/><div className="platform-grid">{enablement.map((x,i)=><SystemCard item={x} index={i} key={x.name} onOpen={openSystem}/>)}</div></section>
+  <section className="section"><SectionTitle no="03" title="全域数据资源中心" subtitle="DATA RESOURCE CENTER · 汇聚全域资源，释放数据价值" action={<button className="more" onClick={()=>go("resources")}>查看更多 →</button>}/><div className="resource-grid">{resources.slice(0,6).map((r,i)=><button className="resource-card" key={r.name} onClick={()=>setModal({type:"resource",title:r.name,detail:r})}><div className="resource-top"><span className={`res-icon c${i%4}`}>数</span><span>{r.category}</span><b>{r.count}</b></div><h3>{r.name}</h3><p>{r.desc}</p><div><span>提供单位　{r.unit}</span><time>{r.update}</time></div></button>)}</div></section>
+  <section className="section scene-section"><SectionTitle no="04" title="智慧场景应用" subtitle="SMART SCENARIO APPLICATIONS · 数字技术赋能城市精细化治理"/><div className="scene-legend"><span><i className="dot access"/> 可访问系统 / 模块</span><span><i className="dot content"/> 建设内容</span></div>{scenes.map(scene=><article className={`scene ${scene.key}`} key={scene.key}><div className="scene-intro"><div className="scene-symbol">{scene.accent}</div><small>{scene.subtitle}</small><h3>{scene.name}</h3><p>{scene.intro}</p><div className="scene-count"><b>{scene.items.length}</b><span>项建设内容</span></div></div><div className="scene-items">{scene.items.map((item,idx)=><button key={item.name} className={`${item.access?"clickable":"passive"} ${item.tag==="主要入口"?"featured":""}`} onClick={()=>item.access&&openSystem(item.name)}><span>{String(idx+1).padStart(2,"0")}</span><b>{item.name}</b>{item.tag&&<small>{item.tag}</small>}<i>{item.access?"↗":"—"}</i></button>)}</div></article>)}</section>
+  <footer><div><span className="brand-mark mini"><i/><i/><i/></span><b>汶上县全域数字化基础设施管理平台</b></div><p>技术支持：汶上县大数据中心　·　原型演示数据</p><span>统一门户 · 资源汇聚 · 协同治理</span></footer>
+  </>; }
+
+function Resources({filtered,query,setQuery,category,setCategory,setModal}:{filtered:typeof resources;query:string;setQuery:(s:string)=>void;category:string;setCategory:(s:string)=>void;setModal:(m:{type:"resource";title:string;detail:typeof resources[number]})=>void}) { const cats=["全部分类",...Array.from(new Set(resources.map(r=>r.category)))]; return <div className="subpage"><PageHero eyebrow="DATA RESOURCE CENTER" title="全域数据资源中心" desc="统一汇聚、规范管理、安全共享全县数字资源，为各部门业务协同与创新应用提供数据支撑。" stats={["2,486 项数据资源","42 个提供单位","316 个数据服务"]}/><div className="content-shell"><div className="filter-bar"><div className="search"><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="搜索资源名称或提供单位"/></div><div className="category-tabs">{cats.map(c=><button className={category===c?"active":""} key={c} onClick={()=>setCategory(c)}>{c}</button>)}</div></div><div className="list-summary"><h2>资源目录</h2><span>共找到 <b>{filtered.length}</b> 项示例资源</span></div><div className="resource-list">{filtered.map((r,i)=><button key={r.name} onClick={()=>setModal({type:"resource",title:r.name,detail:r})}><span className={`res-icon c${i%4}`}>数</span><div><span>{r.category}</span><h3>{r.name}</h3><p>{r.desc}</p><small>提供单位：{r.unit}　·　更新于 {r.update}</small></div><strong>{r.count}<small>数据量</small></strong><i>查看详情 →</i></button>)}</div>{!filtered.length&&<div className="empty">未找到匹配的资源，请调整搜索条件。</div>}</div></div>; }
+
+function Stats({statTab,setStatTab,range,setRange}:{statTab:number;setStatTab:(n:number)=>void;range:string;setRange:(s:string)=>void}) { const g=statGroups[statTab], bars=[68,82,56,91,76,64,88]; return <div className="subpage"><PageHero eyebrow="STATISTICS CENTER" title="全域运行统计中心" desc="聚合各业务系统核心指标，直观呈现数字基础设施建设与运行成效。" stats={["数据更新至 2026-11-02","4 大统计专题","原型演示数据"]}/><div className="content-shell"><div className="stats-toolbar"><div>{statGroups.map((x,i)=><button className={statTab===i?"active":""} onClick={()=>setStatTab(i)} key={x.name}>{x.name}</button>)}</div><label>统计周期 <select value={range} onChange={e=>setRange(e.target.value)}><option>近7天</option><option>近30天</option><option>本年度</option></select></label></div><div className="demo-note">ⓘ 当前页面数据均为原型演示数据，不代表实际业务统计口径。</div><div className="kpi-grid">{g.values.map((v,i)=><div key={v[0]}><span style={{background:g.color}}>{["◈","◉","▦","↗"][i]}</span><p>{v[0]}</p><h3>{v[1]} <small>{v[2]}</small></h3><i>较上期 <b>↑ {3+i*1.8}%</b></i></div>)}</div><div className="charts"><article><div className="chart-head"><div><h3>{g.name}运行趋势</h3><p>{range}核心指标变化</p></div><span>单位：综合指数</span></div><div className="bar-chart">{bars.map((b,i)=><div key={i}><span style={{height:`${b}%`,background:`linear-gradient(${g.color}aa,${g.color})`}}/><small>{["10/27","10/28","10/29","10/30","10/31","11/01","11/02"][i]}</small></div>)}</div></article><article className="donut-panel"><div className="chart-head"><div><h3>指标构成</h3><p>各项指标占比</p></div></div><div className="donut" style={{background:`conic-gradient(${g.color} 0 38%,#55b7d8 38% 67%,#8d79df 67% 84%,#e4a04e 84%)`}}><div><b>100%</b><small>指标总量</small></div></div><ul>{g.values.map((v,i)=><li key={v[0]}><i style={{background:[g.color,"#55b7d8","#8d79df","#e4a04e"][i]}}/>{v[0]}<b>{[38,29,17,16][i]}%</b></li>)}</ul></article></div></div></div>; }
+
+function Profile(){return <div className="plain-page"><div className="page-title"><span>个人中心</span><small>管理个人资料与账号信息</small></div><div className="profile-layout"><aside><div className="big-avatar">张</div><h2>张建国</h2><p>汶上县大数据中心</p><span>运营管理方</span><button className="active">基本资料</button><button>账号安全</button><button>登录记录</button></aside><section><div className="panel-title"><h2>基本资料</h2><p>以下信息由统一身份认证系统同步</p></div><div className="form-grid"><label>用户姓名<input value="张建国" readOnly/></label><label>登录账号<input value="zhangjianguo" readOnly/></label><label>所属组织<input value="汶上县大数据中心" readOnly/></label><label>用户角色<input value="运营管理方" readOnly/></label><label>联系电话<input value="138****2086" readOnly/></label><label>电子邮箱<input value="zhangjg@wenshang.gov.cn" readOnly/></label></div><div className="account-tip"><b>账号由统一身份认证系统管理</b><p>如需修改密码，请通过统一身份认证平台完成。最近登录：2026-11-02 09:26</p></div></section></div></div>}
+function Admin({go}:{go:(p:Page)=>void}){const cards=[{n:"工作台",i:"台",d:"平台运行概览与快捷入口"},{n:"系统管理",i:"系",d:"业务系统接入与入口配置"},{n:"用户与权限管理",i:"权",d:"用户、角色及访问权限配置"},{n:"统计相关配置",i:"统",d:"统计指标与展示口径配置"}];return <div className="admin-page"><aside><div className="admin-brand"><span className="brand-mark"><i/><i/><i/></span><b>门户管理后台</b></div><nav><button className="active">▦　工作台</button><button>◫　系统管理</button><button>♙　用户与权限</button><button>▥　统计配置</button></nav><button className="back-portal" onClick={()=>go("home")}>← 返回统一门户</button></aside><main><header><div><h2>管理工作台</h2><p>统一门户配置与运营管理</p></div><span className="avatar">张</span><b>张建国</b></header><div className="admin-content"><div className="welcome"><div><small>上午好，张建国</small><h1>欢迎进入统一门户管理后台</h1><p>当前为原型占位页面，后续将逐步建设系统接入、用户权限与统计配置能力。</p></div><span>2026<br/><b>11.02</b></span></div><div className="admin-cards">{cards.map(c=><button key={c.n} onClick={()=>alert("原型演示：该管理模块将在后续建设。")}><span>{c.i}</span><div><h3>{c.n}</h3><p>{c.d}</p></div><i>→</i></button>)}</div><div className="roadmap"><h3>拟建设功能方向</h3><div>{["门户内容与系统入口配置","组织、用户、角色及权限维护","统计指标与数据接口配置","平台运行参数与基础设置"].map((x,i)=><p key={x}><span>0{i+1}</span><b>{x}</b><small>{i===0?"规划中":"待建设"}</small></p>)}</div></div></div></main></div>}
+function PageHero({eyebrow,title,desc,stats}:{eyebrow:string;title:string;desc:string;stats:string[]}){return <section className="page-hero"><div><span>{eyebrow}</span><h1>{title}</h1><p>{desc}</p><div>{stats.map((s,i)=><b key={s}>{i===0?"◈":i===1?"▦":"◉"}　{s}</b>)}</div></div><aside><i/><i/><i/><b>DATA<br/>HUB</b></aside></section>}
+function ResourceDetail({resource:r}:{resource:typeof resources[number]}){return <><div className="modal-icon">数</div><span className="detail-tag">{r.category}</span><h2>{r.name}</h2><p>{r.desc}</p><dl><div><dt>提供单位</dt><dd>{r.unit}</dd></div><div><dt>数据规模</dt><dd>{r.count}</dd></div><div><dt>更新时间</dt><dd>{r.update}</dd></div><div><dt>资源状态</dt><dd className="status">● 正常更新</dd></div></dl><div className="detail-note">当前为资源详情原型，字段与申请流程将在后续调研中完善。</div></>}
