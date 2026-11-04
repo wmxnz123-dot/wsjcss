@@ -6,6 +6,7 @@
   <meta name="description" content="汶上区域基础设施门户企业工作台">
   <title>我的工作台 - 汶上区域基础设施门户</title>
   <link rel="stylesheet" href="workbench.css?v=20261022logo30">
+  <link rel="stylesheet" href="enterprise-home.css?v=20261103home5">
 </head>
 <body>
   <header class="workbench-header">
@@ -64,7 +65,49 @@
     <main class="workbench-main">
       <div class="workbench-breadcrumb" id="workbenchBreadcrumb" hidden><span id="breadcrumbRoot">工作台</span><i>›</i><b id="breadcrumbCurrent">首页</b></div>
       <section class="dashboard-view" id="dashboardView">
-        <div class="list-placeholder" style="min-height:430px"><span>□</span><b>复用可信空间工作台</b><p>我的待办改为数据产品审核、需求交付</p></div>
+        <div class="eh-layout">
+          <div class="eh-main-col">
+            <section class="eh-panel eh-statistics">
+              <header><div class="eh-head-title"><h2><span>▥</span>统计概览</h2><small>| 2026-11-03 14:06:19 更新</small></div></header>
+              <div class="eh-stat-body">
+                <div class="eh-stat-group">
+                  <div class="eh-side-label"><i>⌂</i><b>供方中心</b></div>
+                  <div class="eh-metrics">
+                    <article><i>⛁</i><div><span>登记数据资源</span><b>126</b></div></article>
+                    <article><i>▦</i><div><span>登记数据产品</span><b>40</b></div></article>
+                    <article><i>⇧</i><div><span>上架数据产品</span><b>28</b></div></article>
+                    <article><i>◈</i><div><span>申报高质量数据集</span><b>18</b></div></article>
+                    <article><i>▤</i><div><span>数据产品订单</span><b>65</b></div></article>
+                    <article><i>▥</i><div><span>高质量数据集订单</span><b>12</b></div></article>
+                  </div>
+                  <div class="eh-money-cell"><div class="eh-money"><i>⛁</i><span>收入（元）</span><b>338,334</b></div></div>
+                </div>
+                <div class="eh-stat-divider"></div>
+                <div class="eh-stat-group">
+                  <div class="eh-side-label"><i>☍</i><b>需方中心</b></div>
+                  <div class="eh-metrics">
+                    <article><i>➤</i><div><span>发布需求数</span><b>26</b></div></article>
+                    <article><i>▤</i><div><span>申请数据产品</span><b>15</b></div></article>
+                    <article><i>◈</i><div><span>申请高质量数据集</span><b>8</b></div></article>
+                  </div>
+                  <div class="eh-money-cell"><div class="eh-money"><i>⛁</i><span>支出（元）</span><b>106,500</b></div></div>
+                </div>
+              </div>
+            </section>
+            <section class="eh-panel">
+              <header><h2><span>☷</span>我的待办</h2></header>
+              <div class="eh-todos">
+                <button type="button" disabled><i>▣</i><div class="eh-todo-txt"><span>产品订单审核</span><b>5</b></div><em>›</em></button>
+                <button type="button" data-home-goto="需求交付"><i>⇄</i><div class="eh-todo-txt"><span>需求交付</span><b>7</b></div><em>›</em></button>
+                <button type="button" data-home-goto="高质量数据集申请审核"><i>◈</i><div class="eh-todo-txt"><span>高质量数据集申请审核</span><b>4</b></div><em>›</em></button>
+              </div>
+            </section>
+          </div>
+          <div class="eh-side-col">
+            <div class="eh-welcome"><div><h1><span id="ehGreeting">下午好</span>，<br>山东天力能源股份有限公司！</h1><p class="eh-node">▦ 当前运行节点：<span class="eh-normal">✓ 正常</span></p><strong>科创服务业可信数据空间</strong></div></div>
+            <section class="eh-panel"><header><h2><span>♧</span>消息提醒</h2><button type="button" id="ehReadAll">一键已读</button></header><div class="eh-messages"><button type="button" class="eh-message"><span>产品订单审核结果通知<em>NEW</em></span><time>2026-11-03</time></button><button type="button" class="eh-message"><span>高质量数据集审核进度通知<em>NEW</em></span><time>2026-11-02</time></button><button type="button" class="eh-message"><span>需求交付节点提醒<em>NEW</em></span><time>2026-11-01</time></button><button type="button" class="eh-message"><span>平台规则更新通知</span><time>2026-10-30</time></button><button type="button" class="eh-message"><span>系统维护通知</span><time>2026-10-28</time></button></div></section>
+          </div>
+        </div>
       </section>
 
       <section class="dataset-apply-view" id="datasetApplyView" hidden>

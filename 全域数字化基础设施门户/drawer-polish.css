@@ -1,0 +1,100 @@
+/* Favorites drawer states: empty, populated and card hover/focus. */
+.favorites-drawer {
+  width: min(440px, 100vw);
+  background: #fff;
+}
+
+.favorites-trigger {
+  top: 56%;
+}
+
+#favoriteBadge[hidden],
+#favoriteTitleCount[hidden] {
+  display: none !important;
+}
+
+.favorite-list {
+  background: #fff;
+}
+
+.favorite-empty {
+  min-height: 100%;
+  padding: 36px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #8a9bb1;
+  text-align: center;
+}
+.favorite-empty-icon {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 17px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: #fff9e9;
+  color: #f3ad12;
+  font-size: 31px;
+  font-weight: 300;
+}
+.favorite-empty h3 {
+  margin: 0 0 9px;
+  color: #2c405d;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.favorite-empty p {
+  margin: 0;
+  color: #8c9eb5;
+  font-size: 10px;
+  line-height: 1.75;
+}
+
+.favorite-card {
+  border-color: #dce5f0;
+  background: #fff;
+  box-shadow: none;
+  transition: border-color .18s, background .18s, box-shadow .18s, transform .18s;
+}
+.favorite-icon,
+.favorite-info h3,
+.favorite-enter {
+  transition: background .18s, color .18s;
+}
+.favorite-card:hover,
+.favorite-card:focus-within {
+  border-color: #5591ff;
+  background: linear-gradient(90deg, #f5f8ff 0%, #fff 78%);
+  box-shadow: 0 5px 14px rgba(45, 105, 212, .08);
+  transform: translateY(-1px);
+}
+.favorite-card:hover .favorite-icon,
+.favorite-card:focus-within .favorite-icon {
+  background: #2f6df3;
+  color: #fff;
+}
+.favorite-card:hover .favorite-info h3,
+.favorite-card:focus-within .favorite-info h3 {
+  color: #2467df;
+}
+.favorite-card:hover .favorite-enter,
+.favorite-card:focus-within .favorite-enter {
+  background: #2f6df3;
+  color: #fff;
+}
+.favorite-remove:focus-visible,
+.favorite-enter:focus-visible {
+  outline: 2px solid #8bb4ff;
+  outline-offset: 2px;
+}
+
+.favorites-drawer > footer {
+  min-height: 0;
+  padding: 12px 20px;
+  background: #f7f9fc;
+}
+.favorites-drawer > footer p {
+  margin: 0;
+}

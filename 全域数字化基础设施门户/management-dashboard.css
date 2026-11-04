@@ -1,0 +1,27 @@
+.dashboard-stats > div {
+  min-height: 102px;
+  padding: 15px 16px;
+}
+
+.dashboard-stats i {
+  right: 15px;
+  top: 15px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+}
+
+.dashboard-stats i::after { display: none; }
+
+.dashboard-stats i svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dashboard-stats span b { font-size: 27px; }
+.dashboard-stats p { margin-top: 10px; }

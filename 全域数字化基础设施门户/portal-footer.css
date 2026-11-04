@@ -1,0 +1,125 @@
+.portal-footer {
+  display: block;
+  min-height: 0;
+  padding: 34px max(28px, calc((100% - 1384px) / 2)) 25px;
+  background: #071c39;
+  color: #9eb1c7;
+}
+.portal-footer-inner {
+  display: block;
+}
+.portal-footer-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #1d3858;
+}
+.portal-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.portal-footer-brand img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+.portal-footer-brand strong {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+}
+.portal-footer-brand span {
+  display: block;
+  margin-top: 4px;
+  padding: 0;
+  border: 0;
+  color: #7087a1;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+.portal-footer nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.portal-footer nav button,
+.portal-footer nav a {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #9eb1c7;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color .18s;
+}
+.portal-footer nav button:hover,
+.portal-footer nav a:hover {
+  color: #fff;
+}
+.portal-footer-copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  color: #7087a1;
+  font-size: 11px;
+}
+.portal-footer-copy > span {
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.resource-pagination {
+  min-height: 38px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+}
+.resource-pagination:empty {
+  min-height: 0;
+  margin-top: 0;
+}
+.resource-pagination button {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid #d7e1ec;
+  border-radius: 6px;
+  background: #fff;
+  color: #61768d;
+  cursor: pointer;
+}
+.resource-pagination button:hover:not(:disabled),
+.resource-pagination button.active {
+  border-color: #2f78d8;
+  background: #2f78d8;
+  color: #fff;
+}
+.resource-pagination button:disabled {
+  background: #f4f6f9;
+  color: #bcc6d1;
+  cursor: default;
+}
+
+@media (max-width: 760px) {
+  .portal-footer-main,
+  .portal-footer-copy {
+    display: block;
+  }
+  .portal-footer nav {
+    margin-top: 22px;
+    flex-wrap: wrap;
+    gap: 15px 22px;
+  }
+  .portal-footer-copy span {
+    display: block;
+    margin-top: 7px;
+  }
+}

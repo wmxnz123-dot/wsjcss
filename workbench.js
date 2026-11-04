@@ -1,4 +1,8 @@
 const sidebar=document.getElementById('workbenchSidebar');
+document.getElementById('ehGreeting').textContent=new Date().getHours()<12?'上午好':new Date().getHours()<18?'下午好':'晚上好';
+document.querySelectorAll('[data-home-goto]').forEach(button=>button.addEventListener('click',()=>{const target=[...document.querySelectorAll('.workbench-nav [data-page]')].find(item=>item.dataset.page===button.dataset.homeGoto);if(target)openPage(target);}));
+document.getElementById('ehReadAll').addEventListener('click',()=>{document.querySelectorAll('.eh-message').forEach(item=>item.classList.add('is-read'));document.getElementById('ehReadAll').textContent='全部已读';});
+document.querySelectorAll('.eh-message').forEach(button=>button.addEventListener('click',()=>button.classList.add('is-read')));
 const sidebarToggle=document.getElementById('sidebarToggle');
 const dashboardView=document.getElementById('dashboardView');
 const datasetApplyView=document.getElementById('datasetApplyView');

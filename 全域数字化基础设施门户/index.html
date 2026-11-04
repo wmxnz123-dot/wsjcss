@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="汶上县全域数字化基础设施管理平台统一门户原型">
+  <title>汶上县全域数字化基础设施管理平台</title>
+  <link rel="stylesheet" href="unified-portal.css">
+  <link rel="stylesheet" href="scene-polish.css">
+  <link rel="stylesheet" href="favorites-drawer.css">
+  <link rel="stylesheet" href="favorite-controls.css">
+  <link rel="stylesheet" href="system-module-polish.css">
+  <link rel="stylesheet" href="drawer-polish.css">
+  <link rel="stylesheet" href="portal-footer.css">
+  <link rel="stylesheet" href="statistics.css">
+  <link rel="stylesheet" href="notices.css">
+  <style>.brand-logo{width:40px;height:40px;object-fit:contain;flex:0 0 40px}.hero{height:500px}.hero h1{font-size:58px}@media(max-width:720px){.hero h1{font-size:36px}}</style>
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" data-page="home" aria-label="返回首页"><img class="brand-logo" src="logo2.png" width="40" height="40" alt="平台 Logo"><span><b>汶上县全域数字化基础设施管理平台</b><small>WENSHANG DIGITAL INFRASTRUCTURE</small></span></button>
+    <nav aria-label="主导航"><button class="nav-item active" data-page="home">首页</button><button class="nav-item" data-page="resources">资源中心</button><button class="nav-item" data-page="stats">统计中心</button><button class="nav-item" data-page="notices">通知公告</button></nav>
+    <div class="account"><button class="account-trigger" aria-expanded="false"><span class="avatar">张</span><span>张建国<small>运营管理方</small></span><b>⌄</b></button><div class="account-menu" hidden><button data-page="profile">◉　个人中心</button><button data-admin-link>▦　管理工作台</button><i></i><button data-action="logout">↗　退出登录</button></div></div>
+  </header>
+
+  <main>
+    <div class="page active" id="page-home">
+      <section class="hero"><div class="hero-inner"><div class="hero-copy"><span class="eyebrow"><i></i> 全域数字底座 · 一体协同门户</span><h1>汶上县全域数字化<br><em>基础设施管理平台</em></h1><h2>硬件筑基 <i></i> 平台赋能 <i></i> 数据融通 <i></i> 协同治理</h2><p>构建“1+2+N”智慧基础设施体系，汇聚全域数字资源，赋能智慧城市治理。</p><div class="hero-stats"><span><b>4</b> 大能力板块</span><span><b>15</b> 个平台入口</span><span><b>29</b> 项场景建设</span></div></div><div class="hero-visual" aria-hidden="true"><div class="orbit a"></div><div class="orbit b"></div><div class="core"><b>1+2+N</b><small>全域数智底座</small></div><div class="node n1">感知<small>IoT</small></div><div class="node n2">数据<small>DATA</small></div><div class="node n3">场景<small>SCENE</small></div><div class="node n4">赋能<small>AI + BI</small></div></div></div></section>
+
+      <section class="section"><div class="section-title"><span>01</span><div><h2>数智基础设施</h2><p>DIGITAL INTELLIGENCE INFRASTRUCTURE · 夯实城市数字化底座</p></div></div><div class="system-grid" id="primarySystems"></div>
+        <div class="trusted"><div class="trusted-head"><span class="trusted-icon">可信</span><div><h3>可信流通平台</h3><p>围绕数据资源治理、资产管理、协作开发及数据流通服务，构建数据可信流通与价值释放的基础能力体系。</p></div><small>TRUSTED DATA SPACE</small></div><div class="trusted-grid" id="trustedSystems"></div></div>
+      </section>
+
+      <section class="section alt"><div class="section-title"><span>02</span><div><h2>业务赋能应用中心</h2><p>BUSINESS ENABLEMENT · 低代码、可视化与智能化协同赋能</p></div></div><div class="system-grid" id="enablementSystems"></div></section>
+
+      <section class="section"><div class="section-title"><span>03</span><div><h2>全域数据资源中心</h2><p>DATA RESOURCE CENTER · 汇聚全域资源，释放数据价值</p></div><button class="more" data-page="resources">查看更多 →</button></div><div class="resource-grid" id="homeResources"></div></section>
+
+      <section class="section scenes-section"><div class="section-title"><span>04</span><div><h2>智慧场景应用</h2><p>SMART SCENARIO APPLICATIONS · 数字技术赋能城市精细化治理</p></div></div><div class="legend"><span><i class="online"></i> 可访问系统 / 模块</span><span><i></i> 建设内容</span></div><div id="sceneList"></div></section>
+      <footer class="portal-footer"><div class="portal-footer-inner"><div class="portal-footer-main"><div class="portal-footer-brand"><img src="logo2.png" width="38" height="38" alt="平台 Logo"><div><strong>汶上县全域数字化基础设施管理平台</strong><span>WENSHANG DIGITAL INFRASTRUCTURE MANAGEMENT PLATFORM</span></div></div><nav aria-label="底部导航"><button data-page="home">门户首页</button><button data-page="resources">资源中心</button><button data-page="stats">统计中心</button></nav></div><div class="portal-footer-copy"><span>主办单位：汶上县大数据中心</span><span>© 2026 汶上县全域数字化基础设施管理平台</span></div></div></footer>
+    </div>
+
+    <div class="page" id="page-resources"><section class="page-hero"><div><small>DATA RESOURCE CENTER</small><h1>全域数据资源中心</h1><p>统一汇聚、规范管理、安全共享全县数字资源，为各部门业务协同与创新应用提供数据支撑。</p><div><b>◈　2,486 项数据资源</b><b>▦　42 个提供单位</b><b>◉　316 个数据服务</b></div></div><aside>DATA<br>HUB</aside></section><section class="content"><div class="filters"><label class="search">⌕<input id="resourceSearch" placeholder="搜索资源名称或提供单位"></label><div id="resourceCategories"></div></div><div class="list-head"><h2>资源目录</h2><span>共找到 <b id="resourceCount">0</b> 项示例资源</span></div><div class="resource-list" id="resourceList"></div><div class="resource-pagination" id="resourcePagination" aria-label="资源目录分页"></div></section><footer class="portal-footer"><div class="portal-footer-inner"><div class="portal-footer-main"><div class="portal-footer-brand"><img src="logo2.png" width="38" height="38" alt="平台 Logo"><div><strong>汶上县全域数字化基础设施管理平台</strong><span>WENSHANG DIGITAL INFRASTRUCTURE MANAGEMENT PLATFORM</span></div></div><nav aria-label="底部导航"><button data-page="home">门户首页</button><button data-page="resources">资源中心</button><button data-page="stats">统计中心</button></nav></div><div class="portal-footer-copy"><span>主办单位：汶上县大数据中心</span><span>© 2026 汶上县全域数字化基础设施管理平台</span></div></div></footer></div>
+
+    <div class="page" id="page-stats">
+      <section class="statistics-hero"><div><small>STATISTICS CENTER</small><h1>全域运行统计中心</h1><p>统一汇聚全域数字基础设施、业务应用、数据资源与智慧场景运行指标。</p><span>数据更新至 2026-11-02 09:30</span></div><aside><b>5</b><small>统计专题</small></aside></section>
+      <section class="statistics-page">
+        <div class="statistics-primary-tabs" id="statisticsPrimaryTabs" role="tablist"></div>
+        <div class="statistics-toolbar"><div><span class="statistics-dot"></span><div><h2 id="statisticsTitle">综合概览</h2><p id="statisticsDescription">全域数字化基础设施建设规模与核心业务指标</p></div></div><div class="statistics-range"><label>统计时间<select id="statisticsRange"><option value="7">近7天</option><option value="30">近30天</option><option value="12" selected>近12个月</option><option value="custom">自定义时间</option></select></label><div class="statistics-custom-range" id="statisticsCustomRange" hidden><input type="date" id="statisticsStartDate" value="2026-01-01"><span>至</span><input type="date" id="statisticsEndDate" value="2026-11-02"><button type="button" id="statisticsApplyDate">确定</button></div></div></div>
+        <div class="statistics-secondary-tabs" id="statisticsSecondaryTabs" role="tablist" hidden></div>
+        <div class="statistics-note">本页面数据仅用于原型展示，不代表真实项目数据。指标单位及统计口径随专题同步更新。</div>
+        <div class="statistics-metrics" id="statisticsMetrics"></div>
+        <div class="statistics-systems" id="statisticsSystems" hidden></div>
+        <div class="statistics-charts" id="statisticsCharts"></div>
+      </section>
+      <footer class="portal-footer"><div class="portal-footer-inner"><div class="portal-footer-main"><div class="portal-footer-brand"><img src="logo2.png" width="38" height="38" alt="平台 Logo"><div><strong>汶上县全域数字化基础设施管理平台</strong><span>WENSHANG DIGITAL INFRASTRUCTURE MANAGEMENT PLATFORM</span></div></div><nav aria-label="底部导航"><button data-page="home">门户首页</button><button data-page="resources">资源中心</button><button data-page="stats">统计中心</button></nav></div><div class="portal-footer-copy"><span>主办单位：汶上县大数据中心</span><span>© 2026 汶上县全域数字化基础设施管理平台</span></div></div></footer>
+    </div>
+
+    <div class="page" id="page-notices">
+      <section class="notices-hero"><div><small>NOTICE & ANNOUNCEMENT</small><h1>通知公告</h1><p>及时发布平台建设动态、业务通知、运行公告及相关规范文件。</p></div><aside><b>公</b><small>信息公开</small></aside></section>
+      <section class="notices-page">
+        <div class="notices-list-view" id="noticesListView">
+          <div class="notices-toolbar"><div><h2>通知公告列表</h2><p>了解平台最新通知与建设动态</p></div><label class="notices-search"><span>⌕</span><input id="noticesSearch" type="search" placeholder="搜索公告标题或发布单位"></label></div>
+          <div class="notices-categories" id="noticesCategories"></div>
+          <div class="notices-summary">共找到 <b id="noticesCount">0</b> 条公告</div>
+          <div class="notices-list" id="noticesList"></div>
+          <div class="notices-pagination" id="noticesPagination" aria-label="通知公告分页"></div>
+        </div>
+        <article class="notice-detail" id="noticeDetail" hidden><button class="notice-back" id="noticeBack" type="button">← 返回通知公告列表</button><div class="notice-detail-card"><header><span id="noticeDetailCategory"></span><h1 id="noticeDetailTitle"></h1><div><time id="noticeDetailDate"></time><i></i><span id="noticeDetailPublisher"></span><i></i><span id="noticeDetailViews"></span></div></header><div class="notice-detail-body" id="noticeDetailBody"></div><footer><span>附件</span><button id="noticeAttachment" type="button"></button></footer></div></article>
+      </section>
+      <footer class="portal-footer"><div class="portal-footer-inner"><div class="portal-footer-main"><div class="portal-footer-brand"><img src="logo2.png" width="38" height="38" alt="平台 Logo"><div><strong>汶上县全域数字化基础设施管理平台</strong><span>WENSHANG DIGITAL INFRASTRUCTURE MANAGEMENT PLATFORM</span></div></div><nav aria-label="底部导航"><button data-page="home">门户首页</button><button data-page="resources">资源中心</button><button data-page="stats">统计中心</button></nav></div><div class="portal-footer-copy"><span>主办单位：汶上县大数据中心</span><span>© 2026 汶上县全域数字化基础设施管理平台</span></div></div></footer>
+    </div>
+
+    <div class="page" id="page-profile"><section class="plain-page"><div class="page-heading"><h1>个人中心</h1><p>管理个人资料与账号信息</p></div><div class="profile-layout"><aside><div class="large-avatar">张</div><h2>张建国</h2><p>汶上县大数据中心</p><span>运营管理方</span><button class="active">基本资料</button><button>账号安全</button><button>登录记录</button></aside><article><div class="panel-title"><h2>基本资料</h2><p>以下信息由统一身份认证系统同步</p></div><div class="form-grid"><label>用户姓名<input value="张建国" readonly></label><label>登录账号<input value="zhangjianguo" readonly></label><label>所属组织<input value="汶上县大数据中心" readonly></label><label>用户角色<input value="运营管理方" readonly></label><label>联系电话<input value="138****2086" readonly></label><label>电子邮箱<input value="zhangjg@wenshang.gov.cn" readonly></label></div><div class="info-tip"><b>账号由统一身份认证系统管理</b><p>如需修改密码，请通过统一身份认证平台完成。最近登录：2026-11-02 09:26</p></div></article></div></section></div>
+
+    <div class="page" id="page-admin"><div class="admin"><aside><div class="admin-logo"><span class="brand-mark"><i></i><i></i><i></i></span><b>门户管理后台</b></div><nav><button class="active">▦　工作台</button><button>◫　系统管理</button><button>♙　用户与权限</button><button>▥　统计配置</button></nav><button class="back" data-page="home">← 返回统一门户</button></aside><div><header><h2>管理工作台<small>统一门户配置与运营管理</small></h2><span class="avatar">张</span><b>张建国</b></header><section><div class="welcome"><div><small>上午好，张建国</small><h1>欢迎进入统一门户管理后台</h1><p>当前为原型占位页面，后续将逐步建设系统接入、用户权限与统计配置能力。</p></div><time>2026<br><b>11.02</b></time></div><div class="admin-cards"><button data-demo="工作台"><i>台</i><span><b>工作台</b><small>平台运行概览与快捷入口</small></span>→</button><button data-demo="系统管理"><i>系</i><span><b>系统管理</b><small>业务系统接入与入口配置</small></span>→</button><button data-demo="用户与权限管理"><i>权</i><span><b>用户与权限管理</b><small>用户、角色及访问权限配置</small></span>→</button><button data-demo="统计相关配置"><i>统</i><span><b>统计相关配置</b><small>统计指标与展示口径配置</small></span>→</button></div><div class="roadmap"><h3>拟建设功能方向</h3><div><p><span>01</span><b>门户内容与系统入口配置</b><small>规划中</small></p><p><span>02</span><b>组织、用户、角色及权限维护</b><small>待建设</small></p><p><span>03</span><b>统计指标与数据接口配置</b><small>待建设</small></p><p><span>04</span><b>平台运行参数与基础设置</b><small>待建设</small></p></div></div></section></div></div></div>
+  </main>
+
+  <button class="favorites-trigger" id="favoritesTrigger" type="button" aria-controls="favoritesDrawer" aria-expanded="false"><span class="trigger-star">★<b id="favoriteBadge" hidden>0</b></span><span><strong>常用系统</strong><small>快捷抽屉</small></span><i>‹</i></button>
+  <div class="drawer-mask" id="drawerMask" hidden></div>
+  <aside class="favorites-drawer" id="favoritesDrawer" aria-hidden="true">
+    <header><span class="drawer-star">★</span><div><h2>我的常用系统 <b id="favoriteTitleCount" hidden>0</b></h2><p>高频业务直达 · 随时随地快速呼出</p></div><button class="drawer-close" type="button" aria-label="关闭常用系统抽屉">×</button></header>
+    <div class="favorite-list" id="favoriteList"></div>
+    <footer><p>💡 提示：点击系统右侧的移除图标即可取消收藏。</p></footer>
+  </aside>
+
+  <div class="modal-backdrop" id="modal" hidden><div class="modal" role="dialog" aria-modal="true"><button class="modal-close" aria-label="关闭">×</button><div class="modal-icon">链</div><span class="modal-tag" hidden></span><h2></h2><div class="modal-body"></div><button class="primary modal-ok">我知道了</button></div></div>
+  <script src="unified-portal.js"></script>
+  <script src="statistics.js"></script>
+  <script src="notices.js"></script>
+</body>
+</html>

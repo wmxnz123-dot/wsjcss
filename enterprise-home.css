@@ -1,0 +1,67 @@
+#dashboardView{display:block;padding-top:18px}
+.eh-layout{display:grid;grid-template-columns:minmax(0,1fr) 375px;gap:20px;align-items:start}
+.eh-main-col,.eh-side-col{display:grid;gap:20px;min-width:0}
+.eh-panel{background:#fff;border:1px solid #e8edf4;border-radius:12px;padding:20px 22px}
+.eh-panel header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.eh-panel h2{font-size:17px;margin:0;color:#263b53}
+.eh-panel h2 span{color:#3985ec;margin-right:9px;font-style:normal}
+.eh-head-title{display:flex;align-items:center;gap:12px;min-width:0}
+.eh-head-title small{color:#97a5b5;font-size:12px;white-space:nowrap}
+.eh-panel header button{border:0;background:none;color:#3182ed;font-size:13px}
+/* 统计概览 */
+.eh-statistics{background:linear-gradient(120deg,#f2f7fe,#eaf2fc);padding:18px}
+.eh-statistics h2{font-size:19px}
+.eh-statistics .eh-head-title small{font-size:13px;color:#7d8fa5}
+.eh-stat-body{background:#fff;border-radius:12px;padding:12px}
+.eh-stat-group{display:grid;grid-template-columns:80px minmax(0,1fr) 142px;gap:12px;align-items:stretch}
+.eh-stat-divider{height:1px;background:#edf1f6;margin:14px 0}
+.eh-money-cell{border-left:1px solid #edf1f6;padding-left:12px;display:flex;min-width:0}
+.eh-side-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-radius:12px;background:linear-gradient(165deg,#f4f8ff,#ddebfc);border:1px solid #e2edfb}
+.eh-side-label i{font-style:normal;font-size:28px;color:#3c86ec}
+.eh-side-label b{font-size:15px;color:#2f4d6e}
+.eh-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.eh-metrics article{display:flex;align-items:flex-start;gap:8px;background:linear-gradient(135deg,#f7fafe,#ecf3fd);border-radius:10px;padding:12px 9px;min-width:0}
+.eh-metrics article>i{font-style:normal;font-size:18px;color:#3c86ec;flex:0 0 auto;line-height:1.3}
+.eh-metrics article div{min-width:0}
+.eh-metrics span{display:block;font-size:13px;color:#41607f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eh-metrics b{display:block;margin-top:3px;font:700 20px Arial;color:#1d3a5c}
+.eh-money{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:#fff;border:1px solid #e6edf7;border-radius:12px;padding:10px 4px;box-shadow:0 6px 16px rgba(31,74,138,.05)}
+.eh-money i{font-style:normal;color:#3985ec;font-size:22px}
+.eh-money span{font-size:13px;color:#45607c;white-space:nowrap}
+.eh-money b{font:700 21px Arial;color:#16324f;white-space:nowrap}
+/* 欢迎卡 */
+.eh-welcome{position:relative;overflow:hidden;padding:26px 26px 30px;border-radius:12px;background:#f6faff url('banner_sy.png') center/cover no-repeat;border:1px solid #fff}
+.eh-welcome h1{font-size:19px;line-height:1.7;margin:0 0 16px;color:#1e2e43}
+.eh-node{display:flex;align-items:center;gap:8px;font-size:13px;color:#5d7188;margin:0}
+.eh-normal{display:inline-flex;align-items:center;gap:5px;padding:3px 11px;border:1px solid #cdeebc;border-radius:20px;background:#f7fff0;color:#70b744;font-size:12px}
+.eh-welcome strong{display:block;margin-top:14px;font-size:17px;color:#3182ed}
+/* 我的待办 */
+.eh-todos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.eh-todos button{display:flex;align-items:center;gap:10px;padding:14px 12px;border-radius:10px;border:1px solid transparent;text-align:left;color:#354c67;min-width:0}
+.eh-todos button i{font-style:normal;width:38px;height:38px;border-radius:9px;display:grid;place-items:center;font-size:18px;flex:0 0 auto}
+.eh-todos button:nth-child(1){background:#eef5ff url('bg_db01.png') center/cover no-repeat;border-color:#d8e6fb}
+.eh-todos button:nth-child(1) i{background:#dceaff;color:#2f7ae5}
+.eh-todos button:nth-child(2){background:#fff6ec url('bg_db02.png') center/cover no-repeat;border-color:#f7e3c8}
+.eh-todos button:nth-child(2) i{background:#ffe7c9;color:#e8842f}
+.eh-todos button:nth-child(3){background:#edfaf2 url('bg_db03.png') center/cover no-repeat;border-color:#cfeede}
+.eh-todos button:nth-child(3) i{background:#d3f2e0;color:#2ea36b}
+.eh-todo-txt{min-width:0}
+.eh-todo-txt span{display:block;font-size:12px;color:#5d7188;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eh-todo-txt b{display:block;margin-top:3px;font:600 22px Arial;color:#283f5c}
+.eh-todos em{margin-left:auto;font-style:normal;color:#9fb0c2;font-size:16px;flex:0 0 auto}
+.eh-todos button:disabled{cursor:default}
+.eh-todos button:disabled .eh-todo-txt b{color:#8fa2b5}
+.eh-todos button:disabled em{color:#c3cedb}
+/* 消息提醒 */
+.eh-message{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:13px 0;border:0;border-bottom:1px solid #edf0f5;background:#fff;text-align:left;color:#33465d;font-size:13px}
+.eh-message:last-child{border-bottom:0}
+.eh-message span{display:flex;align-items:center;gap:9px;min-width:0}
+.eh-message span:before{content:"";width:6px;height:6px;border-radius:50%;background:#3985ec;flex:0 0 auto}
+.eh-message em{font-style:normal;font-size:10px;background:#f2453f;color:#fff;padding:1px 5px;border-radius:2px;flex:0 0 auto}
+.eh-message time{white-space:nowrap;font-size:12px;color:#99a4b0;flex:0 0 auto}
+.eh-message.is-read em{display:none}
+.eh-message.is-read{color:#93a0b0}
+.eh-message.is-read span:before{background:#c6d1de}
+@media(max-width:1280px){.eh-layout{grid-template-columns:minmax(0,1fr) 330px}}
+@media(max-width:1100px){.eh-layout{grid-template-columns:1fr}}
+@media(max-width:760px){.eh-welcome{padding:20px}.eh-welcome h1{font-size:19px}.eh-stat-body{padding:10px}.eh-stat-group{grid-template-columns:1fr}.eh-money-cell{border-left:0;padding-left:0}.eh-side-label{flex-direction:row;justify-content:flex-start;padding:10px 14px;gap:8px}.eh-metrics{grid-template-columns:repeat(2,1fr)}.eh-todos{grid-template-columns:1fr}.eh-panel{padding:18px 14px}}

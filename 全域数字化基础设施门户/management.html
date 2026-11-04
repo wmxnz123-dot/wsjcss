@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>管理工作台 - 汶上县全域数字化基础设施管理平台</title>
+  <link rel="stylesheet" href="management.css">
+  <link rel="stylesheet" href="management-entry.css">
+  <link rel="stylesheet" href="management-dashboard.css">
+</head>
+<body>
+  <header class="manager-header">
+    <a class="manager-brand" href="management.html"><img src="logo2.png" alt="平台标识"><div><strong>管理方后台</strong><small>汶上县全域数字化基础设施</small></div></a>
+    <div class="header-actions"><a href="index.html">返回门户</a><i></i><button id="managerUser" type="button"><span>管</span><b>平台管理员</b><em>⌄</em></button><div class="user-menu" id="userMenu" hidden><button type="button">账号设置</button><a href="index.html">退出登录</a></div><button class="mobile-menu" id="mobileMenu" type="button">☰</button></div>
+  </header>
+  <div class="manager-layout">
+    <aside class="manager-sidebar" id="managerSidebar">
+      <nav>
+        <button class="nav-item active" data-view="dashboard"><span>◉</span><b>仪表盘</b></button>
+        <section><button class="group-title" type="button"><span><i>▦</i><b>门户管理</b></span><em>⌄</em></button><div class="submenu"><button data-view="系统入口管理">系统入口管理</button><button data-view="门户内容管理">门户内容管理</button></div></section>
+        <section><button class="group-title disabled" type="button" disabled aria-disabled="true"><span><i>◇</i><b>资源管理</b></span><em>未开放</em></button></section>
+        <section><button class="group-title disabled" type="button" disabled aria-disabled="true"><span><i>⚙</i><b>系统管理</b></span><em>未开放</em></button></section>
+      </nav>
+    </aside>
+    <main class="manager-main">
+      <section id="dashboardView">
+        <div class="welcome"><div><h1>你好，管理员！</h1><p>欢迎进入汶上县全域数字化基础设施管理平台管理方后台</p></div><span>统一运营 · 全域协同</span></div>
+        <article class="panel dashboard-section stats-panel"><header><div><h2>平台统计</h2></div><small>PLATFORM OVERVIEW</small></header><div class="dashboard-stats">
+          <div class="tone-blue"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"></path><path d="m3 12 9 5 9-5"></path><path d="m3 16 9 5 9-5"></path></svg></i><span><b>3</b><small>个</small></span><p>能力板块</p></div>
+          <div class="tone-cyan"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M8 22h8M12 18v4M7 8h10"></path></svg></i><span><b id="dashboardSystemCount">14</b><small>个</small></span><p>接入系统</p></div>
+          <div class="tone-purple"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></i><span><b>4</b><small>个</small></span><p>应用场景</p></div>
+          <div class="tone-orange"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg></i><span><b>6</b><small>条</small></span><p>通知公告</p></div>
+        </div></article>
+        <div class="dashboard-lower">
+          <article class="panel dashboard-section shortcut-panel"><header><div><h2>快捷入口</h2></div><small>QUICK ACCESS</small></header><div class="dashboard-shortcuts"><button type="button" data-dashboard-view="系统入口管理"><i>▦</i><span><b>系统入口管理</b><small>维护系统入口、分类及上架状态</small></span><em>→</em></button><button type="button" data-dashboard-view="门户内容管理"><i>文</i><span><b>门户内容管理</b><small>维护统一门户运营展示内容</small></span><em>→</em></button><button class="disabled" type="button" disabled><i>资</i><span><b>资源管理</b><small>资源目录与数据服务管理</small></span><em>暂未开放</em></button></div></article>
+          <article class="panel dashboard-section ranking-panel"><header><div><h2>热门系统点击排行</h2></div><small>近30天</small></header><div class="ranking-head"><span>排名</span><span>系统名称</span><span>所属分类</span><span>点击次数</span><span>访问热度</span></div><div class="ranking-list"><div><strong>1</strong><b>数据流通服务平台</b><span>可信流通平台</span><em>12,846</em><i><u style="width:100%"></u></i></div><div><strong>2</strong><b>物联网感知平台</b><span>主干</span><em>10,328</em><i><u style="width:80.4%"></u></i></div><div><strong>3</strong><b>市政综合管理平台</b><span>市政公用</span><em>8,965</em><i><u style="width:69.8%"></u></i></div><div><strong>4</strong><b>融合应用开发平台</b><span>主干</span><em>7,642</em><i><u style="width:59.5%"></u></i></div><div><strong>5</strong><b>视频融合分析平台</b><span>主干</span><em>6,384</em><i><u style="width:49.7%"></u></i></div></div></article>
+        </div>
+      </section>
+      <section class="system-entry-view" id="systemEntryView" hidden>
+        <div class="manage-page-head">
+          <div><p>门户管理 / 系统入口管理</p><h1>系统入口管理</h1><span>维护统一门户业务系统入口、分类及发布状态</span></div>
+          <button class="primary-button" id="addSystemButton" type="button"><b>＋</b> 新增系统</button>
+        </div>
+        <div class="entry-layout">
+          <aside class="stage-tree panel">
+            <header><div><h2>阶段分类</h2><small>STAGE TREE</small></div></header>
+            <div id="stageTree"></div>
+          </aside>
+          <article class="entry-content panel">
+            <header class="entry-toolbar">
+              <div><h2 id="systemListTitle">全部系统</h2><small>共 <b id="systemCount">0</b> 个系统入口</small></div>
+              <label class="table-search"><span>⌕</span><input id="systemSearch" type="search" placeholder="搜索系统名称"></label>
+            </header>
+            <div class="system-table-wrap">
+              <table class="system-table">
+                <thead><tr><th>序号</th><th>系统名称</th><th>所属阶段</th><th>所属分类</th><th>发布状态</th><th>排序</th><th>发布时间</th><th>操作</th></tr></thead>
+                <tbody id="systemTableBody"></tbody>
+              </table>
+            </div>
+            <div class="table-empty" id="systemEmpty" hidden><span>⌕</span><p>暂无符合条件的系统</p></div>
+            <div class="system-pagination" id="systemPagination" aria-label="系统入口列表分页"></div>
+          </article>
+        </div>
+      </section>
+      <section class="placeholder" id="placeholder" hidden><span>▦</span><h1 id="placeholderTitle"></h1><p>同授权运营内容管理页面</p><button id="backDashboard" type="button">返回仪表盘</button></section>
+    </main>
+  </div>
+  <div class="manager-modal" id="systemModal" hidden>
+    <div class="manager-modal-mask" data-close-system-modal></div>
+    <section class="manager-modal-card" role="dialog" aria-modal="true" aria-labelledby="systemModalTitle">
+      <header><div><h2 id="systemModalTitle">新增系统</h2><p>配置系统基础信息及门户发布状态</p></div><button type="button" data-close-system-modal aria-label="关闭">×</button></header>
+      <form id="systemForm">
+        <div class="modal-form-grid">
+          <label class="wide"><span>系统名称 <b>*</b></span><input id="newSystemName" maxlength="30" required placeholder="请输入系统名称"></label>
+          <label><span>所属阶段 <b>*</b></span><select id="newSystemStage" required></select></label>
+          <label><span>所属分类 <b>*</b></span><select id="newSystemCategory" required></select></label>
+          <fieldset class="status-radio"><legend>是否上架 <b>*</b></legend><div><label><input type="radio" name="newSystemStatus" value="是" checked><i></i><span>是</span></label><label><input type="radio" name="newSystemStatus" value="否"><i></i><span>否</span></label></div></fieldset>
+          <label><span>排序 <b>*</b></span><input id="newSystemSort" type="number" min="1" max="999" value="10" required></label>
+          <label class="wide"><span>系统访问地址</span><input id="newSystemUrl" type="url" placeholder="https://example.wenshang.gov.cn"></label>
+          <label class="wide"><span>系统简介</span><textarea id="newSystemDescription" rows="3" placeholder="请输入系统简介，用于门户卡片展示"></textarea></label>
+        </div>
+        <footer><button class="secondary-button" type="button" data-close-system-modal>取消</button><button class="primary-button" id="systemSubmitButton" type="submit">确定新增</button></footer>
+      </form>
+    </section>
+  </div>
+  <div class="system-drawer-layer" id="systemDrawerLayer" hidden>
+    <button class="system-drawer-mask" type="button" data-close-system-drawer aria-label="关闭详情"></button>
+    <aside class="system-detail-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerSystemName">
+      <header><div><span>系统入口详情</span><h2 id="drawerSystemName"></h2></div><button type="button" data-close-system-drawer aria-label="关闭">×</button></header>
+      <div class="drawer-system-summary"><i id="drawerSystemIcon"></i><div><b id="drawerSystemTitle"></b><span id="drawerSystemStatus"></span></div></div>
+      <section><h3>基础信息</h3><dl><div><dt>所属阶段</dt><dd id="drawerSystemStage"></dd></div><div><dt>所属分类</dt><dd id="drawerSystemCategory"></dd></div><div><dt>显示排序</dt><dd id="drawerSystemSort"></dd></div><div><dt>发布时间</dt><dd id="drawerSystemDate"></dd></div></dl></section>
+      <section><h3>访问配置</h3><dl class="single"><div><dt>系统访问地址</dt><dd id="drawerSystemUrl"></dd></div></dl></section>
+      <section><h3>系统简介</h3><p id="drawerSystemDescription"></p></section>
+      <footer><button class="secondary-button" type="button" data-close-system-drawer>关闭</button><button class="primary-button" id="drawerEditButton" type="button">编辑系统</button></footer>
+    </aside>
+  </div>
+  <div class="manager-modal" id="deleteSystemModal" hidden>
+    <div class="manager-modal-mask" data-cancel-delete></div>
+    <section class="manager-modal-card confirm-card" role="alertdialog" aria-modal="true" aria-labelledby="deleteSystemTitle">
+      <div class="confirm-body"><i>!</i><div><h2 id="deleteSystemTitle">删除系统入口</h2><p>确定删除“<b id="deleteSystemName"></b>”吗？删除后将无法在门户中展示。</p></div></div>
+      <footer><button class="secondary-button" type="button" data-cancel-delete>取消</button><button class="danger-button" id="confirmDeleteSystem" type="button">确认删除</button></footer>
+    </section>
+  </div>
+  <div class="manager-toast" id="managerToast" hidden></div>
+  <script src="management.js"></script>
+</body>
+</html>

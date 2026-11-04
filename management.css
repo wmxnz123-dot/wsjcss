@@ -389,3 +389,21 @@
 /* 详情抽屉附件名称（有附件时显示为蓝色链接样式） */
 .md-info-grid dd.attached{color:var(--blue);cursor:pointer}
 .md-info-grid dd.attached:hover{text-decoration:underline}
+
+/* 需求审核抽屉 · 审批记录时间线 */
+.md-timeline.md-flow{list-style:none;margin:0;padding:8px 0 0}
+.md-timeline.md-flow li{position:relative;margin-left:0;padding:0 0 26px 50px;border-left:none}
+.md-timeline.md-flow li:last-child{padding-bottom:0}
+.md-timeline.md-flow li:before{content:"";position:absolute;left:12px;top:26px;bottom:-2px;width:1px;background:#e3eaf2}
+.md-timeline.md-flow li:last-child:before{display:none}
+.md-timeline.md-flow .mt-dot{position:absolute;left:0;top:0;width:25px;height:25px;border-radius:50%;background:#fff;border:1px solid #dfe7f1;display:grid;place-items:center;color:#a9b7c6;font-size:12px;font-weight:700;box-shadow:none}
+.md-timeline.md-flow li.flow-start .mt-dot{background:#3d86e8;border-color:#3d86e8;color:#fff;font-size:9px}
+.md-timeline.md-flow li.flow-done .mt-dot{border-color:#3d86e8;color:#3d86e8;font-size:13px}
+.md-timeline.md-flow li.flow-current .mt-dot{background:#3d86e8;border-color:#3d86e8;color:#fff}
+.md-timeline.md-flow li.flow-end .mt-dot{border-radius:7px;background:#eef3f9;border-color:#e3eaf2;color:transparent}
+.md-timeline.md-flow li.flow-end .mt-dot:after{content:"";width:9px;height:9px;border-radius:2px;background:#fff}
+.md-timeline.md-flow .mt-title{font-size:14px;font-weight:500;color:#3b5170;line-height:25px}
+.md-timeline.md-flow li.flow-current .mt-title{font-weight:700;color:#1d3557}
+.md-timeline.md-flow li.flow-pending .mt-title{font-weight:500;color:#8b9aab}
+.md-timeline.md-flow .mt-flow-rows{margin-top:6px;display:flex;flex-direction:column;gap:3px;font-size:13px;line-height:1.7;color:#93a1b0}
+.md-timeline.md-flow .mt-flow-rows b{font-weight:500;color:#5b7089}

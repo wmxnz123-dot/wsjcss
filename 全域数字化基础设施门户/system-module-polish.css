@@ -1,0 +1,181 @@
+/* Compact system entry modules: default, hover/focus and favorited states. */
+.trusted-grid > button {
+  min-height: 82px;
+  padding: 13px 42px 13px 13px;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: center;
+  border: 1px solid #dfe7f1;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(34, 69, 108, .045);
+  transition: border-color .18s, background .18s, box-shadow .18s, transform .18s;
+}
+.trusted-grid > button > span:first-child {
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  border-radius: 11px;
+  background: #edf4ff;
+  color: #2b70e8;
+  transition: background .18s, color .18s;
+}
+.trusted-grid > button > div {
+  min-width: 0;
+  display: block;
+}
+.trusted-grid > button > div > b {
+  display: block;
+  overflow: hidden;
+  color: #263a55;
+  font-size: 14px;
+  line-height: 1.35;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: color .18s;
+}
+.trusted-grid > button > div > small {
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 5px;
+  padding: 3px 6px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #f0f4f9;
+  color: #71849b;
+  font-size: 10px;
+  line-height: 1.25;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.trusted-grid > button:hover,
+.trusted-grid > button:focus-visible {
+  border-color: #5591ff;
+  outline: none;
+  background: linear-gradient(90deg, #f4f8ff 0%, #fff 78%);
+  box-shadow: 0 5px 14px rgba(45, 105, 212, .1);
+  transform: translateY(-1px);
+}
+.trusted-grid > button:hover > span:first-child,
+.trusted-grid > button:focus-visible > span:first-child {
+  background: #2f6df3;
+  color: #fff;
+}
+.trusted-grid > button:hover > div > b,
+.trusted-grid > button:focus-visible > div > b {
+  color: #2467df;
+}
+.trusted-grid > button .favorite-toggle {
+  right: 13px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+.trusted-grid > button .favorite-toggle:hover {
+  transform: translateY(-50%) scale(1.08) !important;
+}
+
+.scene-items button {
+  min-height: 82px;
+  padding: 13px 42px 13px 13px;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  align-items: center;
+  border: 1px solid #dfe7f1;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(34, 69, 108, .045);
+  transition: border-color .18s, background .18s, box-shadow .18s, transform .18s;
+}
+.scene-items button > span:first-child {
+  grid-row: 1 / 3;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  border-radius: 11px;
+  background: var(--scene-soft);
+  color: var(--scene);
+  font-size: 11px;
+  transition: background .18s, color .18s;
+}
+.scene-items button > b {
+  align-self: end;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  color: #263a55;
+  font-size: 13px;
+  line-height: 1.35;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: color .18s;
+}
+.scene-items button > small {
+  align-self: start;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin: 4px 0 0;
+  padding: 3px 6px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #f0f4f9;
+  color: #71849b;
+  font-size: 9px;
+  line-height: 1.25;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.scene-items .clickable:hover,
+.scene-items .clickable:focus-visible {
+  border-color: var(--scene);
+  outline: none;
+  background: linear-gradient(90deg, var(--scene-soft) 0%, #fff 78%);
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--scene) 13%, transparent);
+  transform: translateY(-1px);
+}
+.scene-items .clickable:hover > span:first-child,
+.scene-items .clickable:focus-visible > span:first-child {
+  background: var(--scene);
+  color: #fff;
+}
+.scene-items .clickable:hover > b,
+.scene-items .clickable:focus-visible > b {
+  color: var(--scene);
+}
+.scene-items button .favorite-toggle {
+  right: 13px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+.scene-items button .favorite-toggle:hover {
+  transform: translateY(-50%) scale(1.08) !important;
+}
+.scene-items .featured {
+  border-color: #dfe7f1;
+  background: #fff;
+}
+.scene-items .passive {
+  border-style: dashed;
+  background: #f7f9fb;
+  box-shadow: none;
+}
+.scene-items .passive > span:first-child,
+.scene-items .passive > small {
+  background: #e9edf2;
+  color: #8390a0;
+}
+
+@media (max-width: 720px) {
+  .trusted-grid > button,
+  .scene-items button {
+    min-height: 76px;
+  }
+}
+
+.favorites-drawer > footer p {
+  margin-top: 0;
+}
