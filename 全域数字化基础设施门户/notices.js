@@ -8,21 +8,21 @@
       content: ['各有关单位：', '为进一步完善全域数字化基础设施统一门户系统信息，确保各业务系统入口、责任单位及服务状态准确有效，现组织开展业务系统接入信息集中核对工作。', '请各单位重点核对系统名称、访问地址、责任部门、联系人及系统运行状态等内容，并于2026年11月10日前完成信息确认。发现信息变更或系统入口异常的，请在核对表中注明具体情况。', '本次核对结果将作为后续门户系统目录更新和统一身份认证接入工作的基础，请各单位认真组织、按时反馈。']
     },
     {
-      id: 'resource-update', category: '平台动态', date: '2026-11-02', day: '02', month: '2026-11',
+      id: 'resource-update', category: '通知公告', date: '2026-11-02', day: '02', month: '2026-11',
       title: '全域数据资源目录更新公告', publisher: '汶上县大数据中心', views: 214,
       summary: '本次目录更新新增园林、环卫、市政公用等专题数据资源，并同步优化资源检索与分类展示。',
       attachment: '全域数据资源目录更新清单.pdf',
       content: ['为持续提升全县数据资源统一汇聚和共享服务能力，平台已完成2026年第四季度全域数据资源目录更新。', '本次更新新增智慧园林、智慧环卫、市政公用、停充一体化等专题数据资源共86项，调整资源责任单位信息12项，并优化资源分类标签和检索条件。', '各单位可通过门户“资源中心”查询更新后的资源目录。如对目录内容有疑问，请联系平台运营人员反馈。']
     },
     {
-      id: 'maintenance', category: '运行公告', date: '2026-10-30', day: '30', month: '2026-10',
+      id: 'maintenance', category: '通知公告', date: '2026-10-30', day: '30', month: '2026-10',
       title: '统一门户维护升级公告', publisher: '平台运行维护中心', views: 305,
       summary: '统一门户将于11月1日22:00至23:30进行例行维护，期间部分统一认证服务可能短时不可用。',
       attachment: '平台维护影响范围说明.pdf',
       content: ['为保障平台稳定运行，统一门户计划于2026年11月1日22:00至23:30进行例行维护升级。', '维护期间，门户首页可正常访问，统一身份认证、业务系统单点登录及部分统计数据更新服务可能出现短时中断。已登录的业务系统不受影响。', '请各单位提前安排相关工作。维护完成后各项服务将自动恢复，由此带来的不便敬请谅解。']
     },
     {
-      id: 'iot-spec', category: '规范文件', date: '2026-10-28', day: '28', month: '2026-10',
+      id: 'iot-spec', category: '政策文件', date: '2026-10-28', day: '28', month: '2026-10',
       title: '物联感知设备接入规范（试行）发布通知', publisher: '汶上县大数据中心', views: 188,
       summary: '规范统一物联设备编码、数据格式、接口协议及安全要求，支撑全域感知设备标准化接入。',
       attachment: '物联感知设备接入规范（试行）.pdf',
@@ -53,10 +53,10 @@
   const pagination = document.getElementById('noticesPagination');
   if (!listView || !detail || !list || !categoryWrap || !search || !count || !pagination) return;
 
-  let activeCategory = '全部';
+  let activeCategory = '通知公告';
   let currentPage = 1;
   const pageSize = 4;
-  const categories = ['全部', ...new Set(notices.map(item => item.category))];
+  const categories = ['通知公告', '政策文件', '使用说明'];
 
   function renderCategories() {
     categoryWrap.innerHTML = categories.map(category =>
@@ -67,7 +67,7 @@
   function renderList() {
     const keyword = search.value.trim().toLowerCase();
     const data = notices.filter(item => {
-      const categoryMatched = activeCategory === '全部' || item.category === activeCategory;
+      const categoryMatched = item.category === activeCategory;
       const keywordMatched = !keyword || `${item.title}${item.publisher}${item.summary}`.toLowerCase().includes(keyword);
       return categoryMatched && keywordMatched;
     });
@@ -85,7 +85,7 @@
           <small>发布单位：${item.publisher}　·　浏览 ${item.views} 次</small>
         </span>
         <i aria-hidden="true">→</i>
-      </button>`).join('') : '<div class="notices-empty"><b>⌕</b>没有找到符合条件的公告</div>';
+      </button>`).join('') : '<div class="notices-empty"><b>⌕</b>没有找到符合条件的内容</div>';
     pagination.innerHTML = data.length > pageSize ? `
       <span>第 ${currentPage} / ${pageCount} 页</span>
       <button type="button" data-notice-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''} aria-label="上一页">‹</button>
