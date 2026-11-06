@@ -53,10 +53,10 @@
   const pagination = document.getElementById('noticesPagination');
   if (!listView || !detail || !list || !categoryWrap || !search || !count || !pagination) return;
 
-  let activeCategory = '通知公告';
+  let activeCategory = '全部';
   let currentPage = 1;
   const pageSize = 4;
-  const categories = ['通知公告', '政策文件', '使用说明'];
+  const categories = ['全部', '通知公告', '政策文件', '使用说明'];
 
   function renderCategories() {
     categoryWrap.innerHTML = categories.map(category =>
@@ -67,7 +67,7 @@
   function renderList() {
     const keyword = search.value.trim().toLowerCase();
     const data = notices.filter(item => {
-      const categoryMatched = item.category === activeCategory;
+      const categoryMatched = activeCategory === '全部' || item.category === activeCategory;
       const keywordMatched = !keyword || `${item.title}${item.publisher}${item.summary}`.toLowerCase().includes(keyword);
       return categoryMatched && keywordMatched;
     });
