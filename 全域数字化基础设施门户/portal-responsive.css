@@ -1,0 +1,291 @@
+/* 与老门户一致：内容区随视口等比例伸缩，两侧使用同一套流式留白。 */
+:root {
+  --portal-edge: clamp(24px, 3.2vw, 64px);
+  --portal-banner-edge: clamp(48px, 7vw, 140px);
+}
+
+.topbar,
+.hero-inner,
+.section,
+.section.alt,
+.page-hero,
+.content,
+.statistics-hero,
+.statistics-page,
+.notices-hero,
+.notices-page,
+.portal-footer {
+  padding-left: var(--portal-edge);
+  padding-right: var(--portal-edge);
+}
+
+/* Banner 文案沿用老门户更舒展的起始位置。 */
+.hero-inner,
+.page-hero,
+.statistics-hero,
+.notices-hero {
+  padding-left: var(--portal-banner-edge);
+  padding-right: var(--portal-banner-edge);
+}
+
+/* Banner 统一文字层级与节奏。 */
+.hero-copy {
+  width: min(100%, 980px);
+}
+
+.hero .eyebrow {
+  padding: 8px 15px;
+  border-radius: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+.hero h1 {
+  margin: 20px 0 14px;
+  line-height: 1.22;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.hero h2 {
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.65;
+  letter-spacing: 2.5px;
+}
+
+.hero-copy > p {
+  max-width: 920px;
+  color: #526d8d;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.hero-stats {
+  margin-top: 30px;
+}
+
+.hero-stats span {
+  padding: 2px 30px;
+  font-size: 13px;
+}
+
+.hero-stats b {
+  font-size: 26px;
+}
+
+.page-hero > div,
+.statistics-hero > div,
+.notices-hero > div {
+  max-width: 920px;
+}
+
+.page-hero > div > small,
+.statistics-hero > div > small,
+.notices-hero > div > small {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #2f6cd8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+
+.page-hero > div > small::before,
+.statistics-hero > div > small::before,
+.notices-hero > div > small::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: #2f6cd8;
+}
+
+.page-hero h1,
+.statistics-hero h1,
+.notices-hero h1 {
+  margin: 14px 0 13px;
+  color: #17365d;
+  font-size: 38px;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.page-hero p,
+.statistics-hero p,
+.notices-hero p {
+  max-width: 860px;
+  margin: 0;
+  color: #5d7592;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.page-hero > div > div {
+  margin-top: 25px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.page-hero > div > div b,
+.statistics-hero > div > span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 12px;
+  border: 1px solid rgba(47, 108, 216, .14);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .62);
+  color: #526f91;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.statistics-hero > div > span {
+  margin-top: 22px;
+}
+
+.hero-inner,
+.section,
+.content,
+.statistics-page {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.plain-page {
+  width: 100%;
+  max-width: none;
+  padding-left: var(--portal-edge);
+  padding-right: var(--portal-edge);
+}
+
+.system-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.trusted-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.resource-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1200px) {
+  .brand {
+    min-width: clamp(320px, 34vw, 430px);
+  }
+
+  .scene {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .system-grid,
+  .trusted-grid,
+  .resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scene {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero aside {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --portal-edge: 15px;
+  }
+
+  .topbar {
+    padding-left: var(--portal-edge);
+    padding-right: var(--portal-edge);
+  }
+
+  .hero-inner {
+    padding: 45px var(--portal-edge);
+  }
+
+  .hero h1 {
+    margin-top: 16px;
+    line-height: 1.28;
+    letter-spacing: .5px;
+  }
+
+  .hero h2 {
+    margin-bottom: 12px;
+    font-size: 14px;
+    letter-spacing: 1.3px;
+  }
+
+  .hero-copy > p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .hero-stats {
+    margin-top: 22px;
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  .hero-stats span {
+    padding: 0 14px;
+    font-size: 11px;
+  }
+
+  .hero-stats b {
+    font-size: 21px;
+  }
+
+  .section,
+  .section.alt {
+    padding: 40px var(--portal-edge);
+  }
+
+  .content,
+  .statistics-page,
+  .notices-page {
+    padding-left: var(--portal-edge);
+    padding-right: var(--portal-edge);
+  }
+
+  .page-hero,
+  .statistics-hero,
+  .notices-hero,
+  .portal-footer {
+    padding-left: var(--portal-edge);
+    padding-right: var(--portal-edge);
+  }
+
+  .page-hero h1,
+  .statistics-hero h1,
+  .notices-hero h1 {
+    margin: 11px 0 10px;
+    font-size: 30px;
+  }
+
+  .page-hero p,
+  .statistics-hero p,
+  .notices-hero p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .system-grid,
+  .trusted-grid,
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+}

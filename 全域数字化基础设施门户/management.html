@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="management.css">
   <link rel="stylesheet" href="management-entry.css">
   <link rel="stylesheet" href="management-dashboard.css">
+  <link rel="stylesheet" href="management-app.css">
+  <link rel="stylesheet" href="management-application-list.css">
 </head>
 <body>
   <header class="manager-header">
@@ -17,7 +19,7 @@
     <aside class="manager-sidebar" id="managerSidebar">
       <nav>
         <button class="nav-item active" data-view="dashboard"><span>◉</span><b>仪表盘</b></button>
-        <section><button class="group-title" type="button"><span><i>▦</i><b>门户管理</b></span><em>⌄</em></button><div class="submenu"><button data-view="系统入口管理">系统入口管理</button><button data-view="门户内容管理">门户内容管理</button></div></section>
+        <section><button class="group-title" type="button"><span><i>▦</i><b>门户管理</b></span><em>⌄</em></button><div class="submenu"><button data-view="应用管理">应用管理</button><button data-view="门户内容管理">门户内容管理</button></div></section>
         <section><button class="group-title disabled" type="button" disabled aria-disabled="true"><span><i>◇</i><b>资源管理</b></span><em>未开放</em></button></section>
         <section><button class="group-title disabled" type="button" disabled aria-disabled="true"><span><i>⚙</i><b>系统管理</b></span><em>未开放</em></button></section>
       </nav>
@@ -27,38 +29,67 @@
         <div class="welcome"><div><h1>你好，管理员！</h1><p>欢迎进入汶上县全域数字化基础设施管理平台管理方后台</p></div><span>统一运营 · 全域协同</span></div>
         <article class="panel dashboard-section stats-panel"><header><div><h2>平台统计</h2></div><small>PLATFORM OVERVIEW</small></header><div class="dashboard-stats">
           <div class="tone-blue"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"></path><path d="m3 12 9 5 9-5"></path><path d="m3 16 9 5 9-5"></path></svg></i><span><b>3</b><small>个</small></span><p>能力板块</p></div>
-          <div class="tone-cyan"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M8 22h8M12 18v4M7 8h10"></path></svg></i><span><b id="dashboardSystemCount">14</b><small>个</small></span><p>接入系统</p></div>
+          <div class="tone-cyan"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M8 22h8M12 18v4M7 8h10"></path></svg></i><span><b id="dashboardSystemCount">14</b><small>个</small></span><p>接入应用</p></div>
           <div class="tone-purple"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></i><span><b>4</b><small>个</small></span><p>应用场景</p></div>
           <div class="tone-orange"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg></i><span><b>6</b><small>条</small></span><p>通知公告</p></div>
         </div></article>
         <div class="dashboard-lower">
-          <article class="panel dashboard-section shortcut-panel"><header><div><h2>快捷入口</h2></div><small>QUICK ACCESS</small></header><div class="dashboard-shortcuts"><button type="button" data-dashboard-view="系统入口管理"><i>▦</i><span><b>系统入口管理</b><small>维护系统入口、分类及上架状态</small></span><em>→</em></button><button type="button" data-dashboard-view="门户内容管理"><i>文</i><span><b>门户内容管理</b><small>维护统一门户运营展示内容</small></span><em>→</em></button><button class="disabled" type="button" disabled><i>资</i><span><b>资源管理</b><small>资源目录与数据服务管理</small></span><em>暂未开放</em></button></div></article>
-          <article class="panel dashboard-section ranking-panel"><header><div><h2>热门系统点击排行</h2></div><small>近30天</small></header><div class="ranking-head"><span>排名</span><span>系统名称</span><span>所属分类</span><span>点击次数</span><span>访问热度</span></div><div class="ranking-list"><div><strong>1</strong><b>数据流通服务平台</b><span>可信流通平台</span><em>12,846</em><i><u style="width:100%"></u></i></div><div><strong>2</strong><b>物联网感知平台</b><span>主干</span><em>10,328</em><i><u style="width:80.4%"></u></i></div><div><strong>3</strong><b>市政综合管理平台</b><span>市政公用</span><em>8,965</em><i><u style="width:69.8%"></u></i></div><div><strong>4</strong><b>融合应用开发平台</b><span>主干</span><em>7,642</em><i><u style="width:59.5%"></u></i></div><div><strong>5</strong><b>视频融合分析平台</b><span>主干</span><em>6,384</em><i><u style="width:49.7%"></u></i></div></div></article>
+          <article class="panel dashboard-section shortcut-panel"><header><div><h2>快捷入口</h2></div><small>QUICK ACCESS</small></header><div class="dashboard-shortcuts"><button type="button" data-dashboard-view="应用管理"><i>应</i><span><b>应用管理</b><small>配置应用分类、可见用户及发布状态</small></span><em>→</em></button><button type="button" data-dashboard-view="门户内容管理"><i>文</i><span><b>门户内容管理</b><small>维护统一门户运营展示内容</small></span><em>→</em></button><button class="disabled" type="button" disabled><i>资</i><span><b>资源管理</b><small>资源目录与数据服务管理</small></span><em>暂未开放</em></button></div></article>
+          <article class="panel dashboard-section ranking-panel"><header><div><h2>热门应用点击排行</h2></div><small>近30天</small></header><div class="ranking-head"><span>排名</span><span>应用名称</span><span>所属分类</span><span>点击次数</span><span>访问热度</span></div><div class="ranking-list"><div><strong>1</strong><b>数据流通服务平台</b><span>可信流通平台</span><em>12,846</em><i><u style="width:100%"></u></i></div><div><strong>2</strong><b>物联网感知平台</b><span>数智基础设施</span><em>10,328</em><i><u style="width:80.4%"></u></i></div><div><strong>3</strong><b>市政综合管理平台</b><span>市政公用</span><em>8,965</em><i><u style="width:69.8%"></u></i></div><div><strong>4</strong><b>融合应用开发平台</b><span>业务赋能应用中心</span><em>7,642</em><i><u style="width:59.5%"></u></i></div><div><strong>5</strong><b>视频融合分析平台</b><span>数智基础设施</span><em>6,384</em><i><u style="width:49.7%"></u></i></div></div></article>
         </div>
+      </section>
+      <section class="application-manage-view" id="applicationManageView" hidden>
+        <div class="manage-page-head">
+          <div><p>门户管理 / 应用管理</p><h1>应用管理</h1><span>统一维护应用基础信息、所属类别及平台接入配置</span></div>
+          <button class="primary-button" id="manageAddApplication" type="button"><b>＋</b> 新增应用</button>
+        </div>
+        <div class="application-overview">
+          <article><i>应</i><div><b id="applicationTotalCount">0</b><span>应用总数</span></div></article>
+          <article><i>接</i><div><b id="applicationConnectedCount">0</b><span>已接入应用</span></div></article>
+          <article><i>配</i><div><b id="applicationConfiguringCount">0</b><span>配置中应用</span></div></article>
+          <article><i>类</i><div><b>7</b><span>应用分类</span></div></article>
+        </div>
+        <article class="panel application-list-panel">
+          <header class="application-toolbar">
+            <div><h2>应用列表</h2><small>共 <b id="applicationManageCount">0</b> 个应用</small></div>
+            <div class="application-filters">
+              <select id="applicationStageFilter" aria-label="所属阶段筛选"><option value="全部">全部阶段</option><option value="数智基础设施">数智基础设施</option><option value="业务赋能应用中心">业务赋能应用中心</option><option value="智慧场景应用">智慧场景应用</option></select>
+              <label class="table-search"><span>⌕</span><input id="applicationManageSearch" type="search" placeholder="搜索应用名称"></label>
+            </div>
+          </header>
+          <div class="application-table-wrap">
+            <table class="application-table">
+              <thead><tr><th>序号</th><th>应用名称</th><th>所属阶段</th><th>应用分类</th><th>提供单位</th><th>接入方式</th><th>接入状态</th><th>更新时间</th><th>操作</th></tr></thead>
+              <tbody id="applicationManageBody"></tbody>
+            </table>
+          </div>
+          <div class="table-empty" id="applicationManageEmpty" hidden><span>⌕</span><p>暂无符合条件的应用</p></div>
+          <div class="system-pagination" id="applicationManagePagination" aria-label="应用管理分页"></div>
+        </article>
       </section>
       <section class="system-entry-view" id="systemEntryView" hidden>
         <div class="manage-page-head">
-          <div><p>门户管理 / 系统入口管理</p><h1>系统入口管理</h1><span>维护统一门户业务系统入口、分类及发布状态</span></div>
-          <button class="primary-button" id="addSystemButton" type="button"><b>＋</b> 新增系统</button>
+          <div><p>门户管理 / 应用管理</p><h1>应用管理</h1><span>统一维护应用分类、展示排序、可见用户及发布状态</span></div>
+          <button class="primary-button" id="addSystemButton" type="button"><b>＋</b> 新增应用</button>
         </div>
         <div class="entry-layout">
           <aside class="stage-tree panel">
-            <header><div><h2>阶段分类</h2><small>STAGE TREE</small></div></header>
+            <header><div><h2>应用分类</h2><small>APPLICATION CATEGORY</small></div></header>
             <div id="stageTree"></div>
           </aside>
           <article class="entry-content panel">
             <header class="entry-toolbar">
-              <div><h2 id="systemListTitle">全部系统</h2><small>共 <b id="systemCount">0</b> 个系统入口</small></div>
-              <label class="table-search"><span>⌕</span><input id="systemSearch" type="search" placeholder="搜索系统名称"></label>
+              <div><h2 id="systemListTitle">全部应用</h2><small>共 <b id="systemCount">0</b> 个应用入口</small></div>
+              <label class="table-search"><span>⌕</span><input id="systemSearch" type="search" placeholder="搜索应用名称"></label>
             </header>
             <div class="system-table-wrap">
               <table class="system-table">
-                <thead><tr><th>序号</th><th>系统名称</th><th>所属阶段</th><th>所属分类</th><th>发布状态</th><th>排序</th><th>发布时间</th><th>操作</th></tr></thead>
+                <thead><tr><th>序号</th><th>应用名称</th><th>所属分类</th><th>发布状态</th><th>排序</th><th>更新时间</th><th>操作</th></tr></thead>
                 <tbody id="systemTableBody"></tbody>
               </table>
             </div>
-            <div class="table-empty" id="systemEmpty" hidden><span>⌕</span><p>暂无符合条件的系统</p></div>
-            <div class="system-pagination" id="systemPagination" aria-label="系统入口列表分页"></div>
+            <div class="table-empty" id="systemEmpty" hidden><span>⌕</span><p>暂无符合条件的应用</p></div>
+            <div class="system-pagination" id="systemPagination" aria-label="应用列表分页"></div>
           </article>
         </div>
       </section>
@@ -68,36 +99,109 @@
   <div class="manager-modal" id="systemModal" hidden>
     <div class="manager-modal-mask" data-close-system-modal></div>
     <section class="manager-modal-card" role="dialog" aria-modal="true" aria-labelledby="systemModalTitle">
-      <header><div><h2 id="systemModalTitle">新增系统</h2><p>配置系统基础信息及门户发布状态</p></div><button type="button" data-close-system-modal aria-label="关闭">×</button></header>
+      <header><div><h2 id="systemModalTitle">新增应用</h2><p id="systemModalSubtitle">配置应用展示与平台对接信息</p></div><button type="button" data-close-system-modal aria-label="关闭">×</button></header>
       <form id="systemForm">
-        <div class="modal-form-grid">
-          <label class="wide"><span>系统名称 <b>*</b></span><input id="newSystemName" maxlength="30" required placeholder="请输入系统名称"></label>
-          <label><span>所属阶段 <b>*</b></span><select id="newSystemStage" required></select></label>
-          <label><span>所属分类 <b>*</b></span><select id="newSystemCategory" required></select></label>
-          <fieldset class="status-radio"><legend>是否上架 <b>*</b></legend><div><label><input type="radio" name="newSystemStatus" value="是" checked><i></i><span>是</span></label><label><input type="radio" name="newSystemStatus" value="否"><i></i><span>否</span></label></div></fieldset>
-          <label><span>排序 <b>*</b></span><input id="newSystemSort" type="number" min="1" max="999" value="10" required></label>
-          <label class="wide"><span>系统访问地址</span><input id="newSystemUrl" type="url" placeholder="https://example.wenshang.gov.cn"></label>
-          <label class="wide"><span>系统简介</span><textarea id="newSystemDescription" rows="3" placeholder="请输入系统简介，用于门户卡片展示"></textarea></label>
+        <div class="app-form-scroll">
+        <div class="app-form-steps" id="appFormSteps" hidden>
+          <div class="active" data-form-step-indicator="1"><i>1</i><span><b>填写应用基本信息</b><small>配置展示与认证信息</small></span></div>
+          <em></em>
+          <div data-form-step-indicator="2"><i>2</i><span><b>配置可见用户</b><small>设置人员访问范围</small></span></div>
         </div>
-        <footer><button class="secondary-button" type="button" data-close-system-modal>取消</button><button class="primary-button" id="systemSubmitButton" type="submit">确定新增</button></footer>
+        <div id="appFormStepOne">
+        <section class="app-form-section">
+          <div class="app-form-title"><h3>基本信息</h3><span>用于门户展示</span></div>
+          <div class="app-icon-help"><b>应用图标</b><span>请上传 jpg/jpeg/png 格式，建议80px × 80px以内、1:1、20KB以内，使用纯色不透明背景</span></div>
+          <div class="app-icon-editor">
+            <div class="app-icon-left"><div class="app-icon-preview" id="appIconPreview">▰</div><label class="app-upload-button">＋ 上传图标<input id="appIconUpload" type="file" accept="image/jpeg,image/png"></label><small>支持 jpg/jpeg/png，建议1:1方形图标</small></div>
+            <div class="app-icon-options">
+              <div><span>选择背景色</span><div class="app-color-row app-bg-colors"><button class="active" type="button" data-app-bg="#e5f4fb" style="--swatch:#e5f4fb"></button><button type="button" data-app-bg="#eaf1e5" style="--swatch:#eaf1e5"></button><button type="button" data-app-bg="#e6eef6" style="--swatch:#e6eef6"></button><button type="button" data-app-bg="#f6efe3" style="--swatch:#f6efe3"></button><button type="button" data-app-bg="#f5e9e1" style="--swatch:#f5e9e1"></button></div></div>
+              <div><span>选择图标色</span><div class="app-color-row app-icon-colors"><button class="active" type="button" data-app-color="#46afe5" style="--swatch:#46afe5"></button><button type="button" data-app-color="#72bf49" style="--swatch:#72bf49"></button><button type="button" data-app-color="#439fe5" style="--swatch:#439fe5"></button><button type="button" data-app-color="#f2ae35" style="--swatch:#f2ae35"></button><button type="button" data-app-color="#f38b2a" style="--swatch:#f38b2a"></button></div></div>
+              <div><span>选择图标</span><div class="app-glyph-row"><button class="active" type="button" data-app-glyph="▰">▰</button><button type="button" data-app-glyph="◇">◇</button><button type="button" data-app-glyph="◉">◉</button><button type="button" data-app-glyph="▤">▤</button><button type="button" data-app-glyph="▦">▦</button></div></div>
+            </div>
+          </div>
+          <div class="modal-form-grid app-basic-fields">
+            <label class="wide"><span>应用名称 <b>*</b></span><input id="newSystemName" maxlength="30" required placeholder="推荐输入4-6个中文字符"></label>
+            <label class="wide"><span>应用分类 <b>*</b></span><select id="newAppCategory" required></select></label>
+            <label><span>显示排序 <b>*</b></span><input id="newSystemSort" value="10" required></label>
+            <fieldset class="status-radio"><legend>发布状态 <b>*</b></legend><div><label><input type="radio" name="newSystemStatus" value="草稿" checked><i></i><span>草稿</span></label><label><input type="radio" name="newSystemStatus" value="未发布"><i></i><span>未发布</span></label><label><input type="radio" name="newSystemStatus" value="已发布"><i></i><span>已发布</span></label></div></fieldset>
+          </div>
+        </section>
+        <section class="app-form-section auth-section">
+          <div class="app-form-title"><h3>认证信息</h3><span>用于与平台的对接</span></div>
+          <div class="modal-form-grid">
+            <label class="wide"><span>访问地址（Web应用） <b>*</b></span><input id="newSystemUrl" required placeholder="示例：https://example.wenshang.gov.cn"></label>
+            <label class="wide"><span>登录回调地址 <b>*</b></span><input id="newSystemCallback" required placeholder="可输入多个地址，使用英文逗号隔开"></label>
+            <label class="wide"><span>描述</span><textarea id="newSystemDescription" maxlength="200" rows="3" placeholder="请输入应用描述"></textarea><small class="text-counter"><b id="descriptionCount">0</b>/200</small></label>
+          </div>
+        </section>
+        </div>
+        <section class="app-visibility-step" id="appFormStepTwo" hidden>
+          <div class="app-form-title"><h3>可见范围</h3><span>控制应用发布后可访问的用户</span></div>
+          <div class="visibility-choice">
+            <label><input type="radio" name="applicationVisibility" value="all" checked><i></i><span><b>全部人员</b><small>平台内所有已认证用户均可访问该应用</small></span></label>
+            <label><input type="radio" name="applicationVisibility" value="partial"><i></i><span><b>部分人员</b><small>仅指定角色及账号可以访问该应用</small></span></label>
+          </div>
+          <div class="partial-visibility" id="partialVisibility" hidden>
+            <section class="visibility-role-panel">
+              <header><div><h4>选择角色 <b>*</b></h4><p>勾选可访问该应用的用户角色</p></div><button type="button" data-select-all="visibilityRole">全选</button></header>
+              <div class="visibility-options role-options">
+                <label><input type="checkbox" name="visibilityRole" value="平台管理员"><i></i><span>平台管理员</span></label>
+                <label><input type="checkbox" name="visibilityRole" value="部门管理员"><i></i><span>部门管理员</span></label>
+                <label><input type="checkbox" name="visibilityRole" value="业务人员"><i></i><span>业务人员</span></label>
+                <label><input type="checkbox" name="visibilityRole" value="数据运营人员"><i></i><span>数据运营人员</span></label>
+                <label><input type="checkbox" name="visibilityRole" value="普通用户"><i></i><span>普通用户</span></label>
+              </div>
+            </section>
+            <section class="visibility-account-panel">
+              <header><div><h4>选择账号 <b>*</b></h4><p>未选择角色时默认展示全部账号</p></div><button type="button" data-select-all="visibilityAccount">全选</button></header>
+              <label class="visibility-account-search"><span>⌕</span><input id="visibilityAccountSearch" type="search" placeholder="搜索账号姓名或所属单位"><b id="visibilityAccountCount">6</b></label>
+              <div class="visibility-options account-options">
+                <label data-account-role="平台管理员" data-account-search="张明 县大数据中心"><input type="checkbox" name="visibilityAccount" value="张明"><i>张</i><span><b>张明</b><small>县大数据中心 · 平台管理员</small></span></label>
+                <label data-account-role="部门管理员" data-account-search="李芳 县住建局"><input type="checkbox" name="visibilityAccount" value="李芳"><i>李</i><span><b>李芳</b><small>县住建局 · 部门管理员</small></span></label>
+                <label data-account-role="业务人员" data-account-search="王磊 县综合行政执法局"><input type="checkbox" name="visibilityAccount" value="王磊"><i>王</i><span><b>王磊</b><small>县综合行政执法局 · 业务人员</small></span></label>
+                <label data-account-role="业务人员" data-account-search="陈晨 县园林服务中心"><input type="checkbox" name="visibilityAccount" value="陈晨"><i>陈</i><span><b>陈晨</b><small>县园林服务中心 · 业务人员</small></span></label>
+                <label data-account-role="普通用户" data-account-search="刘洋 县交通运输局"><input type="checkbox" name="visibilityAccount" value="刘洋"><i>刘</i><span><b>刘洋</b><small>县交通运输局 · 普通用户</small></span></label>
+                <label data-account-role="数据运营人员" data-account-search="赵敏 县行政审批服务局"><input type="checkbox" name="visibilityAccount" value="赵敏"><i>赵</i><span><b>赵敏</b><small>县行政审批服务局 · 数据运营人员</small></span></label>
+              </div>
+              <div class="visibility-account-empty" id="visibilityAccountEmpty" hidden>未找到符合条件的账号</div>
+            </section>
+            <p class="visibility-error" id="visibilityError" hidden>选择部分人员时，请至少勾选一个角色和一个账号。</p>
+          </div>
+        </section>
+        </div>
+        <footer><button class="secondary-button" type="button" data-close-system-modal>取消</button><button class="secondary-button" id="appFormPrevious" type="button" hidden>上一步</button><button class="primary-button" id="appFormNext" type="button" hidden>下一步</button><button class="primary-button" id="systemSubmitButton" type="submit">确定新增</button></footer>
       </form>
     </section>
   </div>
   <div class="system-drawer-layer" id="systemDrawerLayer" hidden>
     <button class="system-drawer-mask" type="button" data-close-system-drawer aria-label="关闭详情"></button>
-    <aside class="system-detail-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerSystemName">
-      <header><div><span>系统入口详情</span><h2 id="drawerSystemName"></h2></div><button type="button" data-close-system-drawer aria-label="关闭">×</button></header>
-      <div class="drawer-system-summary"><i id="drawerSystemIcon"></i><div><b id="drawerSystemTitle"></b><span id="drawerSystemStatus"></span></div></div>
-      <section><h3>基础信息</h3><dl><div><dt>所属阶段</dt><dd id="drawerSystemStage"></dd></div><div><dt>所属分类</dt><dd id="drawerSystemCategory"></dd></div><div><dt>显示排序</dt><dd id="drawerSystemSort"></dd></div><div><dt>发布时间</dt><dd id="drawerSystemDate"></dd></div></dl></section>
-      <section><h3>访问配置</h3><dl class="single"><div><dt>系统访问地址</dt><dd id="drawerSystemUrl"></dd></div></dl></section>
-      <section><h3>系统简介</h3><p id="drawerSystemDescription"></p></section>
-      <footer><button class="secondary-button" type="button" data-close-system-drawer>关闭</button><button class="primary-button" id="drawerEditButton" type="button">编辑系统</button></footer>
+    <aside class="system-detail-drawer manage-detail-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerSystemName">
+      <header class="md-head"><h2>应用详情</h2><button type="button" data-close-system-drawer aria-label="关闭">×</button></header>
+      <div class="md-summary"><i id="drawerSystemIcon"></i><div><h3 id="drawerSystemName"></h3><div class="md-summary-meta"><span id="drawerSummaryCategory"></span><i></i><span id="drawerSummaryDate"></span><i></i><em id="drawerSystemStatus"></em></div></div></div>
+      <nav class="drawer-detail-tabs md-tabs" aria-label="应用详情分类"><button class="active" type="button" data-drawer-tab="basic">基本信息</button><button type="button" data-drawer-tab="visibility">可见用户</button></nav>
+      <div class="md-body">
+        <div class="drawer-tab-panel active" data-drawer-panel="basic">
+          <h3 class="md-section-title">基本信息</h3>
+          <dl class="pd-grid"><div><dt>应用名称</dt><dd id="drawerSystemBasicName"></dd></div><div><dt>所属分类</dt><dd id="drawerSystemCategory"></dd></div><div><dt>发布状态</dt><dd id="drawerSystemBasicStatus"></dd></div><div><dt>显示排序</dt><dd id="drawerSystemSort"></dd></div><div class="span2"><dt>更新时间</dt><dd id="drawerSystemDate"></dd></div></dl>
+          <h3 class="md-section-title credential-title">应用凭证 <small>应用创建成功后产生的凭证信息，用于回调、申请 API 等操作</small></h3>
+          <dl class="credential-grid"><div><dt>App ID <span title="应用唯一身份标识">?</span></dt><dd><b id="drawerAppId"></b><button type="button" data-copy-credential="drawerAppId" aria-label="复制 App ID" title="复制 App ID">▣</button></dd></div><div><dt>App Secret <span title="应用访问密钥">?</span></dt><dd><b id="drawerAppSecret"></b><button type="button" data-copy-credential="drawerAppSecret" aria-label="复制 App Secret" title="复制 App Secret">▣</button></dd></div></dl>
+          <h3 class="md-section-title">认证信息</h3>
+          <dl class="pd-grid"><div class="span2"><dt>应用访问地址</dt><dd id="drawerSystemUrl"></dd></div><div class="span2"><dt>登录回调地址</dt><dd id="drawerSystemCallback"></dd></div></dl>
+          <h3 class="md-section-title">应用描述</h3><p class="md-description" id="drawerSystemDescription"></p>
+        </div>
+        <div class="drawer-tab-panel" data-drawer-panel="visibility" hidden>
+          <div class="drawer-visibility-summary"><i>可见</i><div><b id="drawerVisibilityScope"></b><span id="drawerVisibilityCount"></span></div></div>
+          <h3 class="md-section-title">可见角色</h3><div class="drawer-visible-roles" id="drawerVisibleRoles"></div>
+          <h3 class="md-section-title">可见账号</h3><div class="drawer-visible-accounts" id="drawerVisibleAccounts"></div>
+        </div>
+      </div>
+      <footer class="md-foot"><button class="secondary-button" type="button" data-close-system-drawer>关闭</button><button class="primary-button" id="drawerEditButton" type="button">编辑应用</button></footer>
     </aside>
   </div>
   <div class="manager-modal" id="deleteSystemModal" hidden>
     <div class="manager-modal-mask" data-cancel-delete></div>
     <section class="manager-modal-card confirm-card" role="alertdialog" aria-modal="true" aria-labelledby="deleteSystemTitle">
-      <div class="confirm-body"><i>!</i><div><h2 id="deleteSystemTitle">删除系统入口</h2><p>确定删除“<b id="deleteSystemName"></b>”吗？删除后将无法在门户中展示。</p></div></div>
+      <div class="confirm-body"><i>!</i><div><h2 id="deleteSystemTitle">删除应用</h2><p>确定删除“<b id="deleteSystemName"></b>”吗？删除后将无法在门户中展示。</p></div></div>
       <footer><button class="secondary-button" type="button" data-cancel-delete>取消</button><button class="danger-button" id="confirmDeleteSystem" type="button">确认删除</button></footer>
     </section>
   </div>

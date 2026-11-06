@@ -14,8 +14,10 @@
   <link rel="stylesheet" href="portal-footer.css">
   <link rel="stylesheet" href="statistics.css">
   <link rel="stylesheet" href="notices.css">
+  <link rel="stylesheet" href="portal-banners.css">
   <link rel="stylesheet" href="portal-disabled.css">
-  <style>.brand-logo{width:40px;height:40px;object-fit:contain;flex:0 0 40px}.hero{height:500px}.hero h1{font-size:58px}@media(max-width:720px){.hero h1{font-size:36px}}</style>
+  <link rel="stylesheet" href="portal-responsive.css">
+  <style>.brand-logo{width:40px;height:40px;object-fit:contain;flex:0 0 40px}.hero{height:580px}.hero h1{font-size:58px}@media(max-width:720px){.hero h1{font-size:36px}}</style>
 </head>
 <body>
   <header class="topbar">
@@ -26,7 +28,7 @@
 
   <main>
     <div class="page active" id="page-home">
-      <section class="hero"><div class="hero-inner"><div class="hero-copy"><span class="eyebrow"><i></i> 全域数字底座 · 一体协同门户</span><h1>汶上县全域数字化<br><em>基础设施管理平台</em></h1><h2>硬件筑基 <i></i> 平台赋能 <i></i> 数据融通 <i></i> 协同治理</h2><p>构建“1+2+N”智慧基础设施体系，汇聚全域数字资源，赋能智慧城市治理。</p><div class="hero-stats"><span><b>4</b> 大能力板块</span><span><b>15</b> 个平台入口</span><span><b>29</b> 项场景建设</span></div></div><div class="hero-visual" aria-hidden="true"><div class="orbit a"></div><div class="orbit b"></div><div class="core"><b>1+2+N</b><small>全域数智底座</small></div><div class="node n1">感知<small>IoT</small></div><div class="node n2">数据<small>DATA</small></div><div class="node n3">场景<small>SCENE</small></div><div class="node n4">赋能<small>AI + BI</small></div></div></div></section>
+      <section class="hero"><div class="hero-inner"><div class="hero-copy"><span class="eyebrow"><i></i> 全域数字底座 · 一体协同门户</span><h1>汶上县全域数字化<br><em>基础设施管理平台</em></h1><h2>硬件筑基 <i></i> 平台赋能 <i></i> 数据融通 <i></i> 协同治理</h2><p>构建“1+2+N”智慧基础设施体系，汇聚全域数字资源，赋能智慧城市治理。</p><div class="hero-stats"><span><b>4</b> 大能力板块</span><span><b>35</b> 个平台入口</span><span><b>4</b> 个应用场景</span></div></div></div></section>
 
       <section class="section"><div class="section-title"><span>01</span><div><h2>数智基础设施</h2><p>DIGITAL INTELLIGENCE INFRASTRUCTURE · 夯实城市数字化底座</p></div></div><div class="system-grid" id="primarySystems"></div>
         <div class="trusted"><div class="trusted-head"><span class="trusted-icon">可信</span><div><h3>可信流通平台</h3><p>围绕数据资源治理、资产管理、协作开发及数据流通服务，构建数据可信流通与价值释放的基础能力体系。</p></div><small>TRUSTED DATA SPACE</small></div><div class="trusted-grid" id="trustedSystems"></div></div>
@@ -43,7 +45,7 @@
     <div class="page" id="page-resources"><section class="page-hero"><div><small>DATA RESOURCE CENTER</small><h1>全域数据资源中心</h1><p>统一汇聚、规范管理、安全共享全县数字资源，为各部门业务协同与创新应用提供数据支撑。</p><div><b>◈　2,486 项数据资源</b><b>▦　42 个提供单位</b><b>◉　316 个数据服务</b></div></div><aside>DATA<br>HUB</aside></section><section class="content"><div class="filters"><label class="search">⌕<input id="resourceSearch" placeholder="搜索资源名称或提供单位"></label><div id="resourceCategories"></div></div><div class="list-head"><h2>资源目录</h2><span>共找到 <b id="resourceCount">0</b> 项示例资源</span></div><div class="resource-list" id="resourceList"></div><div class="resource-pagination" id="resourcePagination" aria-label="资源目录分页"></div></section><footer class="portal-footer"><div class="portal-footer-inner"><div class="portal-footer-main"><div class="portal-footer-brand"><img src="logo2.png" width="38" height="38" alt="平台 Logo"><div><strong>汶上县全域数字化基础设施管理平台</strong><span>WENSHANG DIGITAL INFRASTRUCTURE MANAGEMENT PLATFORM</span></div></div><nav aria-label="底部导航"><button data-page="home">门户首页</button><button data-page="resources">资源中心</button><button data-page="stats">统计中心</button></nav></div><div class="portal-footer-copy"><span>主办单位：汶上县大数据中心</span><span>© 2026 汶上县全域数字化基础设施管理平台</span></div></div></footer></div>
 
     <div class="page" id="page-stats">
-      <section class="statistics-hero"><div><small>STATISTICS CENTER</small><h1>全域运行统计中心</h1><p>统一汇聚全域数字基础设施、业务应用、数据资源与智慧场景运行指标。</p><span>数据更新至 2026-11-02 09:30</span></div><aside><b>5</b><small>统计专题</small></aside></section>
+      <section class="statistics-hero"><div><small>STATISTICS CENTER</small><h1>全域运行统计中心</h1><p>统一汇聚全域数字基础设施、业务应用、数据资源与智慧场景运行指标。</p><span>数据更新至 2026-11-02 09:30</span></div></section>
       <section class="statistics-page">
         <div class="statistics-primary-tabs" id="statisticsPrimaryTabs" role="tablist"></div>
         <div class="statistics-toolbar"><div><span class="statistics-dot"></span><div><h2 id="statisticsTitle">综合概览</h2><p id="statisticsDescription">全域数字化基础设施建设规模与核心业务指标</p></div></div><div class="statistics-range"><label>统计时间<select id="statisticsRange"><option value="7">近7天</option><option value="30">近30天</option><option value="12" selected>近12个月</option><option value="custom">自定义时间</option></select></label><div class="statistics-custom-range" id="statisticsCustomRange" hidden><input type="date" id="statisticsStartDate" value="2026-01-01"><span>至</span><input type="date" id="statisticsEndDate" value="2026-11-02"><button type="button" id="statisticsApplyDate">确定</button></div></div></div>
@@ -57,7 +59,7 @@
     </div>
 
     <div class="page" id="page-notices">
-      <section class="notices-hero"><div><small>NOTICE & ANNOUNCEMENT</small><h1>通知公告</h1><p>及时发布平台建设动态、业务通知、运行公告及相关规范文件。</p></div><aside><b>公</b><small>信息公开</small></aside></section>
+      <section class="notices-hero"><div><small>NOTICE & ANNOUNCEMENT</small><h1>通知公告</h1><p>及时发布平台建设动态、业务通知、运行公告及相关规范文件。</p></div></section>
       <section class="notices-page">
         <div class="notices-list-view" id="noticesListView">
           <div class="notices-toolbar"><div><h2>通知公告列表</h2><p>了解平台最新通知与建设动态</p></div><label class="notices-search"><span>⌕</span><input id="noticesSearch" type="search" placeholder="搜索公告标题或发布单位"></label></div>
