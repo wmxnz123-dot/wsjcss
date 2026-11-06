@@ -53,7 +53,6 @@
 .drawer-header-app h2 { max-width: 330px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .drawer-header-app em { display: inline-flex; align-items: center; min-height: 20px; margin-top: 7px; padding: 0 8px; border-radius: 10px; color: #168760; background: #e7f7ef; font-size: 9px; font-style: normal; }
 .drawer-header-app em.unpublished { color: #c47a1a; background: #fff4e2; }
-.drawer-header-app em.draft { color: #718397; background: #eef1f5; }
 .drawer-detail-tabs { height: 52px; padding: 0 26px; display: flex; gap: 30px; border-bottom: 1px solid #e5ebf2; background: #fff; }
 .drawer-detail-tabs button { position: relative; padding: 0 4px; border: 0; background: transparent; color: #687c92; font-size: 13px; }
 .drawer-detail-tabs button::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: transparent; }
@@ -147,7 +146,6 @@
 .md-summary-meta > i { width: 1px; height: 12px; background: #d9e1e9; }
 .md-summary-meta em { display: inline-flex; align-items: center; min-height: 20px; padding: 0 8px; border-radius: 10px; color: #168760; background: #e7f7ef; font-size: 9px; font-style: normal; }
 .md-summary-meta em.unpublished { color: #c47a1a; background: #fff4e2; }
-.md-summary-meta em.draft { color: #718397; background: #eef1f5; }
 .manage-detail-drawer .drawer-detail-tabs { height: 52px; padding: 0 28px; }
 .manage-detail-drawer > .md-body { min-height: 0; padding: 24px 28px 30px; overflow-y: auto; }
 .manage-detail-drawer .drawer-tab-panel { min-height: 0; padding: 0; overflow: visible; }

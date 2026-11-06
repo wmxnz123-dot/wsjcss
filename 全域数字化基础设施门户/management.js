@@ -33,12 +33,12 @@ let systems=[
   {name:'视频融合分析平台',stage:'数智基础设施',category:'数智基础设施',status:'已发布',sort:2,date:'2026-10-18 14:22:08'},
   {name:'CIM城市信息模型平台',stage:'数智基础设施',category:'数智基础设施',status:'已发布',sort:3,date:'2026-10-20 10:15:36'},
   {name:'数据流通服务平台',stage:'数智基础设施',category:'可信流通平台',status:'已发布',sort:4,date:'2026-10-22 16:40:12'},
-  {name:'数据资产管理平台',stage:'数智基础设施',category:'可信流通平台',status:'草稿',sort:5,date:'2026-10-23 11:08:27'},
+  {name:'数据资产管理平台',stage:'数智基础设施',category:'可信流通平台',status:'未发布',sort:5,date:'2026-10-23 11:08:27'},
   {name:'数据资源治理平台',stage:'数智基础设施',category:'可信流通平台',status:'已发布',sort:6,date:'2026-10-25 08:56:44'},
   {name:'数据协作开发平台',stage:'数智基础设施',category:'可信流通平台',status:'未发布',sort:7,date:'2026-10-25 17:20:05'},
   {name:'融合应用开发平台',stage:'业务赋能应用中心',category:'业务赋能应用中心',status:'已发布',sort:1,date:'2026-10-24 09:42:18'},
   {name:'BI可视化开发平台',stage:'业务赋能应用中心',category:'业务赋能应用中心',status:'已发布',sort:2,date:'2026-10-24 15:36:29'},
-  {name:'智能体开发应用平台',stage:'业务赋能应用中心',category:'业务赋能应用中心',status:'草稿',sort:3,date:'2026-10-26 13:12:50'},
+  {name:'智能体开发应用平台',stage:'业务赋能应用中心',category:'业务赋能应用中心',status:'未发布',sort:3,date:'2026-10-26 13:12:50'},
   {name:'园林资产管理系统',stage:'智慧场景应用',category:'智慧园林',status:'已发布',sort:1,date:'2026-10-26 16:05:11'},
   {name:'垃圾收运监管系统',stage:'智慧场景应用',category:'智慧环卫',status:'已发布',sort:2,date:'2026-10-27 10:28:33'},
   {name:'市政综合管理平台',stage:'智慧场景应用',category:'市政公用',status:'已发布',sort:3,date:'2026-10-28 14:50:46'},
@@ -130,7 +130,7 @@ function renderSystems(){
   systemCount.textContent=String(filtered.length);
   systemListTitle.textContent=activeTree.category||activeTree.stage;
   if(activeTree.stage==='全部')systemListTitle.textContent='全部应用';
-  systemTableBody.innerHTML=pageData.map((item,index)=>{const itemIndex=systems.indexOf(item);let actions='';if(item.status==='草稿')actions=`<button type="button" data-edit-index="${itemIndex}">编辑</button><button type="button" data-delete-index="${itemIndex}">删除</button>`;else if(item.status==='未发布')actions=`<button type="button" data-view-index="${itemIndex}">查看</button><button type="button" data-edit-index="${itemIndex}">编辑</button><button type="button" data-delete-index="${itemIndex}">删除</button>`;else actions=`<button type="button" data-view-index="${itemIndex}">查看</button><button type="button" data-visibility-index="${itemIndex}">可见用户</button>`;const statusControl=item.status==='草稿'?`<button class="status-switch draft-state" type="button" role="switch" aria-checked="false" disabled><i></i><span>草稿</span></button>`:`<button class="status-switch ${item.status==='已发布'?'active':''}" type="button" role="switch" aria-checked="${item.status==='已发布'}" aria-label="切换${item.name}发布状态" data-status-index="${itemIndex}"><i></i><span>${item.status}</span></button>`;return `<tr><td>${(systemPage-1)*systemPageSize+index+1}</td><td><div class="system-name"><b title="${item.name}">${item.name}</b></div></td><td>${item.category}</td><td>${statusControl}</td><td>${item.sort}</td><td>${item.date}</td><td><div class="row-actions">${actions}</div></td></tr>`}).join('');
+  systemTableBody.innerHTML=pageData.map((item,index)=>{const itemIndex=systems.indexOf(item);const actions=item.status==='未发布'?`<button type="button" data-view-index="${itemIndex}">查看</button><button type="button" data-edit-index="${itemIndex}">编辑</button><button type="button" data-delete-index="${itemIndex}">删除</button>`:`<button type="button" data-view-index="${itemIndex}">查看</button><button type="button" data-visibility-index="${itemIndex}">可见用户</button>`;const statusControl=`<button class="status-switch ${item.status==='已发布'?'active':''}" type="button" role="switch" aria-checked="${item.status==='已发布'}" aria-label="切换${item.name}发布状态" data-status-index="${itemIndex}"><i></i><span>${item.status}</span></button>`;return `<tr><td>${(systemPage-1)*systemPageSize+index+1}</td><td><div class="system-name"><b title="${item.name}">${item.name}</b></div></td><td>${item.category}</td><td>${statusControl}</td><td>${item.sort}</td><td>${item.date}</td><td><div class="row-actions">${actions}</div></td></tr>`}).join('');
   systemTableBody.closest('.system-table-wrap').hidden=!filtered.length;
   systemEmpty.hidden=Boolean(filtered.length);
   systemPagination.innerHTML=filtered.length>systemPageSize?`<span>共 ${filtered.length} 条，第 ${systemPage} / ${pageCount} 页</span><button type="button" data-system-page="${systemPage-1}" ${systemPage===1?'disabled':''} aria-label="上一页">‹</button>${Array.from({length:pageCount},(_,index)=>`<button type="button" class="${systemPage===index+1?'active':''}" data-system-page="${index+1}">${index+1}</button>`).join('')}<button type="button" data-system-page="${systemPage+1}" ${systemPage===pageCount?'disabled':''} aria-label="下一页">›</button>`:'';
@@ -253,7 +253,7 @@ function openSystemDrawer(index,publishContext=false){
   icon.style.backgroundImage=item.iconImage?`url(${item.iconImage})`:'';
   const status=document.getElementById('drawerSystemStatus');
   status.textContent=item.status;
-  status.className=item.status==='已发布'?'':item.status==='未发布'?'unpublished':'draft';
+  status.className=item.status==='已发布'?'':'unpublished';
   document.getElementById('drawerSystemBasicStatus').textContent=item.status;
   document.getElementById('drawerSystemCategory').textContent=item.category;
   document.getElementById('drawerSummaryCategory').textContent=item.category;
