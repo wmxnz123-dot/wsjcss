@@ -110,13 +110,14 @@
         <div id="appFormStepOne">
         <section class="app-form-section">
           <div class="app-form-title"><h3>基本信息</h3><span>用于门户展示</span></div>
-          <div class="app-icon-help"><b>应用图标</b><span>请上传 jpg/jpeg/png 格式，建议80px × 80px以内、1:1、20KB以内，使用纯色不透明背景</span></div>
-          <div class="app-icon-editor">
-            <div class="app-icon-left"><div class="app-icon-preview" id="appIconPreview">▰</div><label class="app-upload-button">＋ 上传图标<input id="appIconUpload" type="file" accept="image/jpeg,image/png"></label><small>支持 jpg/jpeg/png，建议1:1方形图标</small></div>
-            <div class="app-icon-options">
-              <div><span>选择背景色</span><div class="app-color-row app-bg-colors"><button class="active" type="button" data-app-bg="#e5f4fb" style="--swatch:#e5f4fb"></button><button type="button" data-app-bg="#eaf1e5" style="--swatch:#eaf1e5"></button><button type="button" data-app-bg="#e6eef6" style="--swatch:#e6eef6"></button><button type="button" data-app-bg="#f6efe3" style="--swatch:#f6efe3"></button><button type="button" data-app-bg="#f5e9e1" style="--swatch:#f5e9e1"></button></div></div>
-              <div><span>选择图标色</span><div class="app-color-row app-icon-colors"><button class="active" type="button" data-app-color="#46afe5" style="--swatch:#46afe5"></button><button type="button" data-app-color="#72bf49" style="--swatch:#72bf49"></button><button type="button" data-app-color="#439fe5" style="--swatch:#439fe5"></button><button type="button" data-app-color="#f2ae35" style="--swatch:#f2ae35"></button><button type="button" data-app-color="#f38b2a" style="--swatch:#f38b2a"></button></div></div>
-              <div><span>选择图标</span><div class="app-glyph-row"><button class="active" type="button" data-app-glyph="▰">▰</button><button type="button" data-app-glyph="◇">◇</button><button type="button" data-app-glyph="◉">◉</button><button type="button" data-app-glyph="▤">▤</button><button type="button" data-app-glyph="▦">▦</button></div></div>
+          <div class="app-logo-editor">
+            <div class="app-logo-preview" id="appLogoPreview">应</div>
+            <div class="app-logo-fields">
+              <label><span>文字 Logo <b>*</b></span><input id="appLogoText" maxlength="1" required placeholder="请输入1个字"><small>用于门户入口及应用详情展示，仅支持输入一个字</small></label>
+              <div class="app-logo-color-options">
+                <div><span>选择背景颜色</span><div class="app-color-row app-bg-colors"><button class="active" type="button" data-app-bg="#e5f4fb" style="--swatch:#e5f4fb"></button><button type="button" data-app-bg="#eaf1e5" style="--swatch:#eaf1e5"></button><button type="button" data-app-bg="#e6eef6" style="--swatch:#e6eef6"></button><button type="button" data-app-bg="#f6efe3" style="--swatch:#f6efe3"></button><button type="button" data-app-bg="#f5e9e1" style="--swatch:#f5e9e1"></button></div></div>
+                <div><span>选择 Logo 颜色</span><div class="app-color-row app-icon-colors"><button class="active" type="button" data-app-color="#46afe5" style="--swatch:#46afe5"></button><button type="button" data-app-color="#72bf49" style="--swatch:#72bf49"></button><button type="button" data-app-color="#439fe5" style="--swatch:#439fe5"></button><button type="button" data-app-color="#f2ae35" style="--swatch:#f2ae35"></button><button type="button" data-app-color="#f38b2a" style="--swatch:#f38b2a"></button></div></div>
+              </div>
             </div>
           </div>
           <div class="modal-form-grid app-basic-fields">

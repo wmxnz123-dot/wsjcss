@@ -45,13 +45,10 @@ let systems=[
   {name:'联网服务中心',stage:'智慧场景应用',category:'停充一体化',status:'未发布',sort:4,date:'2026-10-29 09:18:02'}
 ];
 
-const systemIconPresets=[
-  ['◉','#e5f4fb','#46afe5'],['▦','#e6eef6','#439fe5'],['◇','#eaf1e5','#72bf49'],
-  ['▤','#f6efe3','#f2ae35'],['▰','#f5e9e1','#f38b2a']
-];
 function createAppId(index){return `117101609545737${String(index+1).padStart(4,'0')}`}
 function createAppSecret(index){return `5193848d-${String(index+1).padStart(4,'0')}-479f-ba86-fe31a9b7${String(index+1).padStart(4,'0')}`}
-systems.forEach((item,index)=>{const [glyph,bg,color]=systemIconPresets[index%systemIconPresets.length];item.icon=item.icon||glyph;item.iconBg=item.iconBg||bg;item.iconColor=item.iconColor||color;item.iconImage=item.iconImage||'';item.appId=item.appId||createAppId(index);item.appSecret=item.appSecret||createAppSecret(index)});
+const systemLogoPresets=[['#e5f4fb','#46afe5'],['#eaf1e5','#72bf49'],['#e6eef6','#439fe5'],['#f6efe3','#f2ae35'],['#f5e9e1','#f38b2a']];
+systems.forEach((item,index)=>{const [bg,color]=systemLogoPresets[index%systemLogoPresets.length];item.logoText=item.logoText||item.name.slice(0,1);item.logoBg=item.logoBg||bg;item.logoColor=item.logoColor||color;item.appId=item.appId||createAppId(index);item.appSecret=item.appSecret||createAppSecret(index)});
 
 const allVisibilityRoles=['平台管理员','部门管理员','业务人员','数据运营人员','普通用户'];
 const allVisibilityAccounts=['张明','李芳','王磊','陈晨','刘洋','赵敏'];
@@ -160,15 +157,16 @@ const systemForm=document.getElementById('systemForm');
 const newAppCategory=document.getElementById('newAppCategory');
 const appCategoryOptions=Object.entries(stageCategories).flatMap(([stage,categories])=>categories.map(category=>({stage,category,value:`${stage}::${category}`})));
 newAppCategory.innerHTML='<option value="" disabled selected>请选择应用分类</option>'+appCategoryOptions.map(item=>`<option value="${item.value}">${item.category}</option>`).join('');
-const appIconPreview=document.getElementById('appIconPreview');
-let appIconState={glyph:'▰',bg:'#e5f4fb',color:'#46afe5',image:''};
-function renderAppIcon(){appIconPreview.textContent=appIconState.image?'':appIconState.glyph;appIconPreview.style.backgroundColor=appIconState.bg;appIconPreview.style.color=appIconState.color;appIconPreview.style.backgroundImage=appIconState.image?`url(${appIconState.image})`:''}
-function syncAppIconControls(){document.querySelectorAll('[data-app-bg]').forEach(button=>button.classList.toggle('active',button.dataset.appBg===appIconState.bg));document.querySelectorAll('[data-app-color]').forEach(button=>button.classList.toggle('active',button.dataset.appColor===appIconState.color));document.querySelectorAll('[data-app-glyph]').forEach(button=>button.classList.toggle('active',button.dataset.appGlyph===appIconState.glyph))}
-function resetAppIcon(){appIconState={glyph:'▰',bg:'#e5f4fb',color:'#46afe5',image:''};document.querySelectorAll('[data-app-bg],[data-app-color],[data-app-glyph]').forEach(button=>button.classList.remove('active'));document.querySelector('[data-app-bg="#e5f4fb"]').classList.add('active');document.querySelector('[data-app-color="#46afe5"]').classList.add('active');document.querySelector('[data-app-glyph="▰"]').classList.add('active');renderAppIcon()}
-document.querySelector('.app-bg-colors').addEventListener('click',event=>{const button=event.target.closest('[data-app-bg]');if(!button)return;document.querySelectorAll('[data-app-bg]').forEach(item=>item.classList.toggle('active',item===button));appIconState.bg=button.dataset.appBg;renderAppIcon()});
-document.querySelector('.app-icon-colors').addEventListener('click',event=>{const button=event.target.closest('[data-app-color]');if(!button)return;document.querySelectorAll('[data-app-color]').forEach(item=>item.classList.toggle('active',item===button));appIconState.color=button.dataset.appColor;renderAppIcon()});
-document.querySelector('.app-glyph-row').addEventListener('click',event=>{const button=event.target.closest('[data-app-glyph]');if(!button)return;document.querySelectorAll('[data-app-glyph]').forEach(item=>item.classList.toggle('active',item===button));appIconState.glyph=button.dataset.appGlyph;appIconState.image='';document.getElementById('appIconUpload').value='';renderAppIcon()});
-document.getElementById('appIconUpload').addEventListener('change',event=>{const file=event.target.files[0];if(!file)return;if(!['image/jpeg','image/png'].includes(file.type)){showToast('请上传 jpg、jpeg 或 png 格式图标');event.target.value='';return}if(file.size>20*1024){showToast('图标文件请控制在20KB以内');event.target.value='';return}const reader=new FileReader();reader.onload=()=>{const image=new Image();image.onload=()=>{if(image.width>80||image.height>80){showToast('图标尺寸请控制在80px × 80px以内');event.target.value='';return}appIconState.image=reader.result;renderAppIcon()};image.src=reader.result};reader.readAsDataURL(file)});
+const appLogoInput=document.getElementById('appLogoText');
+const appLogoPreview=document.getElementById('appLogoPreview');
+let appLogoState={bg:'#e5f4fb',color:'#46afe5'};
+function normalizeLogoText(value){return Array.from(value.trim()).slice(0,1).join('')}
+function renderAppLogo(){appLogoPreview.textContent=normalizeLogoText(appLogoInput.value)||'应';appLogoPreview.style.backgroundColor=appLogoState.bg;appLogoPreview.style.color=appLogoState.color}
+function syncAppLogoColors(){document.querySelectorAll('[data-app-bg]').forEach(button=>button.classList.toggle('active',button.dataset.appBg===appLogoState.bg));document.querySelectorAll('[data-app-color]').forEach(button=>button.classList.toggle('active',button.dataset.appColor===appLogoState.color))}
+function resetAppLogo(){appLogoInput.value='';appLogoState={bg:'#e5f4fb',color:'#46afe5'};syncAppLogoColors();renderAppLogo()}
+appLogoInput.addEventListener('input',()=>{const value=normalizeLogoText(appLogoInput.value);if(appLogoInput.value!==value)appLogoInput.value=value;renderAppLogo()});
+document.querySelector('.app-bg-colors').addEventListener('click',event=>{const button=event.target.closest('[data-app-bg]');if(!button)return;appLogoState.bg=button.dataset.appBg;syncAppLogoColors();renderAppLogo()});
+document.querySelector('.app-icon-colors').addEventListener('click',event=>{const button=event.target.closest('[data-app-color]');if(!button)return;appLogoState.color=button.dataset.appColor;syncAppLogoColors();renderAppLogo()});
 const descriptionInput=document.getElementById('newSystemDescription');
 descriptionInput.addEventListener('input',()=>document.getElementById('descriptionCount').textContent=String(descriptionInput.value.length));
 const appFormSteps=document.getElementById('appFormSteps');
@@ -209,7 +207,7 @@ function openSystemModal(index=null,{publishWizard=false,initialStep=1,visibilit
   modalVisibilityOnly=visibilityOnly;
   systemForm.noValidate=modalVisibilityOnly;
   systemForm.reset();
-  resetAppIcon();
+  resetAppLogo();
   document.getElementById('descriptionCount').textContent='0';
   const title=document.getElementById('systemModalTitle');
   const submitButton=document.getElementById('systemSubmitButton');
@@ -217,7 +215,7 @@ function openSystemModal(index=null,{publishWizard=false,initialStep=1,visibilit
   visibilityAccountSearch.value='';
   document.querySelectorAll('[data-select-all]').forEach(button=>button.textContent='全选');
   if(index===null){title.textContent='新增应用';submitButton.textContent=modalPublishWizard?'确定发布':'确定新增';systemModalSubtitle.textContent=modalPublishWizard?'第一步：填写应用基本信息':'配置应用展示与平台对接信息';newAppCategory.value=''}
-  else{const item=systems[index];title.textContent=visibilityOnly?'配置可见用户':'编辑应用';submitButton.textContent='保存修改';document.getElementById('newSystemName').value=item.name;newAppCategory.value=`${item.stage}::${item.category}`;document.querySelector(`input[name="newSystemStatus"][value="${item.status}"]`).checked=true;document.getElementById('newSystemSort').value=item.sort;document.getElementById('newSystemUrl').value=item.url||'';document.getElementById('newSystemCallback').value=item.callback||'';descriptionInput.value=item.description||'';document.getElementById('descriptionCount').textContent=String(descriptionInput.value.length);appIconState={glyph:item.icon||'▰',bg:item.iconBg||'#e5f4fb',color:item.iconColor||'#46afe5',image:item.iconImage||''};document.querySelector(`input[name="applicationVisibility"][value="${item.visibility||'all'}"]`).checked=true;document.querySelectorAll('input[name="visibilityRole"]').forEach(input=>input.checked=(item.visibleRoles||[]).includes(input.value));document.querySelectorAll('input[name="visibilityAccount"]').forEach(input=>input.checked=(item.visibleAccounts||[]).includes(input.value));syncAppIconControls();renderAppIcon()}
+  else{const item=systems[index];title.textContent=visibilityOnly?'配置可见用户':'编辑应用';submitButton.textContent='保存修改';document.getElementById('newSystemName').value=item.name;newAppCategory.value=`${item.stage}::${item.category}`;document.querySelector(`input[name="newSystemStatus"][value="${item.status}"]`).checked=true;document.getElementById('newSystemSort').value=item.sort;document.getElementById('newSystemUrl').value=item.url||'';document.getElementById('newSystemCallback').value=item.callback||'';descriptionInput.value=item.description||'';document.getElementById('descriptionCount').textContent=String(descriptionInput.value.length);appLogoInput.value=item.logoText||item.name.slice(0,1);appLogoState={bg:item.logoBg||'#e5f4fb',color:item.logoColor||'#46afe5'};syncAppLogoColors();renderAppLogo();document.querySelector(`input[name="applicationVisibility"][value="${item.visibility||'all'}"]`).checked=true;document.querySelectorAll('input[name="visibilityRole"]').forEach(input=>input.checked=(item.visibleRoles||[]).includes(input.value));document.querySelectorAll('input[name="visibilityAccount"]').forEach(input=>input.checked=(item.visibleAccounts||[]).includes(input.value))}
   syncVisibilityPanel();
   if(index!==null)systemModalSubtitle.textContent='修改应用展示与平台对接信息';
   if(visibilityOnly)systemModalSubtitle.textContent='第二步：配置应用可见用户';
@@ -234,7 +232,7 @@ appFormPrevious.addEventListener('click',()=>setAppFormStep(1));
 document.getElementById('addSystemButton').addEventListener('click',()=>openSystemModal(null,{publishWizard:true}));
 document.getElementById('manageAddApplication').addEventListener('click',()=>openSystemModal());
 document.querySelectorAll('[data-close-system-modal]').forEach(button=>button.addEventListener('click',closeSystemModal));
-systemForm.addEventListener('submit',event=>{event.preventDefault();if(modalPublishWizard&&modalCurrentStep===1){if(validateStepOne())setAppFormStep(2);return}if(modalPublishWizard&&!validateVisibility()){showToast('请完成可见用户配置');return}const wasEditing=editingSystemIndex!==null;const wasVisibilityOnly=modalVisibilityOnly;const previous=wasEditing?systems[editingSystemIndex]:null;const publicationStatus=document.querySelector('input[name="newSystemStatus"]:checked').value;const selected=appCategoryOptions.find(option=>option.value===newAppCategory.value);const visibility=modalPublishWizard?document.querySelector('input[name="applicationVisibility"]:checked').value:(previous?.visibility||'all');const item={name:document.getElementById('newSystemName').value.trim(),stage:selected.stage,category:selected.category,status:publicationStatus,sort:document.getElementById('newSystemSort').value.trim(),date:currentTimestamp(),url:document.getElementById('newSystemUrl').value.trim(),callback:document.getElementById('newSystemCallback').value.trim(),description:descriptionInput.value.trim(),icon:appIconState.glyph,iconBg:appIconState.bg,iconColor:appIconState.color,iconImage:appIconState.image,appId:previous?.appId||createAppId(systems.length),appSecret:previous?.appSecret||createAppSecret(systems.length),visibility,visibleRoles:modalPublishWizard?selectedVisibilityValues('visibilityRole'):(previous?.visibleRoles||[]),visibleAccounts:modalPublishWizard?selectedVisibilityValues('visibilityAccount'):(previous?.visibleAccounts||[])};const wasPublishWizard=modalPublishWizard;if(wasEditing){Object.assign(systems[editingSystemIndex],item)}else{systems.push(item)}activeTree={stage:'全部',category:''};systemPage=1;systemSearch.value='';closeSystemModal();renderSystems();showToast(wasVisibilityOnly?'可见用户配置已更新':wasEditing?'应用信息已更新':(wasPublishWizard?'应用发布配置已保存':'应用新增成功'))});
+systemForm.addEventListener('submit',event=>{event.preventDefault();if(modalPublishWizard&&modalCurrentStep===1){if(validateStepOne())setAppFormStep(2);return}if(modalPublishWizard&&!validateVisibility()){showToast('请完成可见用户配置');return}const wasEditing=editingSystemIndex!==null;const wasVisibilityOnly=modalVisibilityOnly;const previous=wasEditing?systems[editingSystemIndex]:null;const publicationStatus=document.querySelector('input[name="newSystemStatus"]:checked').value;const selected=appCategoryOptions.find(option=>option.value===newAppCategory.value);const visibility=modalPublishWizard?document.querySelector('input[name="applicationVisibility"]:checked').value:(previous?.visibility||'all');const item={name:document.getElementById('newSystemName').value.trim(),stage:selected.stage,category:selected.category,status:publicationStatus,sort:document.getElementById('newSystemSort').value.trim(),date:currentTimestamp(),url:document.getElementById('newSystemUrl').value.trim(),callback:document.getElementById('newSystemCallback').value.trim(),description:descriptionInput.value.trim(),logoText:normalizeLogoText(appLogoInput.value),logoBg:appLogoState.bg,logoColor:appLogoState.color,appId:previous?.appId||createAppId(systems.length),appSecret:previous?.appSecret||createAppSecret(systems.length),visibility,visibleRoles:modalPublishWizard?selectedVisibilityValues('visibilityRole'):(previous?.visibleRoles||[]),visibleAccounts:modalPublishWizard?selectedVisibilityValues('visibilityAccount'):(previous?.visibleAccounts||[])};const wasPublishWizard=modalPublishWizard;if(wasEditing){Object.assign(systems[editingSystemIndex],item)}else{systems.push(item)}activeTree={stage:'全部',category:''};systemPage=1;systemSearch.value='';closeSystemModal();renderSystems();showToast(wasVisibilityOnly?'可见用户配置已更新':wasEditing?'应用信息已更新':(wasPublishWizard?'应用发布配置已保存':'应用新增成功'))});
 
 const systemDrawerLayer=document.getElementById('systemDrawerLayer');
 let drawerSystemIndex=null;
@@ -247,10 +245,10 @@ function openSystemDrawer(index,publishContext=false){
   document.getElementById('drawerSystemName').textContent=item.name;
   document.getElementById('drawerSystemBasicName').textContent=item.name;
   const icon=document.getElementById('drawerSystemIcon');
-  icon.textContent=item.iconImage?'':(item.icon||item.name.slice(0,1));
-  icon.style.backgroundColor=item.iconBg||'#deecff';
-  icon.style.color=item.iconColor||'var(--blue)';
-  icon.style.backgroundImage=item.iconImage?`url(${item.iconImage})`:'';
+  icon.textContent=item.logoText||item.name.slice(0,1);
+  icon.style.backgroundColor=item.logoBg||'#e5f4fb';
+  icon.style.color=item.logoColor||'#46afe5';
+  icon.style.backgroundImage='';
   const status=document.getElementById('drawerSystemStatus');
   status.textContent=item.status;
   status.className=item.status==='已发布'?'':'unpublished';
